@@ -10,7 +10,11 @@
 @import "header";
 @import "footer";
 @import "start";
-@import "section";
+@import "functions";
+@import "aboutus";
+@import "portfolio";
+@import "members";
+@import "opinions";
 
 *{
     list-style-type: none;
@@ -19,9 +23,6 @@
 
  a{
     text-decoration: none; 
-    color: #000;
+    color: #056;
 }
 
-main{
-    min-height: 100vh;
-}
