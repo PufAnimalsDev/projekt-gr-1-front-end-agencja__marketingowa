@@ -1,0 +1,28 @@
+@import "variables";
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+
+@import "header";
+@import "footer";
+@import "start";
+@import "functions";
+@import "aboutus";
+@import "portfolio";
+@import "members";
+@import "opinions";
+
+*{
+    list-style-type: none;
+   
+}
+
+ a{
+    text-decoration: none; 
+    color: #056;
+}
+
