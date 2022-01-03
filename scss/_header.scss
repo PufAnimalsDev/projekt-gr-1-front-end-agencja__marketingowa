@@ -1,0 +1,32 @@
+.header{
+    background-color: $light;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 1rem 0;
+    font-size: 1rem;
+
+    @include media-breakpoint-up(lg) {
+    .menu {
+    font-size: 1.5rem;
+    }
+}
+
+   
+
+    ul{
+        display: flex;
+        flex-direction: row;
+
+        li{
+            margin-left: 30px;
+        }
+        
+
+    }
+   
+    
+}
+
