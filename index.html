@@ -6,41 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agencja marketingowa</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <!-- <link rel="stylesheet" href="/agencja__marketingowa/css/main.css"> -->
 
-    <link rel="stylesheet" href="/agencja__marketingowa/css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 
 <body>
     <!-- header start  -->
     <header class="header">
        
-            <div class="row justify-content-start py-3">
+        <div class="row justify-content-start py-3">            
                 <div class="col-lg-3 text-center text-md-left mb-lg-3 mb-md-0">
                     <a href="#" class="h1">Nazwa</a>
                 </div>
-                <div class="col-lg-9 d-flex justify-content-end  align-items-center">
-                    <a class="me-3"><b>PL</b>/ENG</a>
-                    <button type="button" class="btn btn-dark me-5">WSPÓŁPRACUJ</button>
-                   <i class="fas fa-bars"></i>
-                    <ul class="menu">
-                        <li><a href="index.html">Strona główna</a></li>
-                        <li><a href="caseStudies.html">Case studies</a></li>
-                        <li><a href="offer.html">Oferta</a></li>
-                        <li><a href="about.html">O Nas</a></li>
-                        <li><a href="contact.html">Kontakt</a></li>
-                        <li><a href="caseStudies.html">Case Studies</a></li>
-                        
-                    </ul>
-                    
-                    
-                </div>
-            </div>
-          
-        </div>
+            <div class="col-lg-9 d-flex justify-content-end  align-items-center">
+                <div id="navbar">
 
-    </header>
+                    <div class="selectLang">
+                        <a href="#"><img src="./img/polish_flag.png" alt="polish_flag"></a>
+                        <h4>/</h4>
+                        <a href="#"><img src="./img/british_flag.png" alt="british_flag"></a>
+                    </div>
+
+                    <button type="button" class="btn btn-dark me-5">WSPÓŁPRACUJ</button>
+
+                    <span class="navOpen" onclick="openNav()">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </div>
+
+                <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                        <ul class="menu">
+                            <li><a href="index.html">Strona główna</a></li>
+                            <li><a href="caseStudies.html">Case studies</a></li>
+                            <li><a href="offer.html">Oferta</a></li>
+                            <li><a href="about.html">O Nas</a></li>
+                            <li><a href="contact.html">Kontakt</a></li>
+                            <li><a href="caseStudies.html">Case Studies</a></li>                    
+                        </ul>
+                    </div>    
+                    
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                </div>
+                
+            </div>
+        </div>      
+    </div>
+</header>
     <!-- header end  -->
 
     <!-- start start  -->
@@ -183,6 +196,10 @@
         </div>
     </footer>
     <!-- footer end  -->
+
+
+    <script src="./js/main.js"></script>
+    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+.btn-dark{
+    border-radius: 1rem;
+    border: 0;
+    background-color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover{
+        background-color: $main_color-hover;
+        color: $font_color-dark;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $font_color-dark;
+    }
+
+}
+
+.navOpen{
+    color: $main_color;
+    font-size: 3rem;
+    background-color: #fff;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+

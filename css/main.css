@@ -17233,16 +17233,85 @@ readers do not read off random characters that represent icons */
 }
 
 .header {
-  background-color: #a8a8a8;
+  background-color: #fff;
   padding: 1rem 0;
   font-size: 1rem;
+  color: #464646;
 }
-.header ul {
+.header #navbar {
+  position: fixed;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+  transition: top 0.3s;
+  padding-right: 1rem;
 }
-.header ul li {
-  margin-left: 30px;
+.header #navbar img {
+  border: 1px solid #464646;
+  width: 2rem;
+  height: auto;
+}
+.header #navbar .selectLang {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 2rem;
+}
+.header .overlay {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #FFB400;
+  background-color: #FFB400e6;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+.header .overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.header .overlay-content a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #464646;
+  display: block;
+  transition: 0.3s;
+}
+.header .overlay-content a:hover, .header .overlay-content a:focus {
+  color: #f1f1f1;
+  transition: 0.4s;
+}
+.header .overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+.header .overlay .closebtn:hover {
+  color: #fff;
+  transition: 0.4s;
+}
+@media screen and (max-height: 450px) {
+  .header .overlay {
+    overflow-y: auto;
+  }
+  .header .overlay a {
+    font-size: 20px;
+  }
+  .header .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }
 
 footer {
@@ -17321,6 +17390,31 @@ footer {
 .opinions--description {
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.btn-dark {
+  border-radius: 1rem;
+  border: 0;
+  background-color: #FFB400;
+  font-weight: 600;
+  padding: 0.75rem;
+}
+.btn-dark:hover {
+  background-color: #ffc743;
+  color: #464646;
+}
+.btn-dark:focus {
+  background-color: #ffc743;
+  color: #464646;
+}
+
+.navOpen {
+  color: #FFB400;
+  font-size: 3rem;
+  background-color: #fff;
+}
+.navOpen:hover {
+  cursor: pointer;
 }
 
 * {
