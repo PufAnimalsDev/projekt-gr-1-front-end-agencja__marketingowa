@@ -1,14 +1,10 @@
 .header{
-    background-color: $light;
-    width: 100%;
+    background-color: rgb(168, 168, 168);
+
     padding: 1rem 0;
     font-size: 1rem;
 
-    @include media-breakpoint-up(lg) {
-    .menu {
-    font-size: 1.5rem;
-    }
-}
+   
 
 
     ul{
