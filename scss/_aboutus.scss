@@ -3,11 +3,12 @@
     background-color: #fff;
     min-height: 70vh;
 
-    &--heading{
-        margin-bottom: 2rem;
+     &--heading{
+        margin-bottom: 4rem;
         text-align: center;
+    }
 
-        
-
+    &--item-wrapper{
+        text-align: center;
     }
 }

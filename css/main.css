@@ -17233,15 +17233,9 @@ readers do not read off random characters that represent icons */
 }
 
 .header {
-  background-color: #f8f9fa;
-  width: 100%;
+  background-color: #a8a8a8;
   padding: 1rem 0;
   font-size: 1rem;
-}
-@media (min-width: 992px) {
-  .header .menu {
-    font-size: 1.5rem;
-  }
 }
 .header ul {
   display: flex;
@@ -17253,6 +17247,8 @@ readers do not read off random characters that represent icons */
 
 footer {
   background-color: #4b4b4b;
+  padding: 7rem 0;
+  min-height: 40vh;
 }
 
 .start {
@@ -17294,7 +17290,10 @@ footer {
   min-height: 70vh;
 }
 .aboutus--heading {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.aboutus--item-wrapper {
   text-align: center;
 }
 
@@ -17330,7 +17329,7 @@ footer {
 
 a {
   text-decoration: none;
-  color: #056;
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */
