@@ -1,11 +1,11 @@
 @import "variables";
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
-
 
 @import "header";
 @import "footer";
@@ -17,6 +17,7 @@
 @import "opinions";
 @import "newsletter";
 @import "career";
+@import "buttons";
 
 *{
     list-style-type: none;
