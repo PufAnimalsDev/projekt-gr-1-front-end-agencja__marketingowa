@@ -17365,6 +17365,82 @@ readers do not read off random characters that represent icons */
   margin-bottom: 3rem;
 }
 
+.badge-circle {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  padding: 0;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.background--white,
+.bg-white {
+  background-color: #fff !important;
+}
+
+.background--brand,
+.background--primary,
+.bg-brand,
+.bg-primary {
+  background-color: #4d5bed !important;
+  color: #fff;
+}
+
+.background--dark,
+.bg-dark {
+  background: #0c2050 !important;
+  color: #939eb8;
+}
+
+.background--secondary,
+.bg-secondary {
+  background-color: #939eb8 !important;
+}
+
+.background--tertiary,
+.bg-tertiary {
+  background-color: #9779e3 !important;
+}
+
+.background--danger,
+.bg-danger {
+  background-color: #f53d55 !important;
+}
+
+.background--success,
+.bg-success {
+  background-color: #66df7c !important;
+}
+
+.background--warning,
+.bg-warning {
+  background-color: #f6c460 !important;
+}
+
+.background--warning2,
+.bg-warning2 {
+  background-color: #f89c59 !important;
+}
+
+.background--info,
+.bg-info {
+  background-color: #52bbd3 !important;
+}
+
+.background--light,
+.bg-light {
+  background-color: #f6f8fb !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
 * {
   list-style-type: none;
 }
