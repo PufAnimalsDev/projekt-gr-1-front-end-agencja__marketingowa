@@ -17411,7 +17411,7 @@ footer {
 .navOpen {
   color: #FFB400;
   font-size: 3rem;
-  background-color: #fff;
+  background-color: #ff000000;
 }
 .navOpen:hover {
   cursor: pointer;
