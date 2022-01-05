@@ -17427,6 +17427,7 @@ footer {
 }
 .navOpen:hover {
   cursor: pointer;
+<<<<<<< HEAD
 }
 
 .btn-outline-dark {
@@ -17456,6 +17457,8 @@ footer {
 .input-group-append .form-control {
   width: 10rem;
   padding: 0.75rem;
+=======
+>>>>>>> parent of 0f01145 (Merge pull request #5 from PufAnimalsDev/develop)
 }
 
 * {
