@@ -17333,8 +17333,13 @@ readers do not read off random characters that represent icons */
 }
 .footer ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+}
+@media (min-width: 992px) {
+  .footer ul {
+    flex-direction: row;
+  }
 }
 .footer ul li {
   margin-left: 30px;
