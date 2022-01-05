@@ -1,8 +1,15 @@
-.header{
+.header {
     background-color: #fff;
     padding: 1rem 0;
     font-size: 1rem;
     color: $font_color-dark;
+
+    #logoHead {
+        img {
+            height: 4rem;
+            width: auto;
+        }
+    }
 
     #navbar {
         position: fixed;
@@ -14,21 +21,32 @@
         transition: top 0.3s;
         padding-right: 1rem;
 
-        img{
-            border: 1px solid $font_color-dark;
-            width: 2rem;
-            height: auto;
+        #navHider{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            img {
+                border: 1px solid $font_color-dark;
+                width: 2rem;
+                height: auto;
+            }
+
+            .selectLang {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-right: 2rem;
+            }            
         }
 
-        .selectLang {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-right: 2rem;
+        .navOpen {
+            background-color: #ffffff00;
         }
+            
     }
-    
-    .overlay{
+
+    .overlay {
         height: 0;
         width: 100%;
         position: fixed;
@@ -40,7 +58,7 @@
         overflow-x: hidden;
         transition: 0.5s;
 
-        &-content{
+        &-content {
             position: relative;
             top: 25%;
             width: 100%;
@@ -54,33 +72,41 @@
                 color: $font_color-dark;
                 display: block;
                 transition: 0.3s;
+
                 &:hover,
-                &:focus{
+                &:focus {
                     color: #f1f1f1;
                     transition: 0.4s;
-                }         
+                }
             }
         }
+
         .closebtn {
             position: absolute;
             top: 20px;
             right: 45px;
             font-size: 60px;
 
-            &:hover{
+            &:hover {
                 color: #fff;
-                transition: 0.4s; 
+                transition: 0.4s;
             }
         }
     }
+
     @media screen and (max-height: 450px) {
-        .overlay {overflow-y: auto;}
-        .overlay a {font-size: 20px}
+        .overlay {
+            overflow-y: auto;
+        }
+
+        .overlay a {
+            font-size: 20px
+        }
+
         .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
         }
     }
 }
-
