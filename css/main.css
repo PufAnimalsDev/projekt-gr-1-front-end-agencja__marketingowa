@@ -11275,6 +11275,35 @@ textarea.form-control-lg {
     transform: rotate(360deg);
   }
 }
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  transform: scale(-1, -1);
+}
 
 :root .fa-rotate-90,
 :root .fa-rotate-180,
@@ -17404,7 +17433,6 @@ readers do not read off random characters that represent icons */
   margin-bottom: 3rem;
 }
 
-
 .newsletter {
   padding: 7rem 0;
   min-height: 50vh;
@@ -17491,7 +17519,8 @@ readers do not read off random characters that represent icons */
 }
 
 a {
-  text-decoration: none !important; }
+  text-decoration: none !important;
+}
 
 .btn-dark {
   border-radius: 1rem;
@@ -17539,12 +17568,17 @@ a {
   padding: 0.5rem;
 }
 
-.input-group-append {
-  display: flex;
+.newsletter {
+  padding: 7rem 0;
+  min-height: 50vh;
 }
-.input-group-append .form-control {
-  width: 10rem;
-  padding: 0.75rem;
+.newsletter--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.newsletter--description {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 * {
