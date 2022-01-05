@@ -1,0 +1,42 @@
+.btn-dark{
+    border-radius: 1rem;
+    border: 0;
+    background-color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover{
+        background-color: $main_color-hover;
+        color: $font_color-dark;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $font_color-dark;
+    }
+
+}
+
+.navOpen{
+    color: $main_color;
+    font-size: 3rem;
+    background-color: #ff000000;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.btn-outline-dark {
+    border: 0.2rem solid $main_color;
+    background-color: #ffffff00;
+    border-radius: 1rem;
+    color: $font_color-dark;
+    font-weight: 600;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $main_color;
+        color: #fff;
+    }
+}
+
