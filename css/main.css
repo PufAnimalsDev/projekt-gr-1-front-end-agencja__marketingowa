@@ -17238,6 +17238,10 @@ readers do not read off random characters that represent icons */
   font-size: 1rem;
   color: #464646;
 }
+.header #logoHead img {
+  height: 4rem;
+  width: auto;
+}
 .header #navbar {
   position: fixed;
   display: flex;
@@ -17248,16 +17252,24 @@ readers do not read off random characters that represent icons */
   transition: top 0.3s;
   padding-right: 1rem;
 }
-.header #navbar img {
+.header #navbar #navHider {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header #navbar #navHider img {
   border: 1px solid #464646;
   width: 2rem;
   height: auto;
 }
-.header #navbar .selectLang {
+.header #navbar #navHider .selectLang {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-right: 2rem;
+}
+.header #navbar .navOpen {
+  background-color: #ffffff00;
 }
 .header .overlay {
   height: 0;

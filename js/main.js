@@ -1,14 +1,17 @@
 //start navbar hidding
-// When the user scrolls down 20px from the top of the document, slide down the navbar
-// When the user scrolls to the top of the page, slide up the navbar (50px out of the top view)
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunctionHide()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("navbar").style.top = "1rem";
-  } else {
-    document.getElementById("navbar").style.top = "-4rem";
+function scrollFunctionHide() {
+
+  window.addEventListener("scroll", function (event) {
+  let scrolled = this.scrollY;  
+
+  if (scrolled > 20) {
+    document.getElementById("navHider").style.display = "none";
   }
+  else {
+    document.getElementById("navHider").style.display = "1";
+  }});  
 }
 //end navbar hidding
 
