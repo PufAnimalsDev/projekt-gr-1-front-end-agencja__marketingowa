@@ -17429,6 +17429,35 @@ footer {
   cursor: pointer;
 }
 
+.btn-outline-dark {
+  border: 0.2rem solid #FFB400;
+  background-color: #ffffff00;
+  border-radius: 1rem;
+  color: #464646;
+  font-weight: 600;
+}
+.btn-outline-dark:hover {
+  background-color: #FFB400;
+  border: 0.2rem solid #FFB400;
+  color: #fff;
+}
+
+.form-control {
+  border: 0.2rem solid #FFB400;
+  border-radius: 1rem;
+  background-color: #00000000;
+  margin: 0.2rem;
+  padding: 0.5rem;
+}
+
+.input-group-append {
+  display: flex;
+}
+.input-group-append .form-control {
+  width: 10rem;
+  padding: 0.75rem;
+}
+
 * {
   list-style-type: none;
 }

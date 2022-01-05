@@ -10,7 +10,7 @@ function scrollFunctionHide() {
     document.getElementById("navHider").style.display = "none";
   }
   else {
-    document.getElementById("navHider").style.display = "1";
+    document.getElementById("navHider").style.display = "";
   }});  
 }
 //end navbar hidding
