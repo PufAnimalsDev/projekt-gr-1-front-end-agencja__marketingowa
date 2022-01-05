@@ -1,4 +1,4 @@
-.btn-dark{
+.btnCustom{
     border-radius: 1rem;
     border: 0;
     background-color: $main_color;
@@ -7,13 +7,28 @@
 
     &:hover{
         background-color: $main_color-hover;
-        color: $font_color-dark;
+        color: #fff;
     }
     &:focus{
         background-color: $main_color-hover;
-        color: $font_color-dark;
+        color: $red;
     }
+}
 
+.btnCustomNewsletter {
+    border: 0;
+    background-color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover{
+        background-color: $main_color-hover;
+        color: #fff;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
 }
 
 .navOpen{
@@ -26,17 +41,41 @@
     }
 }
 
-.btn-outline-dark {
+.btnOutlineCustom {
     border: 0.2rem solid $main_color;
-    background-color: #ffffff00;
+    background-color: transparent;
     border-radius: 1rem;
     color: $font_color-dark;
     font-weight: 600;
+    padding: 0.75rem;
 
     &:hover {
         background-color: $main_color;
         border: 0.2rem solid $main_color;
         color: #fff;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
+}
+
+.btnDarkCustom {
+    border: 0.2rem solid $font_color-dark;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: $font_color-dark;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $font_color-dark;
+        color: #fff;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
     }
 }
 

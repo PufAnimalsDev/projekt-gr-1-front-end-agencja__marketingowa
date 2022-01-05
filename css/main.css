@@ -11275,6 +11275,35 @@ textarea.form-control-lg {
     transform: rotate(360deg);
   }
 }
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  transform: scale(-1, -1);
+}
 
 :root .fa-rotate-90,
 :root .fa-rotate-180,
@@ -17302,10 +17331,18 @@ readers do not read off random characters that represent icons */
   padding: 5rem 0;
   min-height: 30vh;
 }
+.footer a:hover {
+  color: #fff;
+}
+.footer--form {
+  display: flex;
+  flex-direction: column;
+}
 .footer ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 @media (min-width: 992px) {
   .footer ul {
@@ -17345,9 +17382,7 @@ readers do not read off random characters that represent icons */
 }
 
 .functions {
-  padding: 7rem 0;
-  background-color: #cccccc;
-  min-height: 60vh;
+  padding: 5rem 0;
 }
 .functions--heading {
   margin-bottom: 2rem;
@@ -17355,21 +17390,49 @@ readers do not read off random characters that represent icons */
 }
 .functions--description {
   text-align: center;
+  color: #464646;
   margin-bottom: 3rem;
 }
 .functions--item-wrapper {
-  width: 20rem;
-  margin: 10px;
   padding-top: 3rem;
   padding-bottom: 2rem;
-  background-color: #fff;
-  justify-content: center;
-  text-align: center;
 }
 @media (min-width: 992px) {
   .functions--item-wrapper {
-    padding-top: 3rem;
+    padding-top: 5rem;
   }
+}
+.functions--item {
+  position: relative;
+  padding: 4rem 2rem;
+  box-shadow: 0 0 1rem rgba(33, 37, 41, 0.15);
+  border: 0.5rem solid #FFB400;
+  border-radius: 2rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.functions--item-icon {
+  position: absolute;
+  top: -3rem;
+  left: calc(50% - 3rem);
+  background-color: #fff;
+  border-radius: 50%;
+  border: 0.5rem solid #FFB400;
+  text-align: center;
+  width: 6rem;
+  height: 6rem;
+  line-height: 5rem;
+  color: #FFB400;
+  font-size: 3rem;
+}
+.functions--item-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.functions--item-description {
+  margin-bottom: 5rem;
 }
 
 .aboutus {
@@ -17387,6 +17450,8 @@ readers do not read off random characters that represent icons */
 .aboutus img {
   width: 100%;
   height: auto;
+  border: 0.5rem solid #FFB400;
+  border-radius: 2rem;
 }
 
 .portfolio {
@@ -17409,7 +17474,6 @@ readers do not read off random characters that represent icons */
   margin-bottom: 3rem;
 }
 
-
 .newsletter {
   padding: 7rem 0;
   min-height: 50vh;
@@ -17421,6 +17485,9 @@ readers do not read off random characters that represent icons */
 .newsletter--description {
   text-align: center;
   margin-bottom: 3rem;
+}
+.newsletter--input {
+  display: flex;
 }
 
 .badge-circle {
@@ -17496,22 +17563,38 @@ readers do not read off random characters that represent icons */
 }
 
 a {
-  text-decoration: none !important; }
+  text-decoration: none !important;
+}
 
-.btn-dark {
+.btnCustom {
   border-radius: 1rem;
   border: 0;
   background-color: #FFB400;
   font-weight: 600;
   padding: 0.75rem;
 }
-.btn-dark:hover {
-  background-color: #ffc743;
-  color: #464646;
+.btnCustom:hover {
+  background-color: #db9a00;
+  color: #fff;
 }
-.btn-dark:focus {
-  background-color: #ffc743;
-  color: #464646;
+.btnCustom:focus {
+  background-color: #db9a00;
+  color: #dc3545;
+}
+
+.btnCustomNewsletter {
+  border: 0;
+  background-color: #FFB400;
+  font-weight: 600;
+  padding: 0.75rem;
+}
+.btnCustomNewsletter:hover {
+  background-color: #db9a00;
+  color: #fff;
+}
+.btnCustomNewsletter:focus {
+  background-color: #db9a00;
+  color: #dc3545;
 }
 
 .navOpen {
@@ -17523,20 +17606,43 @@ a {
   cursor: pointer;
 }
 
-.btn-outline-dark {
+.btnOutlineCustom {
   border: 0.2rem solid #FFB400;
-  background-color: #ffffff00;
+  background-color: transparent;
   border-radius: 1rem;
   color: #464646;
   font-weight: 600;
+  padding: 0.75rem;
 }
-.btn-outline-dark:hover {
+.btnOutlineCustom:hover {
   background-color: #FFB400;
   border: 0.2rem solid #FFB400;
   color: #fff;
 }
+.btnOutlineCustom:focus {
+  background-color: #db9a00;
+  color: #dc3545;
+}
 
-.form-control {
+.btnDarkCustom {
+  border: 0.2rem solid #464646;
+  background-color: transparent;
+  border-radius: 1rem;
+  color: #464646;
+  font-weight: 600;
+  padding: 0.75rem;
+}
+.btnDarkCustom:hover {
+  background-color: #FFB400;
+  border: 0.2rem solid #464646;
+  color: #fff;
+}
+.btnDarkCustom:focus {
+  background-color: #db9a00;
+  color: #dc3545;
+}
+
+.inputCustom {
   border: 0.2rem solid #FFB400;
   border-radius: 1rem;
   background-color: #00000000;
@@ -17544,16 +17650,33 @@ a {
   padding: 0.5rem;
 }
 
-.input-group-append {
-  display: flex;
+.inputNews {
+  border: 0.25rem solid #FFB400;
+  width: 42rem;
 }
-.input-group-append .form-control {
-  width: 10rem;
-  padding: 0.75rem;
+
+.newsletter {
+  padding: 7rem 0;
+  min-height: 50vh;
+}
+.newsletter--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.newsletter--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.newsletter--input {
+  display: flex;
 }
 
 * {
   list-style-type: none;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
