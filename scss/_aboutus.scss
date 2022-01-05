@@ -15,5 +15,7 @@
     img{
         width: 100%;
         height: auto;
+        border: 0.5rem solid $main_color;
+        border-radius: 2rem;
     }
 }

@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agencja marketingowa</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img_styles/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img_styles/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/img_styles/favicons/favicon-16x16.png">
-    <link rel="manifest" href="./assets/img_styles/favicons/site.webmanifest">
+    <link rel="manifest" href="./assets/img_styles/favicons/site.webmanifest">    
 </head>
 
 <body>
@@ -34,7 +38,7 @@
                             <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
                         </div>
 
-                        <button type="button" class="btn btn-dark me-5">WSPÓŁPRACUJ</button>
+                        <button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button>
                     </div>
 
                     <span class="navOpen" onclick="openNav()">
@@ -50,7 +54,7 @@
                             <li><a href="offer.html">Oferta</a></li>
                             <li><a href="about.html">O Nas</a></li>
                             <li><a href="#">Aktualności</a></li>
-                            <li><a href="#"><button type="button" class="btn btn-secondary">WSPÓŁPRACUJ</button></a></li>
+                            <li><a href="#"><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></a></li>
                         </ul>
                     </div>
 
@@ -73,7 +77,7 @@
                     <p class="start--description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fugiat
                         quaerat et delectus hic repudiandae.</p>
 
-                    <a class="btn btn-outline-dark mb-5 mb-lg-0" href="./cooperate.html" role="button">Współpracuj</a>
+                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="./cooperate.html" role="button">Współpracuj</a>
 
 
                 </div>
@@ -101,14 +105,45 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-lg-4 functions--item-wrapper">
-                    funckja
+                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
+                    <div class="functions--item">
+                        <div class="functions--item-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="functions--item-heading">Funkcja pierwsza</h3>
+                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <button class="btnCustom" type="button">Więcej</button>
+                    </div>
                 </div>
-                <div class="col-lg-4 functions--item-wrapper">
-                    funckja
+                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
+                    <div class="functions--item">
+                        <div class="functions--item-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="functions--item-heading">Funkcja druga</h3>
+                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <button class="btnCustom" type="button">Więcej</button>
+                    </div>
                 </div>
-                <div class="col-lg-4 functions--item-wrapper">
-                    funckja
+                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
+                    <div class="functions--item">
+                        <div class="functions--item-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="functions--item-heading">Funkcja trzecia</h3>
+                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <button class="btnCustom" type="button">Więcej</button>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
+                    <div class="functions--item">
+                        <div class="functions--item-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="functions--item-heading">Funkcja czwarta</h3>
+                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <button class="btnCustom" type="button">Więcej</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,7 +166,7 @@
                         elit. Veniam voluptatem consequuntur repellat aperiam ex eum reprehenderit id,
                         accusantium dolore tempora.</p>
 
-                    <a class="btn btn-dark mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                    <a class="btnCustom mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
 
 
                 </div>
@@ -201,11 +236,7 @@
                 <div class="col-lg-8 col-xxl-7 text-center">
                     <!-- miejsce na slider -->
                     <img class="d-block w-100 mb-4" src="./assets/img/slider_menu_2.png">
-                    <button type="submit" class="btn btn-dark">Zobacz więcej</button>
-
-
-                    <a class="btn btn-dark mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
-
+                    <a class="btnCustom mb-5 mb-lg-0" href="./about.html" role="button">Zobacz więcej</a>
                 </div>
 
             </div>
@@ -239,7 +270,7 @@
     <!-- start newsletter -->
     <section class="newsletter">
         <div class="container">
-            <div class="row justify-content-center ">
+            <div class="row justify-content-center">
                 <div class="col-lg-8 col-xxl-7">
                     <h2 class="newsletter--heading">Zapisz się na newsletter</h2>
                     <p class="newsletter--description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -248,12 +279,9 @@
                         cupiditate
                         ad suscipit deleniti id nam. Quam, eaque saepe.</p>
 
-                    <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Adres e-mail" aria-label="Adres e-mail"
-                            aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn-dark" type="submit">Wyślij</button>
-                        </div>
+                    <div class="newsletter--input">
+                            <input type="text" class="inputNews" placeholder="Adres e-mail">                        
+                            <button class="btnCustomNewsletter" type="submit">Wyślij</button>
                     </div>
                 </div>
             </div>
@@ -278,20 +306,16 @@
                 <div class="col-lg-3">
                     <h3>Skontaktuj się z nami!</h3>
                     <form>
-                        <div class="form-group">
+                        <div class="footer--form">
                             <label for="name">Imie</label>
-                            <input type="text" class="form-control" id="name" placeholder="Wpisz imię">
-                        </div>
-                        <div class="form-group">
+                            <input type="text" class="inputCustom" id="name" placeholder="Wpisz imię">
                             <label for="email">Adres e-mail</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                            <input type="email" class="inputCustom" id="email" aria-describedby="emailHelp"
                                 placeholder="Wpisz e-mail">
-                        </div>
-                        <div class="form-group">
                             <label for="textarea">Treść wiadomości</label>
-                            <textarea class="form-control" id="textarea" rows="3"></textarea>
+                            <textarea class="inputCustom" id="textarea" rows="3"></textarea>
+                            <button type="submit" class="btnCustom">Wyślij</button>
                         </div>
-                        <button type="submit" class="btn btn-dark">Wyślij</button>
                     </form>
                 </div>
                 <div class="col-lg-3">
@@ -305,6 +329,10 @@
                         <i class="fab fa-facebook-f fa-2x"></i>
                         <i class="fab fa-facebook-f fa-2x"></i>
                         <i class="fab fa-facebook-f fa-2x"></i>
+
+                        <div class="footer--socials__icon">
+                            <i class="fab fa-facebook-f fa-2x"></i>
+                        </div>
                     </div>
 
                 </div>
@@ -320,7 +348,7 @@
                         <li><a href="politics.html">Polityka prywatności</a></li>
                         <li><a href="career.html">Kariera</a></li>
                         <li><a href="offer.html">Oferta</a></li>
-                        <li><a href="#"><button type="button" class="btn btn-dark me-5">WSPÓŁPRACUJ</button></a></li>
+                        <li><a href="#"><button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button></a></li>
                     </ul>
 
                 </div>

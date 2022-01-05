@@ -1,6 +1,6 @@
 @import "variables";
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -23,7 +23,10 @@
 
 *{
     list-style-type: none;
-   
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
  a{
