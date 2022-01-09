@@ -17483,6 +17483,7 @@ readers do not read off random characters that represent icons */
   border: 0.5rem solid #FFB400;
   border-radius: 2rem;
   box-shadow: 0px 0px 0.5rem #FFB400;
+
 }
 
 .portfolio {
@@ -17612,12 +17613,14 @@ a {
 }
 .btnCustom:focus {
   background-color: #fff;
+
   color: #dc3545;
 }
 
 .btnCustomNewsletter {
   border: 0;
   border-radius: 0 0.5rem 0.5rem 0;
+
   background-color: #FFB400;
   font-weight: 600;
   padding: 0.75rem;
@@ -17631,6 +17634,7 @@ a {
 }
 .btnCustomNewsletter:focus {
   background-color: #fff;
+
   color: #dc3545;
 }
 
@@ -17659,6 +17663,7 @@ a {
 }
 .btnOutlineCustom:focus {
   background-color: #fff;
+p
   color: #dc3545;
 }
 
@@ -17669,6 +17674,7 @@ a {
   color: #464646;
   font-weight: 600;
   padding: 0.55rem;
+
 }
 .btnDarkCustom:hover {
   background-color: #FFB400;
@@ -17677,6 +17683,8 @@ a {
 }
 .btnDarkCustom:focus {
   background-color: #fff;
+
+
   color: #dc3545;
 }
 
@@ -17980,6 +17988,8 @@ Features Style
 }
 .progress[data-percentage="100"] .progress-left .progress-bar {
   animation: loading-5 1.5s linear forwards 1.5s;
+
+
 }
 
 /* 
