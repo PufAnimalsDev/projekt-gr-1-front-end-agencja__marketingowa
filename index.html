@@ -23,49 +23,56 @@
 <body>
     <!-- header start  -->
     <header class="header">
-
-        <div class="row justify-content-start py-3">
-            <div class="col-lg-3 text-center text-md-left mb-lg-3 mb-md-0" id="logoHead">
-                <a href="./index.html"><img src="./assets/img_styles/logo/logo_peacock_lightM.png"
-                        alt="logo-lightM"></a>
-            </div>
-            <div class="col-lg-9 d-flex justify-content-end  align-items-center">
-                <div id="navbar">
-                    <div id="navHider">
-                        <div class="selectLang">
-                            <a href="#"><img src="./assets/img_styles/polish_flag.png" alt="polish_flag"></a>
-                            <h4>/</h4>
-                            <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 logo">
+                    <a href="./index.html"><img src="./assets/img_styles/logo/logo_peacock_lightMNew.png" alt="logo"></a>
+                </div>
+                <div class="col-lg-9 d-flex justify-content-end  align-items-center space">
+                    <div id="navbar">
+                        <div id="navHider">
+                            <div class="selectLang">
+                                <a href="#"><img src="./assets/img_styles/polish_flag.png" alt="polish_flag"></a>
+                                <h4>|</h4>
+                                <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
+                            </div>
+    
+                            <button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button>                            
                         </div>
-
-                        <button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button>
+                        <span class="navOpen" onclick="openNav()">
+                            <i class="fas fa-bars"></i>
+                        </span>
                     </div>
-
-                    <span class="navOpen" onclick="openNav()">
-                        <i class="fas fa-bars"></i>
-                    </span>
-                </div>
-
-                <div id="myNav" class="overlay">
-                    <div class="overlay-content">
-                        <ul class="menu">
-                            <li><a href="index.html">Strona główna</a></li>
-                            <li><a href="caseStudies.html">Case studies</a></li>
-                            <li><a href="offer.html">Oferta</a></li>
-                            <li><a href="about.html">O Nas</a></li>
-                            <li><a href="#">Aktualności</a></li>
-                            <li><a href="#"><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></a></li>
-                        </ul>
+    
+                    <div id="myNav" class="overlay">
+                        <div class="overlay-content">
+                            <ul class="menu">
+                                <li><a href="index.html">Strona główna</a></li>
+                                <li><a href="caseStudies.html">Case studies</a></li>
+                                <li><a href="offer.html">Oferta</a></li>
+                                <li><a href="about.html">O Nas</a></li>
+                                <li><a href="#">Aktualności</a></li>
+                                <li>
+                                    <div class="selectLang">
+                                        <a href="#"><img src="./assets/img_styles/polish_flag.png" alt="polish_flag"></a>
+                                        <h4>|</h4>
+                                        <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
+                                    </div>
+                                </li>
+                                <li><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></li>
+                            </ul>
+                        </div>
+    
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     </div>
-
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 </div>
-
             </div>
-        </div>
         </div>
     </header>
     <!-- header end  -->
+
+    
+    
     <!-- start start  -->
     <section class="start">
 
@@ -77,11 +84,11 @@
                     <p class="start--description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fugiat
                         quaerat et delectus hic repudiandae.</p>
 
-                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="./cooperate.html" role="button">Współpracuj</a>
+                    <a class="btnOutlineCustom" href="./cooperate.html" role="button">Współpracuj</a>
 
-
+                    
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 start--item-slider">
                     <!-- miejsce na potencjalny slider -->
                     <img class="d-block w-100" src="./assets/img/slider_menu_2.png">
                 </div>
@@ -92,87 +99,164 @@
     </section>
     <!-- start end  -->
 
-
-    <!-- functions start  -->
-    <section class="functions">
+    <!-- start functions -->
+    <div id="features" class="features section">
         <div class="container">
-            <div class="row justify-content-center ">
-                <div class="col-lg-8 col-xxl-7">
-                    <h2 class="functions--heading">Funkcje</h2>
-                    <p class="functions--description">opis</p>
-                </div>
-            </div>
-
-
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
-                    <div class="functions--item">
-                        <div class="functions--item-icon">
-                            <i class="fas fa-chart-line"></i>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="features-content">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="features-item first-feature">
+                                    <div class="number-background number">
+                                        <h6>01</h6>
+                                    </div>
+                                    <div class="icon"></div>
+                                        <h4>Reach Out</h4>
+                                    <div class="line-dec"></div>
+                                        <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="features-item second-feature">
+                                    <div class="number-background number">
+                                        <h6>02</h6>
+                                    </div>
+                                    <div class="icon"></div>
+                                        <h4>Develop a Strategy</h4>
+                                    <div class="line-dec"></div>
+                                        <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="features-item first-feature">
+                                    <div class="number-background number">                                        
+                                        <h6>03</h6>                                        
+                                    </div>
+                                    <div class="icon"></div>
+                                        <h4>Implementation</h4>
+                                    <div class="line-dec"></div>
+                                        <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="features-item second-feature last-features-item">
+                                    <div class="number-background number">
+                                        <h6>04</h6>
+                                    </div>
+                                    <div class="icon"></div>
+                                        <h4>Analyze the result</h4>
+                                    <div class="line-dec"></div>
+                                        <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="functions--item-heading">Funkcja pierwsza</h3>
-                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button class="btnCustom" type="button">Więcej</button>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
-                    <div class="functions--item">
-                        <div class="functions--item-icon">
-                            <i class="fas fa-chart-line"></i>
+                <div class="col-lg-12">
+                    <div class="skills-content">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="skill-item">
+                                    <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                            <div>
+                                                80%<br>
+                                                <span>HTML/CSS/JS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="skill-item">
+                                    <div class="progress" data-percentage="60">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                            <div>
+                                                60%<br>
+                                                <span>Wordpress</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="skill-item">
+                                    <div class="progress" data-percentage="90">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                            <div>
+                                                90%<br>
+                                                <span>Marketing</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="skill-item last-skill-item">
+                                    <div class="progress" data-percentage="70">
+                                        <span class="progress-left">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                            <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                            <div>
+                                                70%<br>
+                                                <span>Photoshop</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="functions--item-heading">Funkcja druga</h3>
-                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button class="btnCustom" type="button">Więcej</button>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
-                    <div class="functions--item">
-                        <div class="functions--item-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="functions--item-heading">Funkcja trzecia</h3>
-                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button class="btnCustom" type="button">Więcej</button>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 col-xxl-3 functions--item-wrapper">
-                    <div class="functions--item">
-                        <div class="functions--item-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 class="functions--item-heading">Funkcja czwarta</h3>
-                        <p class="functions--item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button class="btnCustom" type="button">Więcej</button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- functions end  -->
+    </div>
+    <!-- end functions -->
 
     <!-- aboutus start -->
     <section class="aboutus">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-xxl-7">
+                <div class="col-lg-12">
                     <h2 class="aboutus--heading">O nas</h2>
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-lg-6 aboutus--item-wrapper">
+                <div class="col-lg-7 aboutus--item-slider">
+                    <img src="./assets/img/slider_menu_1.png" alt="">
+                </div>
+                <div class="col-lg-5 aboutus--item-wrapper">
                     <h3 class="aboutus--item-heading">jestsmy naj</h3>
 
                     <p class="aboutus--item-description">Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Veniam voluptatem consequuntur repellat aperiam ex eum reprehenderit id,
                         accusantium dolore tempora.</p>
 
-                    <a class="btnCustom mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
-
-
-                </div>
-                <div class="col-lg-6">
-                    <img src="./assets/img/slider_menu_1.png" alt="">
-                </div>
+                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                </div>                
             </div>
 
         </div>
@@ -236,7 +320,7 @@
                 <div class="col-lg-8 col-xxl-7 text-center">
                     <!-- miejsce na slider -->
                     <img class="d-block w-100 mb-4" src="./assets/img/slider_menu_2.png">
-                    <a class="btnCustom mb-5 mb-lg-0" href="./about.html" role="button">Zobacz więcej</a>
+                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="./about.html" role="button">Zobacz więcej</a>
                 </div>
 
             </div>
@@ -308,12 +392,11 @@
                     <form>
                         <div class="footer--form">
                             <label for="name">Imie</label>
-                            <input type="text" class="inputCustom" id="name" placeholder="Wpisz imię">
+                            <input type="text" name="name" class="inputCustom" placeholder="Wpisz imię">
                             <label for="email">Adres e-mail</label>
-                            <input type="email" class="inputCustom" id="email" aria-describedby="emailHelp"
-                                placeholder="Wpisz e-mail">
+                            <input type="email" name="email" class="inputCustom" placeholder="Wpisz e-mail">
                             <label for="textarea">Treść wiadomości</label>
-                            <textarea class="inputCustom" id="textarea" rows="3"></textarea>
+                            <textarea class="inputCustom" name="textarea" rows="3"></textarea>
                             <button type="submit" class="btnCustom">Wyślij</button>
                         </div>
                     </form>
@@ -348,14 +431,21 @@
                         <li><a href="politics.html">Polityka prywatności</a></li>
                         <li><a href="career.html">Kariera</a></li>
                         <li><a href="offer.html">Oferta</a></li>
-                        <li><a href="#"><button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button></a></li>
+                        <li><button type="button" class="btnCustom">WSPÓŁPRACUJ</button></li>
                     </ul>
 
                 </div>
             </div>
+
+            <div class="col-12">
+                <div class="footer--authors">
+                    <p>&copy; Peacock 2022</p>
+                    <p>wykonanie: workon6</p>
+                </div>
+            </div> 
         </div>
-        </section>
-        <!-- end opinions  -->
+    </footer>
+        <!-- end footer  -->
 
         <script src="./js/main.js"></script>
         <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>

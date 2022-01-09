@@ -1,25 +1,20 @@
 .header {
-    background-color: #fff;
-    padding: 1rem 0;
+    height: 0;
+    position: relative;
+    top: 3rem;
     font-size: 1rem;
     color: $font_color-dark;
 
-    #logoHead {
-        img {
-            height: 4rem;
-            width: auto;
-        }
-    }
-
+    
     #navbar {
         position: fixed;
+        z-index: 99999;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: end;
         width: 100%;
         transition: top 0.3s;
-        padding-right: 1rem;
 
         #navHider{
             display: flex;
@@ -38,19 +33,18 @@
                 gap: 0.5rem;
                 margin-right: 2rem;
             }            
-        }
-
-        .navOpen {
-            background-color: #ffffff00;
-        }
-            
+            .navOpen {
+                background-color: #ffffff00;
+                position: sticky;
+            }
+        }          
     }
 
     .overlay {
         height: 0;
         width: 100%;
         position: fixed;
-        z-index: 1;
+        z-index: 9999999999999;
         left: 0;
         top: 0;
         background-color: $main_color;
@@ -60,25 +54,39 @@
 
         &-content {
             position: relative;
-            top: 25%;
+            top: 5rem;
             width: 100%;
             text-align: center;
-            margin-top: 30px;
 
-            & a {
-                padding: 8px;
-                text-decoration: none;
-                font-size: 36px;
-                color: $font_color-dark;
-                display: block;
-                transition: 0.3s;
-
-                &:hover,
-                &:focus {
-                    color: #f1f1f1;
-                    transition: 0.4s;
+            .menu{
+                .selectLang {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        border: 1px solid $font_color-dark;
+                        width: 2rem;
+                        height: auto;
+                    }
                 }
-            }
+    
+                & li {
+                    & a {
+                        padding: 1rem;
+                        text-decoration: none;
+                        font-size: 36px;
+                        color: $font_color-dark;
+                        display: block;
+                        transition: 0.3s;
+        
+                        &:hover,
+                        &:focus {
+                            color: #f1f1f1;
+                            transition: 0.4s;
+                        }
+                    }
+                }                
+            }            
         }
 
         .closebtn {

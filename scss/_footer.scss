@@ -1,10 +1,10 @@
 .footer{
-    background-color: rgb(75, 75, 75);
-    padding: 5rem 0;
+    background-color: $bgFooter;
+    padding: 3rem 0;
     min-height: 30vh;
 
     a:hover{
-        color: #fff;
+        color: $white;
     }
 
     &--form {
@@ -23,13 +23,8 @@
         }
 
         li{
-            margin-left: 30px;
+            margin-left: 2rem;
         }
-    }
-
-    &--heading{
-        margin-bottom: 4rem;
-        text-align: center;
     }
 
     &--item-wrapper{
@@ -38,9 +33,15 @@
 
 
     &--socials{
-        text-align: center;
-        margin: 2px;        
+        text-align: center;       
     }   
+    &--authors{
+        border-top: 1px solid $main_color;
+        padding-top: 1rem;
+        color: $font_color-mmuted;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 

@@ -7,7 +7,9 @@
 
     &:hover{
         background-color: $main_color-hover;
-        color: #fff;
+        color: $main_color;
+        border: 0.2rem solid $main_color;
+        padding: 0.55rem;
     }
     &:focus{
         background-color: $main_color-hover;
@@ -17,13 +19,17 @@
 
 .btnCustomNewsletter {
     border: 0;
+    border-radius: 0 0.5rem 0.5rem 0;
     background-color: $main_color;
     font-weight: 600;
     padding: 0.75rem;
 
     &:hover{
         background-color: $main_color-hover;
-        color: #fff;
+        color: $main_color;
+        border: 0.2rem solid $main_color;
+        border-left: 0.1;
+        padding: 0.55rem;
     }
     &:focus{
         background-color: $main_color-hover;
@@ -45,13 +51,14 @@
     border: 0.2rem solid $main_color;
     background-color: transparent;
     border-radius: 1rem;
-    color: $font_color-dark;
+    color: $main_color;
     font-weight: 600;
     padding: 0.75rem;
 
     &:hover {
         background-color: $main_color;
         border: 0.2rem solid $main_color;
+        padding: 0.75rem;
         color: #fff;
     }
     &:focus{
@@ -66,7 +73,7 @@
     border-radius: 1rem;
     color: $font_color-dark;
     font-weight: 600;
-    padding: 0.75rem;
+    padding: 0.55rem;
 
     &:hover {
         background-color: $main_color;

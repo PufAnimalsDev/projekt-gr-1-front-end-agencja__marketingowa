@@ -1,12 +1,39 @@
 .inputCustom {
     border: 0.2rem solid $main_color;
     border-radius: 1rem;
-    background-color: #00000000;
+    background-color: $white;
     margin: 0.2rem;
     padding: 0.5rem;
+
+    &::placeholder {
+        text-align: center;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $main_color-light;
+        color: $black;
+    }
 }
 
 .inputNews{
     border: 0.25rem solid $main_color;
+    border-radius: 0.5rem 0 0 0.5rem;
     width: 42rem;
+
+    &:hover {
+        &::placeholder {
+            color: $font_color-dark;
+        }
+    }
+
+    &::placeholder {
+        text-align: right;
+        margin-right: 1rem;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $main_color-light;
+    }
 }
