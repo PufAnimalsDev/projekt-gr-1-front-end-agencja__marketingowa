@@ -59,68 +59,6 @@
     }
   }
 
-  .btnCustomNewsletter {
-    color: $white;
-    background-color: $main_color;
-    border: 0;
-    border-radius: 0 1rem 1rem 0;
-    transition: color 0.5s, background-color 0.5s;
-    position: relative;
-    font-weight: 600;
-    padding: 0.75rem;
-
-    &:hover{
-        background-color: $main_color-hover;
-        color: $main_color;
-        border: 0.2rem solid $main_color;
-        border-left: 0.1;
-        padding: 0.55rem;
-
-    }
-    &:focus{
-        background-color: $main_color-hover;
-        color: $red;
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: $main_color;
-        transition: all 0.3s;
-        border-radius: 0 1rem 1rem 0;
-        border: 0;
-        padding: 0.75rem;      
-      }
-      &:hover::before {
-        opacity: 0;
-        transform: scale(0.5,0.5);
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        opacity: 0;
-        transition: all 0.3s;
-        transform: scale(1.2,1.2);
-        border-radius: 0 1rem 1rem 0;
-        border: 0.2rem solid $main_color;
-        padding: 0.75rem;      
-      }
-      &:hover::after {
-        opacity: 1;
-        transform: scale(1,1);
-      }
-    
-}
-
 .navOpen{
     color: $main_color;
     font-size: 3rem;

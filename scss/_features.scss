@@ -5,9 +5,9 @@ Features Style
 */
 
 .features {
-    padding-top: 130px;
+    padding-top: 4rem;
   
-    &-content {
+    &--content {
       z-index: 2;
       position: relative;
       background-color: $white;
@@ -16,9 +16,9 @@ Features Style
     }
   
   
-    &-item {
+    &--item {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 3rem;
     background: $white;
     transition: background-color .5s;
@@ -34,49 +34,22 @@ Features Style
         background-color: $white;
       }
     }
-  }
-}  
-  
-  .first-feature:hover .icon {
-    background-image: url(../assets/img_styles/features-icon-white-01.png);
-  }
-  
-  .second-feature:hover .icon {
-    background-image: url(../assets/img_styles/features-icon-white-02.png);
-  }
-  
-  .features-item {
+
     .number h6 {
       background-repeat: no-repeat;
-      width: 110px;
-      height: 69px;
+      width: 8rem;
+      height: auto;
       color: $white;
       margin-left: auto;
       margin-right: auto;
       font-size: 30px;
       font-weight: 700;
       text-align: center;
-      line-height: 100px;
-      margin-top: -80px;
-      margin-bottom: 30px;
+      line-height: 5rem;
+      margin-top: -3rem;
+      margin-bottom: 3rem;
     }
-  
-    .number-background h6 {
-      width: 100px;
-      height: 120px;
-      background-image: url(../assets/img_styles/features-number-01.png);
-    }
-  }
-  
-  .first-feature .icon {
-    background-image: url(../assets/img_styles/features-icon-black-01.png);
-  }
-  
-  .second-feature .icon {
-    background-image: url(../assets/img_styles/features-icon-black-02.png);
-  }
-  
-  .features-item {
+
     .icon {
       width: 63px;
       height: 63px;
@@ -109,6 +82,28 @@ Features Style
       margin-top: 0px;
       transition: all 0.5s;
     }
+    .number-background h6 {
+      width: 8rem;
+      height: auto;
+      background-image: url(../assets/img_styles/features-number-01.png);
+    }
+  }
+}  
+  
+  .first-feature:hover .icon {
+    background-image: url(../assets/img_styles/features-icon-white-01.png);
+  }
+  
+  .second-feature:hover .icon {
+    background-image: url(../assets/img_styles/features-icon-white-02.png);
+  }
+  
+  .first-feature .icon {
+    background-image: url(../assets/img_styles/features-icon-black-01.png);
+  }
+  
+  .second-feature .icon {
+    background-image: url(../assets/img_styles/features-icon-black-02.png);
   }
   
   .skills-content {
