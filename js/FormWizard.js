@@ -5,7 +5,7 @@ import Timeline from "./Timeline";
 const FormWizard = () => {
   let [currentTile, setCurrentTile] = useState(0);
   let [formStatus, setFormStatus] = useState("unsent");
-  
+
   let formEl = useRef(null);
 
   const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
