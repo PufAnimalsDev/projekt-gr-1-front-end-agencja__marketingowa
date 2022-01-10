@@ -1,18 +1,17 @@
-.newsletter{
-    padding: 7rem 0;
-    min-height: 50vh;
+.newsletter {
+    height: 100vh;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
 
-    &--heading{
-        margin-bottom: 2rem;
-        text-align: center;   
-    }
-
-    &--description{
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    &--input {
+    &--content-form { 
         display: flex;
-    }   
-}
+        flex-direction: column;    
+        box-shadow: none;
+        background: $shadows;
+        border: 0;
+        padding: 1.7em 1.3em;
+        gap: 1rem;
+        color: $font_color-muted;
+    }
+  }

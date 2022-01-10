@@ -39,7 +39,7 @@
                                 <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
                             </div>
     
-                            <button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button>                            
+                            <button type="button" class="btnCustom me-5">Współpracuj</button>                         
                         </div>
                         <span class="navOpen" onclick="openNav()">
                             <i class="fas fa-bars"></i>
@@ -61,7 +61,7 @@
                                         <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
                                     </div>
                                 </li>
-                                <li><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></li>
+                                <li><button type="button" class="btnDarkCustom">Współpracuj</button></li>
                             </ul>
                         </div>
     
@@ -101,7 +101,7 @@
     <!-- start end  -->
 
     <!-- start functions -->
-    <div id="features" class="features section">
+    <section class="features">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -233,7 +233,8 @@
                     </div>
                 </div>
             </div>
-        </div    </div>
+        </div>
+    </section>
     <!-- end functions -->
 
 
@@ -357,19 +358,24 @@
     <!-- start newsletter -->
     <section class="newsletter">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xxl-7">
-                    <h2 class="newsletter--heading">Zapisz się na newsletter</h2>
-                    <p class="newsletter--description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eveniet
-                        hic, dicta incidunt dignissimos blanditiis modi, laborum numquam minima vero enim aut
-                        cupiditate
-                        ad suscipit deleniti id nam. Quam, eaque saepe.</p>
-
-                    <div class="newsletter--input">
-                            <input type="text" class="inputNews" placeholder="Adres e-mail">                        
-                            <button class="btnCustomNewsletter" type="submit">Wyślij</button>
-                    </div>
+            <div class="row">    
+                <div class="col-lg-5 ml-auto mt-5 pt-5 col-md-6 col-12">
+                    <img src="./assets/img/newsletter.png" class="img-fluid" alt="newsletter">
+                </div>
+        
+                <div class="col-lg-5 mr-auto mt-5 pt-5 col-md-6 col-12 newsletter--content">
+                    <h4>Email Newsletter</h4>            
+                    <h2>Let’s stay up-to-date. We'll share you all good stuffs.</h2>
+                    <form>
+                        <div class="newsletter--content-form">
+                            <input name="email" type="email" class="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" required>                
+                            <p>We'll NOT share your email address to anyone else.</p>
+                            <label class="checkbox-inline" for="monthly">
+                                <input type="checkbox" name="monthly" value="">Please send me a monthly newsletter.
+                            </label>        
+                            <button type="submit"class="btnCustom">Sign up</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -401,7 +407,7 @@
                             <label for="textarea">Treść wiadomości</label>
                             <textarea class="inputCustom" name="textarea" rows="3"></textarea>
 
-                            <button type="submit" class="btnCustom">Wyślij</button>
+                            <button type="submit" class="btnOutlineCustom">Wyślij</button>
                         </div>
                     </form>
                 </div>
