@@ -1,0 +1,90 @@
+.btnCustom{
+    border-radius: 1rem;
+    border: 0;
+    background-color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover{
+        background-color: $main_color-hover;
+        color: $main_color;
+        border: 0.2rem solid $main_color;
+        padding: 0.55rem;
+
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
+}
+
+.btnCustomNewsletter {
+    border: 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover{
+        background-color: $main_color-hover;
+        color: $main_color;
+        border: 0.2rem solid $main_color;
+        border-left: 0.1;
+        padding: 0.55rem;
+
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
+}
+
+.navOpen{
+    color: $main_color;
+    font-size: 3rem;
+    background-color: #ff000000;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.btnOutlineCustom {
+    border: 0.2rem solid $main_color;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: $main_color;
+    font-weight: 600;
+    padding: 0.75rem;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $main_color;
+        padding: 0.75rem;
+        color: #fff;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
+}
+
+.btnDarkCustom {
+    border: 0.2rem solid $font_color-dark;
+    background-color: transparent;
+    border-radius: 1rem;
+    color: $font_color-dark;
+    font-weight: 600;
+    padding: 0.55rem;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $font_color-dark;
+        color: #fff;
+    }
+    &:focus{
+        background-color: $main_color-hover;
+        color: $red;
+    }
+}
+
