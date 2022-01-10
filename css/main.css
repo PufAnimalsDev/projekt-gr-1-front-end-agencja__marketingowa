@@ -17470,10 +17470,20 @@ readers do not read off random characters that represent icons */
 .aboutus--item-wrapper {
   text-align: center;
   background-color: #f5f5f5;
-  border-radius: 0 2rem 2rem 0;
-  margin-left: -2rem;
+  border-radius: 2rem;
   padding: 9.5rem 6rem;
   box-shadow: 0px 0px 0.5rem #FFB400;
+}
+@media (min-width: 1200px) {
+  .aboutus--item-wrapper {
+    margin-left: -2rem;
+    border-radius: 0 2rem 2rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .aboutus--item-wrapper {
+    margin-left: -2rem;
+  }
 }
 .aboutus--item-slider img {
   position: relative;
