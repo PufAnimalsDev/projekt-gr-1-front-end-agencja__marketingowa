@@ -17233,24 +17233,21 @@ readers do not read off random characters that represent icons */
 }
 
 .header {
-  background-color: #fff;
-  padding: 1rem 0;
+  height: 0;
+  position: relative;
+  top: 3rem;
   font-size: 1rem;
   color: #464646;
 }
-.header #logoHead img {
-  height: 4rem;
-  width: auto;
-}
 .header #navbar {
   position: fixed;
+  z-index: 99999;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
   width: 100%;
   transition: top 0.3s;
-  padding-right: 1rem;
 }
 .header #navbar #navHider {
   display: flex;
@@ -17268,14 +17265,15 @@ readers do not read off random characters that represent icons */
   gap: 0.5rem;
   margin-right: 2rem;
 }
-.header #navbar .navOpen {
+.header #navbar #navHider .navOpen {
   background-color: #ffffff00;
+  position: sticky;
 }
 .header .overlay {
   height: 0;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 9999999999999;
   left: 0;
   top: 0;
   background-color: #FFB400;
@@ -17285,20 +17283,29 @@ readers do not read off random characters that represent icons */
 }
 .header .overlay-content {
   position: relative;
-  top: 25%;
+  top: 5rem;
   width: 100%;
   text-align: center;
-  margin-top: 30px;
 }
-.header .overlay-content a {
-  padding: 8px;
+.header .overlay-content .menu .selectLang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header .overlay-content .menu .selectLang img {
+  border: 1px solid #464646;
+  width: 2rem;
+  height: auto;
+}
+.header .overlay-content .menu li a {
+  padding: 1rem;
   text-decoration: none;
   font-size: 36px;
   color: #464646;
   display: block;
   transition: 0.3s;
 }
-.header .overlay-content a:hover, .header .overlay-content a:focus {
+.header .overlay-content .menu li a:hover, .header .overlay-content .menu li a:focus {
   color: #f1f1f1;
   transition: 0.4s;
 }
@@ -17328,7 +17335,7 @@ readers do not read off random characters that represent icons */
 
 .footer {
   background-color: #4b4b4b;
-  padding: 5rem 0;
+  padding: 3rem 0;
   min-height: 30vh;
 }
 .footer a:hover {
@@ -17350,27 +17357,33 @@ readers do not read off random characters that represent icons */
   }
 }
 .footer ul li {
-  margin-left: 30px;
-}
-.footer--heading {
-  margin-bottom: 4rem;
-  text-align: center;
+  margin-left: 2rem;
 }
 .footer--item-wrapper {
   text-align: center;
 }
 .footer--socials {
   text-align: center;
-  margin: 2px;
+}
+.footer--authors {
+  border-top: 1px solid #FFB400;
+  padding-top: 1rem;
+  color: #2e2e2e;
+  display: flex;
+  justify-content: space-between;
 }
 
 .start {
-  background-color: #fff;
-  min-height: 80vh;
-  padding: 7rem 0;
+  display: flex;
+  padding-top: 11rem;
+  height: 100vh;
 }
 .start--item-wrapper {
   text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 2rem 0 0 2rem;
+  padding: 7.5rem 6rem;
+  box-shadow: 0px 0px 0.5rem #FFB400;
 }
 .start--heading {
   margin-bottom: 2rem;
@@ -17379,6 +17392,17 @@ readers do not read off random characters that represent icons */
 .start--description {
   text-align: center;
   margin-bottom: 3rem;
+}
+.start--item-slider {
+  position: absolute;
+  right: 8rem;
+  width: 50rem;
+  height: auto;
+}
+.start--item-slider img {
+  border-radius: 2rem;
+  border: 0.5rem solid #FFB400;
+  box-shadow: 0px 0px 0.5rem #FFB400;
 }
 
 .functions {
@@ -17437,8 +17461,7 @@ readers do not read off random characters that represent icons */
 
 .aboutus {
   padding: 7rem 0;
-  background-color: #fff;
-  min-height: 70vh;
+  height: 100vh;
 }
 .aboutus--heading {
   margin-bottom: 4rem;
@@ -17446,12 +17469,21 @@ readers do not read off random characters that represent icons */
 }
 .aboutus--item-wrapper {
   text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 0 2rem 2rem 0;
+  margin-left: -2rem;
+  padding: 9.5rem 6rem;
+  box-shadow: 0px 0px 0.5rem #FFB400;
 }
-.aboutus img {
+.aboutus--item-slider img {
+  position: relative;
+  z-index: 10;
   width: 100%;
   height: auto;
   border: 0.5rem solid #FFB400;
   border-radius: 2rem;
+  box-shadow: 0px 0px 0.5rem #FFB400;
+
 }
 
 .portfolio {
@@ -17574,26 +17606,35 @@ a {
   padding: 0.75rem;
 }
 .btnCustom:hover {
-  background-color: #db9a00;
-  color: #fff;
+  background-color: #fff;
+  color: #FFB400;
+  border: 0.2rem solid #FFB400;
+  padding: 0.55rem;
 }
 .btnCustom:focus {
-  background-color: #db9a00;
+  background-color: #fff;
+
   color: #dc3545;
 }
 
 .btnCustomNewsletter {
   border: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+
   background-color: #FFB400;
   font-weight: 600;
   padding: 0.75rem;
 }
 .btnCustomNewsletter:hover {
-  background-color: #db9a00;
-  color: #fff;
+  background-color: #fff;
+  color: #FFB400;
+  border: 0.2rem solid #FFB400;
+  border-left: 0.1;
+  padding: 0.55rem;
 }
 .btnCustomNewsletter:focus {
-  background-color: #db9a00;
+  background-color: #fff;
+
   color: #dc3545;
 }
 
@@ -17610,17 +17651,19 @@ a {
   border: 0.2rem solid #FFB400;
   background-color: transparent;
   border-radius: 1rem;
-  color: #464646;
+  color: #FFB400;
   font-weight: 600;
   padding: 0.75rem;
 }
 .btnOutlineCustom:hover {
   background-color: #FFB400;
   border: 0.2rem solid #FFB400;
+  padding: 0.75rem;
   color: #fff;
 }
 .btnOutlineCustom:focus {
-  background-color: #db9a00;
+  background-color: #fff;
+p
   color: #dc3545;
 }
 
@@ -17630,7 +17673,8 @@ a {
   border-radius: 1rem;
   color: #464646;
   font-weight: 600;
-  padding: 0.75rem;
+  padding: 0.55rem;
+
 }
 .btnDarkCustom:hover {
   background-color: #FFB400;
@@ -17638,21 +17682,43 @@ a {
   color: #fff;
 }
 .btnDarkCustom:focus {
-  background-color: #db9a00;
+  background-color: #fff;
+
+
   color: #dc3545;
 }
 
 .inputCustom {
   border: 0.2rem solid #FFB400;
   border-radius: 1rem;
-  background-color: #00000000;
+  background-color: #fff;
   margin: 0.2rem;
   padding: 0.5rem;
+}
+.inputCustom::placeholder {
+  text-align: center;
+}
+.inputCustom:focus {
+  outline: 0;
+  background-color: #ffe19b;
+  color: #000;
 }
 
 .inputNews {
   border: 0.25rem solid #FFB400;
+  border-radius: 0.5rem 0 0 0.5rem;
   width: 42rem;
+}
+.inputNews:hover::placeholder {
+  color: #464646;
+}
+.inputNews::placeholder {
+  text-align: right;
+  margin-right: 1rem;
+}
+.inputNews:focus {
+  outline: 0;
+  background-color: #ffe19b;
 }
 
 .newsletter {
@@ -17671,6 +17737,304 @@ a {
   display: flex;
 }
 
+/* 
+---------------------------------------------
+Features Style
+--------------------------------------------- 
+*/
+.features {
+  padding-top: 130px;
+}
+.features-content {
+  z-index: 2;
+  position: relative;
+  background-color: #fff;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 0.5rem #FFB400;
+}
+.features-item {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 3rem;
+  background: #fff;
+  transition: background-color 0.5s;
+}
+.features-item:hover {
+  background-color: #FFB400;
+}
+.features-item:hover h4, .features-item:hover .h4, .features-item:hover p {
+  color: #fff;
+}
+.features-item:hover .line-dec {
+  background-color: #fff;
+}
+
+.first-feature:hover .icon {
+  background-image: url(../assets/img_styles/features-icon-white-01.png);
+}
+
+.second-feature:hover .icon {
+  background-image: url(../assets/img_styles/features-icon-white-02.png);
+}
+
+.features-item .number h6, .features-item .number .h6 {
+  background-repeat: no-repeat;
+  width: 110px;
+  height: 69px;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 100px;
+  margin-top: -80px;
+  margin-bottom: 30px;
+}
+.features-item .number-background h6, .features-item .number-background .h6 {
+  width: 100px;
+  height: 120px;
+  background-image: url(../assets/img_styles/features-number-01.png);
+}
+
+.first-feature .icon {
+  background-image: url(../assets/img_styles/features-icon-black-01.png);
+}
+
+.second-feature .icon {
+  background-image: url(../assets/img_styles/features-icon-black-02.png);
+}
+
+.features-item .icon {
+  width: 63px;
+  height: 63px;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+.features-item h4, .features-item .h4 {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #2a2a2a;
+  position: relative;
+  transition: all 0.5s;
+}
+.features-item .line-dec {
+  width: 100px;
+  height: 2px;
+  background-color: #FFB400;
+  margin: 30px auto;
+  transition: all 0.5s;
+}
+.features-item p {
+  position: relative;
+  margin-top: 0px;
+  transition: all 0.5s;
+}
+
+.skills-content {
+  position: relative;
+  z-index: 1;
+  margin-top: -50px;
+  background-color: #f5f5f5;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 110px 0px 50px 0px;
+  box-shadow: 0px 0px 0.5rem #FFB400;
+}
+
+.skill-item {
+  text-align: center;
+}
+
+.progress {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  background: none;
+  margin: 0 auto;
+  box-shadow: none;
+  position: relative;
+  margin-bottom: 1em;
+}
+.progress:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.progress > span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+.progress .progress-left {
+  left: 0;
+}
+.progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 5px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+  border-color: #FFB400;
+}
+.progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+  border-left: 0;
+  transform-origin: center left;
+}
+.progress .progress-right {
+  right: 0;
+}
+.progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-right: 0;
+  transform-origin: center right;
+}
+.progress .progress-value {
+  text-align: center;
+  color: #2a2a2a;
+  display: flex;
+  width: 100%;
+  border-radius: 50%;
+  font-size: 32px;
+  text-align: center;
+  line-height: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: 700;
+}
+.progress .progress-value div {
+  margin-top: 10px;
+}
+.progress .progress-value span {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.progress[data-percentage="10"] .progress-right .progress-bar {
+  animation: loading-1 1.5s linear forwards;
+}
+.progress[data-percentage="10"] .progress-left .progress-bar {
+  animation: 0;
+}
+.progress[data-percentage="20"] .progress-right .progress-bar {
+  animation: loading-2 1.5s linear forwards;
+}
+.progress[data-percentage="20"] .progress-left .progress-bar {
+  animation: 0;
+}
+.progress[data-percentage="30"] .progress-right .progress-bar {
+  animation: loading-3 1.5s linear forwards;
+}
+.progress[data-percentage="30"] .progress-left .progress-bar {
+  animation: 0;
+}
+.progress[data-percentage="40"] .progress-right .progress-bar {
+  animation: loading-4 1.5s linear forwards;
+}
+.progress[data-percentage="40"] .progress-left .progress-bar {
+  animation: 0;
+}
+.progress[data-percentage="50"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="50"] .progress-left .progress-bar {
+  animation: 0;
+}
+.progress[data-percentage="60"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="60"] .progress-left .progress-bar {
+  animation: loading-1 1.5s linear forwards 1.5s;
+}
+.progress[data-percentage="70"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="70"] .progress-left .progress-bar {
+  animation: loading-2 1.5s linear forwards 1.5s;
+}
+.progress[data-percentage="80"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="80"] .progress-left .progress-bar {
+  animation: loading-3 1.5s linear forwards 1.5s;
+}
+.progress[data-percentage="90"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="90"] .progress-left .progress-bar {
+  animation: loading-4 1.5s linear forwards 1.5s;
+}
+.progress[data-percentage="100"] .progress-right .progress-bar {
+  animation: loading-5 1.5s linear forwards;
+}
+.progress[data-percentage="100"] .progress-left .progress-bar {
+  animation: loading-5 1.5s linear forwards 1.5s;
+
+
+}
+
+/* 
+Animacja robienia okręgu może da się to zrobić proście  
+*/
+@keyframes loading-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(36deg);
+  }
+}
+@keyframes loading-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(72deg);
+  }
+}
+@keyframes loading-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(108deg);
+  }
+}
+@keyframes loading-4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(144deg);
+  }
+}
+@keyframes loading-5 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
 * {
   list-style-type: none;
 }

@@ -1,24 +1,36 @@
 .start{
-    background-color: #fff;
-    min-height: 80vh;
-    padding: 7rem 0;
-   
+    display: flex;
+    padding-top: 11rem;
+    height: 100vh;   
         
     &--item-wrapper{
         text-align: center;
-    
+        background-color: $shadows;
+        border-radius: 2rem 0 0 2rem;
+        padding: 7.5rem 6rem;
+        box-shadow: 0px 0px 0.5rem $main_color; 
     }  
     
-        &--heading{
-            margin-bottom: 2rem;
-            text-align: center;
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+    }
     
-            
-    
-        }
-    
-        &--description{
-            text-align: center;
-            margin-bottom: 3rem;
+    &--description{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &--item-slider {
+        position: absolute;
+        right: 8rem;
+        width: 50rem;
+        height: auto;
+        img {
+            border-radius: 2rem;
+            border: 0.5rem solid $main_color;
+            box-shadow: 0px 0px 0.5rem $main_color;            
         }
     }
+
+}
