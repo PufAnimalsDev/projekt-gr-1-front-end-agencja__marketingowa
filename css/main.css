@@ -17351,7 +17351,7 @@ readers do not read off random characters that represent icons */
   justify-content: center;
   align-items: center;
 }
-@media (min-width: 992px) {
+@media (min-width: 576px) {
   .footer ul {
     flex-direction: row;
   }
@@ -17372,7 +17372,6 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: space-between;
 }
-
 .start {
   display: flex;
   padding-top: 11rem;
@@ -17405,60 +17404,6 @@ readers do not read off random characters that represent icons */
   box-shadow: 0px 0px 0.5rem #FFB400;
 }
 
-.functions {
-  padding: 5rem 0;
-}
-.functions--heading {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.functions--description {
-  text-align: center;
-  color: #464646;
-  margin-bottom: 3rem;
-}
-.functions--item-wrapper {
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-}
-@media (min-width: 992px) {
-  .functions--item-wrapper {
-    padding-top: 5rem;
-  }
-}
-.functions--item {
-  position: relative;
-  padding: 4rem 2rem;
-  box-shadow: 0 0 1rem rgba(33, 37, 41, 0.15);
-  border: 0.5rem solid #FFB400;
-  border-radius: 2rem;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-}
-.functions--item-icon {
-  position: absolute;
-  top: -3rem;
-  left: calc(50% - 3rem);
-  background-color: #fff;
-  border-radius: 50%;
-  border: 0.5rem solid #FFB400;
-  text-align: center;
-  width: 6rem;
-  height: 6rem;
-  line-height: 5rem;
-  color: #FFB400;
-  font-size: 3rem;
-}
-.functions--item-heading {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.functions--item-description {
-  margin-bottom: 5rem;
-}
-
 .aboutus {
   padding: 7rem 0;
   height: 100vh;
@@ -17485,7 +17430,6 @@ readers do not read off random characters that represent icons */
     margin-left: -2rem;
   }
 }
-
 .aboutus--item-slider img {
   position: relative;
   z-index: 10;
@@ -17623,14 +17567,12 @@ a {
 }
 .btnCustom:focus {
   background-color: #fff;
-
   color: #dc3545;
 }
 
 .btnCustomNewsletter {
   border: 0;
   border-radius: 0 0.5rem 0.5rem 0;
-
   background-color: #FFB400;
   font-weight: 600;
   padding: 0.75rem;
@@ -17644,7 +17586,6 @@ a {
 }
 .btnCustomNewsletter:focus {
   background-color: #fff;
-
   color: #dc3545;
 }
 
@@ -17673,7 +17614,6 @@ a {
 }
 .btnOutlineCustom:focus {
   background-color: #fff;
-
   color: #dc3545;
 }
 
@@ -17995,7 +17935,6 @@ Features Style
 }
 .progress[data-percentage="100"] .progress-left .progress-bar {
   animation: loading-5 1.5s linear forwards 1.5s;
-
 }
 
 /* 
@@ -18041,6 +17980,216 @@ Animacja robienia okręgu może da się to zrobić proście
     transform: rotate(180deg);
   }
 }
+.cooperate {
+  padding: 7rem 0;
+  min-height: 60vh;
+}
+.cooperate--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.politics {
+  padding: 7rem 0;
+  background-color: #cccccc;
+  min-height: 60vh;
+}
+.politics--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.analitics {
+  padding: 7rem 0;
+  background-color: #cccccc;
+  min-height: 60vh;
+}
+.analitics--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.analitics--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.analitics--item-wrapper {
+  width: 20rem;
+  margin: 10px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  background-color: #fff;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .analitics--item-wrapper {
+    padding-top: 3rem;
+  }
+}
+
+.analitics-list {
+  padding: 7rem 0;
+  background-color: #ffd755;
+  min-height: 60vh;
+}
+.analitics-list--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.analitics-list--description {
+  background-color: #fff;
+  padding: 3rem;
+}
+
+.analitics-info {
+  padding: 7rem 0;
+  background-color: #c5c5c5;
+  min-height: 60vh;
+}
+.analitics-info--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.analitics-info--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.search {
+  padding: 7rem 0;
+  background-color: #cccccc;
+  min-height: 60vh;
+}
+.search--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.search--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.search--item-wrapper {
+  border: 3px solid #ffbb27;
+  border-radius: 1rem;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .search--item-wrapper {
+    padding-top: 3rem;
+  }
+}
+
+.search-list {
+  padding: 7rem 0;
+  background-color: #ffd755;
+  min-height: 60vh;
+}
+.search-list--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.search-list--box {
+  background-color: #fff;
+  padding: 3rem;
+  margin: 1rem;
+}
+.search-list--box__heading {
+  font-weight: 600;
+}
+
+.contentMark {
+  padding: 7rem 0;
+  background-color: #cccccc;
+  min-height: 60vh;
+}
+.contentMark--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contentMark--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.contentMark--item-wrapper {
+  width: 20rem;
+  margin: 10px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  background-color: #fff;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .contentMark--item-wrapper {
+    padding-top: 3rem;
+  }
+}
+
+.contentMark-list {
+  padding: 7rem 0;
+  background-color: #ffd755;
+  min-height: 60vh;
+}
+.contentMark-list--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contentMark-list--box {
+  background-color: #fff;
+  padding: 3rem;
+  margin: 1rem;
+}
+.contentMark-list--box__heading {
+  font-weight: 600;
+}
+
+.socialMedia {
+  padding: 7rem 0;
+  background-color: #cccccc;
+  min-height: 60vh;
+}
+.socialMedia--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.socialMedia--description {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.socialMedia--item-wrapper {
+  margin: 10px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  border: 3px solid #faac1c;
+  border-radius: 1rem;
+  justify-content: center;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .socialMedia--item-wrapper {
+    padding-top: 3rem;
+  }
+}
+
+.socialMedia-list {
+  padding: 7rem 0;
+  background-color: #ffd755;
+  min-height: 60vh;
+}
+.socialMedia-list--heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.socialMedia-list--box {
+  background-color: #fff;
+  padding: 3rem;
+  margin: 1rem;
+}
+.socialMedia-list--box__heading {
+  font-weight: 600;
+}
+
 * {
   list-style-type: none;
 }
