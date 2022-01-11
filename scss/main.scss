@@ -1,6 +1,6 @@
 @import "variables";
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -10,7 +10,6 @@
 @import "header";
 @import "footer";
 @import "start";
-@import "functions";
 @import "aboutus";
 @import "portfolio";
 @import "members";
@@ -27,6 +26,7 @@
 @import "offer-search";
 @import "offer-contentMark";
 @import "offer-socialMedia";
+
 
 *{
     list-style-type: none;
