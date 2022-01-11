@@ -6,6 +6,7 @@ import "@fortawesome/fontawesome-free/js/all.min.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
+import Newsletter from "./Newsletter";
 
 window.onscroll = function () { scrollFunctionHide() };
 function scrollFunctionHide() {
@@ -31,5 +32,6 @@ document.getElementById('closeNav').addEventListener('click', function () {
 }, false);
 
 window.addEventListener("load", () => {
-  ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+    ReactDOM.render(<Newsletter />, document.getElementById("newsletter"));
 })
