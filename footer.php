@@ -113,7 +113,6 @@ $newsletter_desc = get_theme_mod('newsletter_desc');
     </div>
     </section>
     <!-- end opinions  -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>./dist/main.js"></script>
     <?php wp_footer(); ?>
 
     </body>

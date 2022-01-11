@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
-import Tile from "./Tile";
 import Timeline from "./Timeline";
-
+import Tile from "./Tile";
 const FormWizard = () => {
   let [currentTile, setCurrentTile] = useState(0);
   let [formStatus, setFormStatus] = useState("unsent");
@@ -42,19 +41,24 @@ const FormWizard = () => {
 
     setFormStatus("waiting");
 
-    let response = await fetch(`${page.api_url}workon/formwizard`, {
+    let response = await fetch(`${page.form_url}workon/formwizard`, {
       method: 'POST',
       body: new FormData(formEl.current)
     });
 
-    let result = await response.json();
+    const result = await response.json();
 
-    console.log(response);
-    console.log(JSON.parse(result));
+    console.log(result);
 
-    setTimeout(() => {
+    if (result === "success") {
       setFormStatus("success");
-    }, 8000)
+    } else {
+      alert("Coś poszło nie tak")
+    }
+
+    formEl.current.value = "";
+
+
   }
 
   return (
