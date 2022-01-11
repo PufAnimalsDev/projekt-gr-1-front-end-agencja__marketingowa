@@ -17233,85 +17233,70 @@ readers do not read off random characters that represent icons */
 }
 
 .header {
-  height: 0;
-  width: auto;
-  margin-top: 1rem;
-  font-size: 20px;
-  color: #2e2e2e;
   position: fixed;
-  z-index: 10;
-}
-.header .navbar {
-  overflow: hidden;
-  background-color: transparent;
-  bottom: 0;
   display: flex;
   flex-direction: row;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  padding: 1rem 0;
+  background-color: transparent;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  padding: 0.25rem 1rem 0.25rem 1rem;
 }
-.header .navbar a {
-  font-size: 16px;
-  color: #FFB400;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.header--logo {
+  max-width: 3rem;
+  height: auto;
 }
-.header .dropdown {
-  float: left;
-  overflow: hidden;
-}
-.header .dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: #FFB400;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-.header .navbar a:hover, .header .dropdown:hover .dropbtn {
-  background-color: red;
-}
-.header .dropdown-content {
+.header--nav {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
 }
-.header .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
+@media (min-width: 992px) {
+  .header--nav {
+    display: block;
+  }
+}
+.header--nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 992px) {
+  .header--nav ul {
+    flex-direction: row;
+    justify-content: end;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+.header--nav ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  .header--nav ul li:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.header--nav ul li:last-child {
+  margin-left: 3rem;
+}
+.header--nav ul a {
+  font-size: 1.5rem;
   text-decoration: none;
-  display: block;
-  text-align: left;
+  color: #FFB400;
 }
-.header .dropdown-content a:hover {
-  background-color: #ddd;
-}
-.header .dropdown:hover .dropdown-content {
-  display: block;
-}
-@media screen and (max-height: 450px) {
-  .header .overlay {
-    overflow-y: auto;
-  }
-  .header .overlay a {
-    font-size: 20px;
-  }
-  .header .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+.header--nav ul a:hover {
+  color: #0d6efd;
 }
 
 .footer {
   background-color: #4b4b4b;
-  padding: 3rem 0;
-  min-height: 30vh;
+  min-height: 60vh;
+  padding-top: 2rem;
 }
 .footer a:hover {
   color: #fff;
@@ -17337,20 +17322,23 @@ readers do not read off random characters that represent icons */
 .footer--item-wrapper {
   text-align: center;
 }
+.footer--item-wrapper h3, .footer--item-wrapper .h3 {
+  color: #fff;
+}
 .footer--socials {
   text-align: center;
 }
 .footer--authors {
   border-top: 1px solid #FFB400;
   padding-top: 1rem;
-  color: #464646;
+  color: #fff;
   display: flex;
   justify-content: space-between;
 }
 
 .start {
   display: flex;
-  padding-top: 8.5rem;
+  padding-top: 10.5rem;
   height: 100vh;
 }
 .start--item-wrapper {
@@ -17401,7 +17389,7 @@ readers do not read off random characters that represent icons */
   z-index: 10;
   width: 100%;
   height: auto;
-  border: 0.5rem solid #FFB400;
+  border: 0.25rem solid #FFB400;
   border-radius: 2rem;
   box-shadow: 0px 0px 0.5rem #FFB400;
 }
@@ -17434,6 +17422,7 @@ readers do not read off random characters that represent icons */
 }
 .newsletter--content {
   box-shadow: 0px 0px 0.5rem #FFB400;
+  border-radius: 1rem;
 }
 .newsletter--content-form {
   display: flex;
@@ -17674,7 +17663,7 @@ a {
 .inputCustom {
   border: 0.2rem solid #FFB400;
   border-radius: 1rem;
-  background-color: #fff;
+  background-color: transparent;
   margin: 0.2rem;
   padding: 0.5rem;
 }
@@ -17712,6 +17701,7 @@ a {
 }
 .newsletter--content {
   box-shadow: 0px 0px 0.5rem #FFB400;
+  border-radius: 1rem;
 }
 .newsletter--content-form {
   display: flex;

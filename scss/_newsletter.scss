@@ -6,6 +6,7 @@
 
     &--content{
         box-shadow: 0px 0px 0.5rem $main_color;
+        border-radius: 1rem;
             &-form { 
                 display: flex;
                 flex-direction: column;    
