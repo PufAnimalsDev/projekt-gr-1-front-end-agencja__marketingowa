@@ -4,14 +4,19 @@
     display: flex;
     flex-direction: column;
 
-    &--content-form { 
-        display: flex;
-        flex-direction: column;    
-        box-shadow: none;
-        background: $shadows;
-        border: 0;
-        padding: 1.7em 1.3em;
-        gap: 1rem;
-        color: $font_color-muted;
-    }
+    &--content{
+        box-shadow: 0px 0px 0.5rem $main_color;
+            &-form { 
+                display: flex;
+                flex-direction: column;    
+                box-shadow: none;
+                background: $shadows;
+                border: 0;
+                border-radius: 1rem;
+                padding: 1.7em 1.3em;
+                margin: 1rem;
+                gap: 1rem;
+                color: $font_color-muted;
+            }
+        }
   }
