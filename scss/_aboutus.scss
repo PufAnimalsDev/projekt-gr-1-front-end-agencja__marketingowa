@@ -10,10 +10,19 @@
     &--item-wrapper{
         text-align: center;
         background-color: $shadows;
-        border-radius: 0 2rem 2rem 0;
-        margin-left: -2rem;
+        border-radius: 2rem;
+        
         padding: 9.5rem 6rem;
         box-shadow: 0px 0px 0.5rem $main_color;
+
+        @include media-breakpoint-up(xl){
+            margin-left: -2rem;border-radius: 0 2rem 2rem 0;
+        }
+        @include media-breakpoint-up(md){
+            margin-left: -2rem;
+
+        }
+
     }
 
     &--item-slider {
