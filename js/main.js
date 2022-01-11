@@ -1,6 +1,6 @@
 //start navbar hidding
 
-import "../styles/main.scss";
+import "../scss/main.scss";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import React from "react";
