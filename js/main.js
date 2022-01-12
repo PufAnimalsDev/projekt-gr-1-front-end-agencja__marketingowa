@@ -1,6 +1,6 @@
 //start navbar hidding
 
-import "../styles/main.scss";
+import "../scss/main.scss";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import $ from "jquery"
@@ -8,7 +8,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
 import Newsletter from "./newsletter";
-
 
 window.onscroll = function () { scrollFunctionHide() };
 

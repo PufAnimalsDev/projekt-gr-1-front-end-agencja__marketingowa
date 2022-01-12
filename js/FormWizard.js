@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import Timeline from "./Timeline";
 import Tile from "./Tile";
+import FormSummary from "./FormSummary";
+
 const FormWizard = () => {
   let [currentTile, setCurrentTile] = useState(0);
   let [formStatus, setFormStatus] = useState("unsent");
-
+  
   let formEl = useRef(null);
 
   const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -125,7 +127,7 @@ const FormWizard = () => {
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={10} validationFunction={validateFormElement} validate={"decision_help"}>
-            <label htmlFor="formwizard-decision_help">Jak możemy pomóc Ci podjąć dezycję?</label>
+            <label htmlFor="formwizard-decision_help">Jak możemy pomóc Ci podjąć decyzję?</label>
             <textarea className="form-control" name="decision_help" id="formwizard-decision_help" enterKeyHint="enter"></textarea>
           </Tile>
 
@@ -136,7 +138,7 @@ const FormWizard = () => {
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={12} replaceNextWithSubmit={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
-            <p>tu wszystkie dane</p>
+            <FormSummary currentTile={currentTile} formEl={formEl.current} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>
