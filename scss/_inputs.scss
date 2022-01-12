@@ -16,6 +16,24 @@
     }
 }
 
+.inputCustomFooter {
+    border: 0.2rem solid $main_color-footer;
+    border-radius: 1rem;
+    background-color: transparent;
+    margin: 0.2rem;
+    padding: 0.5rem;
+
+    &::placeholder {
+        text-align: center;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $bgShadow;
+        color: $black;
+    }
+}
+
 .inputNews{
     border: 0.25rem solid $main_color;
     border-radius: 0.5rem 0 0 0.5rem;
@@ -23,7 +41,7 @@
 
     &:hover {
         &::placeholder {
-            color: $font_color-dark;
+            color: $main_color-footer;
         }
     }
 
