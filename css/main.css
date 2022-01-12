@@ -17235,62 +17235,61 @@ readers do not read off random characters that represent icons */
 .header {
   position: fixed;
   display: flex;
-  flex-direction: row;
-  top: 0;
-  left: 0;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   z-index: 999999;
-  padding: 1rem 0;
   background-color: transparent;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   white-space: nowrap;
-  padding: 0.25rem 1rem 0.25rem 1rem;
 }
 .header--logo {
   max-width: 3rem;
   height: auto;
 }
-.header--nav {
-  display: none;
+.header .anim {
+  transform: rotate(0deg);
+  transition: 0.25s;
+  font-size: medium;
 }
-@media (min-width: 992px) {
-  .header--nav {
-    display: block;
-  }
+.header--nav {
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 .header--nav ul {
   display: flex;
+  flex-direction: row;
+}
+.header--nav ul li {
+  position: relative;
+  padding-right: 1rem;
+}
+.header--nav ul li:hover .anim {
+  transform: rotate(180deg);
+}
+.header--nav ul li:nth-child(5) {
+  border-right: 0;
+}
+.header--nav ul ul {
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0;
-  list-style: none;
+  visibility: hidden;
+  transition: 0.2s 1s;
+  position: absolute;
 }
-@media (min-width: 992px) {
-  .header--nav ul {
-    flex-direction: row;
-    justify-content: end;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-}
-.header--nav ul li:not(:last-child) {
-  margin-bottom: 1rem;
-}
-@media (min-width: 992px) {
-  .header--nav ul li:not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.header--nav ul li:last-child {
-  margin-left: 3rem;
-}
-.header--nav ul a {
+.header--nav a {
   font-size: 1.5rem;
-  text-decoration: none;
   color: #FFB400;
+  display: block;
 }
-.header--nav ul a:hover {
-  color: #0d6efd;
+.header--nav a:hover {
+  color: red;
+  transition: 0.5s;
+}
+.header--nav li:hover ul {
+  visibility: visible;
+  transition-delay: 0s;
+  background-color: #fff;
 }
 
 .footer {
