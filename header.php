@@ -18,7 +18,7 @@ $english = get_theme_mod('english_language');
     <title><?php bloginfo('name');
             wp_title('|'); ?></title>
     <?php wp_head(); ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/main.css">
+    <!-- <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/main.css"> -->
 
 </head>
 

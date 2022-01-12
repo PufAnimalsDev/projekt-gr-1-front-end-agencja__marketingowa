@@ -55,9 +55,9 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
       focusableElements.forEach(el => {
         el.tabIndex = -1;
       });
-      if (formStatus === "waiting") {
-        document.activeElement.blur();
-      }
+      // if (formStatus === "waiting") {
+      //   document.activeElement.blur();
+      // }
     } else {
       focusableElements.forEach(el => {
         el.tabIndex = 0;
@@ -68,7 +68,7 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
   useEffect(() => {
     // Prevent Enter key from sending form early when used on text, email and tel inputs
     // Instead, move to the next step of the form
-    
+
     tileElement.current.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]').forEach(el => {
       el.addEventListener("keydown", function (event) {
         if (event.keyCode == 13 || event.which == 13) { // Enter key
