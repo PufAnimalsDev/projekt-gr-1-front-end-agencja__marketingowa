@@ -1,15 +1,25 @@
 .header {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
     z-index: 999999;
     background-color: transparent;
     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
     white-space: nowrap;
+    padding: 1rem 0 1rem 0;
+    &--full {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .btnCustom {
+            margin-left: 8rem;
+        }
+    }
 
     &--logo {
+        position: relative;
+        right: 5rem;
+    }
+    &--logo-img {
             max-width: 3rem;
             height: auto;
         }
@@ -27,9 +37,12 @@
             ul {
               display: flex;
               flex-direction: row;
+              gap: 1rem;
+              
               li{
                   position: relative;
                   padding-right: 1rem;
+                  border-right: 0.2rem solid $main_color;
                       &:hover .anim{
                           transform: rotate(180deg);
                       }
@@ -44,6 +57,10 @@
                   visibility: hidden;
                   transition: 0.2s 1s;
                   position: absolute;
+                  
+                  li {
+                      border-right: 0;
+                  }
               }
           }
           a{
@@ -58,10 +75,33 @@
           
           li:hover ul {
               visibility: visible;
+              padding: 1rem;
               transition-delay: 0s;
-              background-color: $white;
+              background-color: $bgShadow;
           }
       }
 }
 
-
+.slideInDown {
+    animation-name: slideInDown;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInDown {
+    0% {
+    transform: translateY(-100%);
+    visibility: visible;
+    }
+    100% {
+    transform: translateY(0);
+    }
+    }
+    @keyframes slideInDown {
+    0% {
+    transform: translateY(-100%);
+    visibility: visible;
+    }
+    100% {
+    transform: translateY(0);
+    }
+}

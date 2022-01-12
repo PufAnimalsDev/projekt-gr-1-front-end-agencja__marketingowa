@@ -17234,16 +17234,26 @@ readers do not read off random characters that represent icons */
 
 .header {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   z-index: 999999;
   background-color: transparent;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   white-space: nowrap;
+  padding: 1rem 0 1rem 0;
+}
+.header--full {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.header--full .btnCustom {
+  margin-left: 8rem;
 }
 .header--logo {
+  position: relative;
+  right: 5rem;
+}
+.header--logo-img {
   max-width: 3rem;
   height: auto;
 }
@@ -17259,10 +17269,12 @@ readers do not read off random characters that represent icons */
 .header--nav ul {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
 }
 .header--nav ul li {
   position: relative;
   padding-right: 1rem;
+  border-right: 0.2rem solid #FFB400;
 }
 .header--nav ul li:hover .anim {
   transform: rotate(180deg);
@@ -17277,6 +17289,9 @@ readers do not read off random characters that represent icons */
   transition: 0.2s 1s;
   position: absolute;
 }
+.header--nav ul ul li {
+  border-right: 0;
+}
 .header--nav a {
   font-size: 1.5rem;
   color: #FFB400;
@@ -17288,10 +17303,35 @@ readers do not read off random characters that represent icons */
 }
 .header--nav li:hover ul {
   visibility: visible;
+  padding: 1rem;
   transition-delay: 0s;
-  background-color: #fff;
+  background-color: #f5f5f598;
 }
 
+.slideInDown {
+  animation-name: slideInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .footer {
   background-color: #4b4b4b;
   min-height: 60vh;
