@@ -1,6 +1,6 @@
 .start{
     display: flex;
-    padding-top: 10.5rem;
+    padding-top: 11rem;
 
     height: 100vh;   
         
@@ -9,7 +9,7 @@
         text-align: center;
         background-color: $shadows;
         border-radius: 2rem 0 0 2rem;
-        padding: 7.5rem 6rem;
+        padding: 10rem 6rem;
         box-shadow: 0px 0px 0.5rem $main_color; 
     }  
     
@@ -36,10 +36,10 @@
     }
 
 }  
-         @include media-breakpoint-between(sm,lg){
-            border-radius: 2rem;
+        //  @include media-breakpoint-between(sm,lg){
+        //     border-radius: 2rem;
 
-        }
+        // }
     
     
         // @include media-breakpoint-up(lg){
