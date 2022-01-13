@@ -1,0 +1,57 @@
+.socialMedia{
+    padding: 7rem 0;
+    background-color: rgb(204, 204, 204);
+    min-height: 60vh;
+
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+
+        
+
+    }
+
+    &--description{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &--item-wrapper{
+        margin: 10px;
+        padding-top: 3rem;
+        padding-bottom:2rem; 
+        border: 3px solid rgb(250, 172, 28);
+        border-radius: 1rem;
+        justify-content: center;
+        text-align: center;
+
+        @include media-breakpoint-up(lg){
+            padding-top: 3rem;
+        }
+    }
+}
+
+.socialMedia-list{
+    padding: 7rem 0;
+    background-color: rgb(255, 215, 85);
+    min-height: 60vh;
+
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+
+        
+
+    }
+
+    &--box{
+        background-color: #fff;
+        padding: 3rem;
+        margin: 1rem;
+
+        &__heading{
+            font-weight: 600;
+        }
+    }
+}
+

@@ -5,6 +5,7 @@
 
     a:hover{
         color: red;
+
     }
 
     &--form {
@@ -25,9 +26,15 @@
         justify-content: center;
         align-items: center;        
 
-        @include media-breakpoint-up(lg){
+        @media (min-width: 576px){
             flex-direction: row;
         }
+        // @include333333 media-breakpoint-up(lg){
+        //     flex-direction: row;
+        // }
+        // @include media-breakpoint-up(md){
+        //     flex-direction: row;
+        // }
 
         li{
             margin-left: 2rem;
@@ -69,9 +76,16 @@
         border-top: 1px solid $main_color-footer;
         padding-top: 1rem;
         color: $bgShadow;
+
         display: flex;
         justify-content: space-between;
     }
+
+
+    // &--links{
+
+    // }
+
 
 }
 
