@@ -8,17 +8,25 @@ Features Style
     padding-top: 4rem;
   
     &--content {
+
       z-index: 2;
       position: relative;
       background-color: $white;
       border-radius: 3rem;
       box-shadow: 0px 0px 0.5rem $main_color;
-    }
-  
-  
+    } 
     &--item {
     text-align: center;
     padding: 1rem;
+      @include media-breakpoint-up(lg){
+        margin-top: 0;
+
+        }
+
+    }
+  
+  
+    
     border-radius: 3rem;
     background: $white;
     transition: background-color .5s;
@@ -49,7 +57,6 @@ Features Style
       margin-top: -3rem;
       margin-bottom: 3rem;
     }
-
     .icon {
       width: 63px;
       height: 63px;
@@ -87,7 +94,6 @@ Features Style
       height: auto;
       background-image: url(../assets/img_styles/features-number-01.png);
     }
-  }
 }  
   
   .first-feature:hover .icon {
@@ -104,6 +110,7 @@ Features Style
   
   .second-feature .icon {
     background-image: url(../assets/img_styles/features-icon-black-02.png);
+
   }
   
   .skills-content {
