@@ -24,28 +24,64 @@
     <!-- header start  -->
     <header class="header">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 logo">
-                    <a href="./index.html"><img src="./assets/img_styles/logo/logo_peacock_lightMNew.png" alt="logo"></a>
+            <div class="row header--full">
+                <div class="col-2 header--logo">
+                    <img src="./assets/img_styles/logo/logo_peacock_lightMNew.png" alt="LogoFirmy" class="header--logo-img">
                 </div>
-                <div class="col-lg-9 col-md-6 d-flex justify-content-end  align-items-center space">
-
-                    <div id="navbar">
-                        <div id="navHider">
-                            <div class="selectLang">
-                                <a href="#"><img src="./assets/img_styles/polish_flag.png" alt="polish_flag"></a>
-                                <h4>|</h4>
-                                <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
-                            </div>
+                <div class="col-8">
+                    <nav class="header--nav">
+                        <ul>
+                            <li><a href="#start">Strona główna</a></li>
+                            <li><a href="#cytat">Case studies</a></li>
+                            <li><a href="#funkcje">Oferty <i class="fa fa-chevron-down anim"></i></a>
+                                <ul>
+                                    <li><a href="#">Analityka internetowa</a></li>
+                                    <li><a href="#">Social media</a></li>
+                                    <li><a href="#">SEO</a></li>
+                                    <li><a href="#">Content marketing</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#opinie">Aktualności</a></li>
+                            <li><a href="#newsletter">Kariera</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btnCustom">Współpracuj</button>
+                </div>
+            </div>
+        </div>
+    </header>
     
-                            <button type="button" class="btnCustom me-5">WSPÓŁPRACUJ</button>                            
+
+                    <!-- menu hamburger -->
+                    <!-- <div class="navbar">
+                        <div class="overlay-content">
+                            <ul class="menu">
+                                <li><a href="index.html">Strona główna</a></li>
+                                <li><a href="caseStudies.html">Case studies</a></li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="dropbtn">Dropdown 
+                                          <i class="fa fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                          <a href="#">Link 1</a>
+                                          <a href="#">Link 2</a>
+                                          <a href="#">Link 3</a>
+                                        </div>
+                                      </div>
+                                </li>
+                                <li><a href="about.html">O Nas</a></li>
+                                <li><a href="#">Aktualności</a></li>                                
+                                <li><button type="button" class="btnCustom">Współpracuj</button></li>
+                            </ul>
                         </div>
                         <span class="navOpen" onclick="openNav()">
                             <i class="fas fa-bars"></i>
                         </span>
-                    </div>
-    
-                    <div id="myNav" class="overlay">
+                    </div> -->   
+                    <!-- <div id="myNav" class="overlay">
                         <div class="overlay-content">
                             <ul class="menu">
                                 <li><a href="index.html">Strona główna</a></li>
@@ -53,25 +89,18 @@
                                 <li><a href="offer.html">Oferta</a></li>
                                 <li><a href="about.html">O Nas</a></li>
                                 <li><a href="#">Aktualności</a></li>
-                                <li>
-                                    <div class="selectLang">
-                                        <a href="#"><img src="./assets/img_styles/polish_flag.png" alt="polish_flag"></a>
-                                        <h4>|</h4>
-                                        <a href="#"><img src="./assets/img_styles/british_flag.png" alt="british_flag"></a>
-                                    </div>
-                                </li>
-                                <li><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></li>
+                                <li><button type="button" class="btnDarkCustom">Współpracuj</button></li>
                             </ul>
                         </div>
     
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-                    </div>
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                        <!-- end of menu hamburger -->
                 </div>
             </div>
         </div>
+
     </header>
-    <!-- header end  -->
+    <!-- header end -->
 
     <!-- start start  -->
     <section class="start">
@@ -82,13 +111,16 @@
                     <h1 class="start--item-wrapper__heading">
                         Realizujemy cele.</h1>
 
-                    <p class="start--item-wrapper__description">Pomagamy organizacjom wyprzedzać konkurencję dzięki współpracy z klientami.</p>
+                    <p class="start--description">Pomagamy organizacjom wyprzedzać konkurencję dzięki współpracy z klientami..</p>
+
 
                     <a class="btnOutlineCustom" href="./cooperate.html" role="button">Współpracuj</a>
 
                     
                 </div>
+
                 <div class="col-xl-7 col-lg-12 start--item-slider">
+
                     <!-- miejsce na potencjalny slider -->
                     <img class="d-lg-block w-100" src="./assets/img/sdssddssdds.png">
                 </div>
@@ -100,14 +132,14 @@
     <!-- start end  -->
 
     <!-- start functions -->
-    <div id="features" class="features section">
+    <section class="features">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="features-content">
+                    <div class="features--content">
                         <div class="row">
                             <div class="col-lg-3">
-                                <div class="features-item first-feature">
+                                <div class="features--item first-feature">
                                     <div class="number-background number">
                                         <h6>01</h6>
                                     </div>
@@ -118,18 +150,21 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="features-item second-feature">
+                                <div class="features--item second-feature">
+
                                     <div class="number-background number">
                                         <h6>02</h6>
                                     </div>
                                     <div class="icon"></div>
                                         <h4>Opracowanie strategii</h4>
+
                                     <div class="line-dec"></div>
                                         <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="features-item first-feature">
+                                <div class="features--item first-feature">
+
                                     <div class="number-background number">                                        
                                         <h6>03</h6>                                        
                                     </div>
@@ -140,11 +175,13 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="features-item second-feature last-features-item">
+
+                                <div class="features--item second-feature last-features-item">
                                     <div class="number-background number">
                                         <h6>04</h6>
                                     </div>
                                     <div class="icon"></div>
+
                                         <h4>Analiza wyników</h4>
                                     <div class="line-dec"></div>
                                         <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
@@ -156,7 +193,7 @@
                 <div class="col-lg-12">
                     <div class="skills-content">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-lg-3">
                                 <div class="skill-item">
                                     <div class="progress" data-percentage="80">
                                         <span class="progress-left">
@@ -174,7 +211,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-lg-3">
                                 <div class="skill-item">
                                     <div class="progress" data-percentage="60">
                                         <span class="progress-left">
@@ -192,8 +229,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mt-md-5">
-
+                            <div class="col-lg-3">
                                 <div class="skill-item">
                                     <div class="progress" data-percentage="90">
                                         <span class="progress-left">
@@ -211,7 +247,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 mt-md-5">
+                            <div class="col-lg-3">
                                 <div class="skill-item last-skill-item">
                                     <div class="progress" data-percentage="70">
                                         <span class="progress-left">
@@ -233,8 +269,8 @@
                     </div>
                 </div>
             </div>
-        </div>    
-    </div>
+        </div>
+    </section>
 
     <!-- end functions -->
 
@@ -249,12 +285,14 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-xl-7 col-lg-12 aboutus--item-slider">
-                    <img src="./assets/img/about_us_pic.jpg" alt="">
+                    <img src="./assets/img/slider_menu_1.png" alt="">
                 </div>
                 <div class="col-xl-5 col-lg-12 aboutus--item-wrapper">
+                    <h3 class="aboutus--item-heading">jestsmy naj</h3>
 
-                    <p class="aboutus--item-wrapper__description">Pomagamy tworzyć skuteczną komunikację, dotrzeć do odpowiednich klientów i generować wzrosty sprzedaży. Czerpiąc z naszego doświadczenia, sprawdzonych metod pracy i narzędzi oraz innowacyjnych pomysłów.</p>
-
+                    <p class="aboutus--item-wrapper__description">Pomagamy tworzyć skuteczną komunikację,
+                      dotrzeć do odpowiednich klientów i generować wzrosty sprzedaży. Czerpiąc z naszego 
+                      doświadczenia, sprawdzonych metod pracy i narzędzi oraz innowacyjnych pomysłów.</p>
                     <a class="btnOutlineCustom mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
                 </div>                
 
@@ -356,19 +394,24 @@
     <!-- start newsletter -->
     <section class="newsletter">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xxl-7">
-                    <h2 class="newsletter--heading">Zapisz się na newsletter</h2>
-                    <p class="newsletter--description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Eveniet
-                        hic, dicta incidunt dignissimos blanditiis modi, laborum numquam minima vero enim aut
-                        cupiditate
-                        ad suscipit deleniti id nam. Quam, eaque saepe.</p>
-
-                    <div class="newsletter--input">
-                            <input type="text" class="inputNews" placeholder="Adres e-mail">                        
-                            <button class="btnCustomNewsletter" type="submit">Wyślij</button>
-                    </div>
+            <div class="row">    
+                <div class="col-lg-5 ml-auto mt-5 pt-5 col-md-6 col-12">
+                    <img src="./assets/img/newsletter.png" class="img-fluid" alt="newsletter">
+                </div>
+        
+                <div class="col-lg-5 mr-auto mt-5 pt-5 col-md-6 col-12 newsletter--content">
+                    <h4>Email Newsletter</h4>            
+                    <h2>Let’s stay up-to-date. We'll share you all good stuffs.</h2>
+                    <form>
+                        <div class="newsletter--content-form">
+                            <input name="email" type="email" class="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" required>                
+                            <p>We'll NOT share your email address to anyone else.</p>
+                            <label class="checkbox-inline" for="monthly">
+                                <input type="checkbox" name="monthly" value="">Please send me a monthly newsletter.
+                            </label>        
+                            <button type="submit"class="btnCustom">Sign up</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -405,39 +448,39 @@
                     <p>e-mail: przyklad@op.pl</p>
                     <p>tel. 666 666 666</p>
                     <a href="https://www.google.pl/maps/dir//Wise+People,+aleja+Powsta%C5%84c%C3%B3w+Wielkopolskich,+Bydgoszcz/@53.1277728,18.0173362,15.17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x470313f81066dea3:0x86fdb25966411cd5!2m2!1d18.0284138!2d53.1290535"
-                        target="_blank">zobacz na mapie</a>
+                        target="_blank"><< zobacz na mapie >></a>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-md-0 mt-5">
+                <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-md-0 mt-5 footer--contact">
 
                     <h3>Skontaktuj się z nami!</h3>
                     <form>
                         <div class="footer--form">
                             <label for="name">Imie</label>
-                            <input type="text" name="name" class="inputCustom" placeholder="Wpisz imię">
+
+                            <input type="text" name="name" class="inputCustomFooter" placeholder="Wpisz imię">
                             <label for="email">Adres e-mail</label>
-                            <input type="email" name="email" class="inputCustom" placeholder="Wpisz e-mail">
+                            <input type="email" name="email" class="inputCustomFooter" placeholder="Wpisz e-mail">
                             <label for="textarea">Treść wiadomości</label>
-                            <textarea class="inputCustom" name="textarea" rows="3"></textarea>
+                            <textarea class="inputCustomFooter" name="textarea" rows="3"></textarea>
 
                             <button type="submit" class="btnCustom">Wyślij</button>
                         </div>
+                        <button type="submit" class="btnOutlineCustomFooter">Wyślij</button>
                     </form>
                 </div>
-                <div class="col-lg-3 col-md-4 mt-lg-0 mt-md-0 mt-5">
-
-
-                    <div class="footer--socials">
-                        <!-- socials -->
-                        <div class="footer--socials__icon">
-                            <i class="fab fa-facebook-f fa-2x"></i>
-                            <i class="fab fa-linkedin fa-2x"></i>
-                            <i class="fab fa-amazon fa-2x"></i>
-                            <i class="fab fa-twitter fa-2x"></i>
-                            <i class="fab fa-instagram fa-2x"></i>
-                        </div>
+                <div class="col-lg-3 col-md-4 mt-lg-0 mt-md-0 mt-5 footer--socials">
+                    <div class="footer--socials-list">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
+                    <div class="footer--socials-list">
+                        <a href="https://www.plus.google.com/"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
 
+                    </div>
                 </div>
             </div>
             <div class="row mt-5 justify-content-center">
@@ -448,7 +491,7 @@
                         <li><a href="offer.html">Oferta</a></li>
                         <li><a href="caseStudies.html">Case studies</a></li>
                         <li><a href="career.html">Kariera</a></li>
-                        
+           
                     </ul>
                 </div>
                 <div class="col footer--links">
@@ -456,19 +499,17 @@
                         <li><a href="politics.html">Polityka prywatności</a></li>
                         <li><a href="blog.html">Aktualnosci</a></li>
                         <li><a href="about.html">O nas</a></li>
-
                     </ul>
                 </div>
             </div>
             <div class="row justify-content-between">
                 <div class="col-lg-12">
                     <div class="footer--authors">
-                        <p>&copy; Peacock 2022</p>
+                        <p>&copy; Peacocko Agency 2022</p>
                         <p>wykonanie: workon6</p>
                     </div>
                 </div> 
             </div>
-
         </div>
     </footer>
         <!-- end footer  -->

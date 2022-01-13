@@ -1,15 +1,23 @@
 .footer{
     background-color: $bgFooter;
-    padding: 3rem 0;
-    min-height: 30vh;
+    min-height: 60vh;
+    padding-top: 2rem;
 
     a:hover{
-        color: $white;
+        color: red;
+
     }
 
     &--form {
         display: flex;
         flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &--contact{
+        text-align: center;
+        margin: 0 2rem 0 2rem;
+
     }
 
     ul{
@@ -36,19 +44,43 @@
 
     &--item-wrapper{
         text-align: center;
+        padding-top: 4rem;
+        background-color: $bgShadow;
+        border-radius: 1rem;
     }
 
 
-    &--socials{
-        text-align: center;       
-    }   
+    &--socials {
+        padding-top: 4rem;
+        &-list{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 2rem;
+    
+            a {
+                background-color: $white;
+                width: 4rem;
+                height: 4rem;
+                font-size: 25px;
+                border-radius: 50%;
+                color: $main_socials;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }  
+    }
     &--authors{
-        border-top: 1px solid $main_color;
+        border-top: 1px solid $main_color-footer;
         padding-top: 1rem;
-        color: $font_color-mmuted;
+        color: $bgShadow;
+
         display: flex;
         justify-content: space-between;
     }
+
 
     // &--links{
 
