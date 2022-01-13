@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const FormSummary = ({currentTile, formEl}) => {
+const FormSummary = ({ currentTile, formEl }) => {
   let [formValues, setFormValues] = useState({});
 
   let selectOptions = {
