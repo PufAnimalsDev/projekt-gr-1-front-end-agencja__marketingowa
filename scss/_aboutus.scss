@@ -1,6 +1,11 @@
 .aboutus{
     padding: 7rem 0;
     height: 100vh;
+    margin-bottom: 38rem;
+
+    @include media-breakpoint-up(xl){
+        margin-bottom: 0;
+    }
 
      &--heading{
         margin-bottom: 4rem;
@@ -23,6 +28,9 @@
 
         }
 
+        &__description{
+            margin-bottom: 3rem;
+        }
     }
 
     &--item-slider {
