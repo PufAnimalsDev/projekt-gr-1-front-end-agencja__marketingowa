@@ -2,17 +2,13 @@ import React from "react";
 
 const Timeline = ({ currentTile, formComplete }) => {
     let nodeTitles = [
-        "Wstęp",
-        "Imię i nazwisko",
-        "Nazwa firmy",
-        "Adres e-mail",
-        "Numer telefonu",
         "Z czym możemy Ci pomóc?",
         "Cel Twojej firmy",
-        "Termin osiągnięcia celu",
-        "Załącznik",
+        "Budżet",
         "Dlaczego my?",
         "Pomoc w podjęciu decyzji",
+        "Dane osobiste",
+        "Dane kontaktowe",
         "Dodatkowe informacje",
         "Przejrzyj dane"
     ]

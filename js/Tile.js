@@ -83,10 +83,15 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
   function moveNextTile() {
     if (validationFunction) {
       let validationResult = validationFunction(validate);
-      if (validationResult.status) {
+      let allOk = true;
+      for (let result of validationResult) {
+        if (!result.status) {
+          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
+          allOk = false;
+        }
+      }
+      if (allOk) {
         setCurrentTile(tileNum + 1);
-      } else {
-        alert(`Validation failed for ${validate}. Reason: ${validationResult.error}`);
       }
     } else {
       setCurrentTile(tileNum + 1);
@@ -99,12 +104,12 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
         <div className="overlay"></div>
         {children}
         {tileNum != 0 ? (
-          <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Prev</button>
+          <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Wstecz</button>
         ) : (null)}
         {replaceNextWithSubmit ? (
           <button type="submit" className="btn btn-success">Wyślij</button>
         ) : (
-          <button type="button" className="btn btn-primary" onClick={moveNextTile}>Next</button>
+          <button type="button" className="btn btn-primary" onClick={moveNextTile}>Dalej</button>
         )}
       </div>
     </div>
