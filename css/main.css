@@ -17372,7 +17372,6 @@ readers do not read off random characters that represent icons */
   display: flex;
   justify-content: space-between;
 }
-
 .start {
   display: flex;
   padding-top: 11rem;
@@ -17428,6 +17427,7 @@ readers do not read off random characters that represent icons */
     }
 
 */
+
 .aboutus {
   padding: 7rem 0;
   height: 100vh;
@@ -17463,6 +17463,7 @@ readers do not read off random characters that represent icons */
 .aboutus--item-wrapper__description {
   margin-bottom: 3rem;
 }
+
 .aboutus--item-slider img {
   position: relative;
   z-index: 10;
@@ -18038,6 +18039,7 @@ Animacja robienia okręgu może da się to zrobić proście
   text-align: center;
 }
 
+
 .start-analitics {
   padding-top: 15rem;
   height: 100vh;
@@ -18049,6 +18051,7 @@ Animacja robienia okręgu może da się to zrobić proście
   padding: 7.5rem 6rem;
   box-shadow: 0px 0px 0.5rem #FFB400;
 }
+
 
 .analitics {
   padding: 7rem 0;
@@ -18151,6 +18154,9 @@ Animacja robienia okręgu może da się to zrobić proście
 
 .contentMark {
   padding: 7rem 0;
+
+  background-color: #cccccc;
+
   min-height: 60vh;
 }
 .contentMark--heading {
