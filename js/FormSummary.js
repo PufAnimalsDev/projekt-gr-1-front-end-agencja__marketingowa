@@ -32,7 +32,6 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
         formObj.file = "nie załączono";
       }
       formObj.why_us = formData.get("why_us");
-      formObj.decision_help = formData.get("decision_help");
       if (formData.get("extra_info")) {
         formObj.extra_info = formData.get("extra_info");
       } else {
@@ -52,7 +51,6 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
           <div>Do kiedy Twoja firma chce go osiągnąć:<br />{formValues.company_goal_deadline}</div>
           <div>Budżet:<br />{formValues.budget}</div>
           <div>Dlaczego wybrałeś/aś nas?<br />{formValues.why_us}</div>
-          <div>Jak możemy pomóc Ci podjąć decyzję?<br />{formValues.decision_help}</div>
           <div>Imię i nazwisko:<br />{formValues.name}</div>
           <div>Nazwa firmy:<br />{formValues.company_name}</div>
           <div>Adres e-mail:<br />{formValues.email}</div>

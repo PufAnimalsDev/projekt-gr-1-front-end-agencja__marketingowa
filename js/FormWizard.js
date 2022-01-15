@@ -101,7 +101,7 @@ const FormWizard = () => {
 
   return (
     <div>
-      <Timeline currentTile={currentTile} setCurrentTile={setCurrentTile} tileCount={9} formComplete={formStatus === "success" ? true : false} />
+      <Timeline currentTile={currentTile} setCurrentTile={setCurrentTile} tileCount={8} formComplete={formStatus === "success" ? true : false} />
       <div className="formwizard--container">
         <form className={`formwizard ${formStatus === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
 
@@ -146,26 +146,21 @@ const FormWizard = () => {
             <textarea className="form-control" name="why_us" id="formwizard-why_us" enterKeyHint="enter"></textarea>
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={4} validationFunction={validateFormElement} validate={["decision_help"]}>
-            <label htmlFor="formwizard-decision_help">Jak możemy pomóc Ci podjąć decyzję?*</label>
-            <textarea className="form-control" name="decision_help" id="formwizard-decision_help" enterKeyHint="enter"></textarea>
-          </Tile>
-
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={5} validationFunction={validateFormElement} validate={["name", "company_name"]}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={4} validationFunction={validateFormElement} validate={["name", "company_name"]}>
             <label htmlFor="formwizard-name">Imię i nazwisko*</label>
             <input className="form-control" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
             <label htmlFor="formwizard-company_name">Nazwa firmy*</label>
             <input className="form-control" type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={6} validationFunction={validateFormElement} validate={["email"]}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={5} validationFunction={validateFormElement} validate={["email"]}>
             <label htmlFor="formwizard-email">Adres e-mail*</label>
             <input className="form-control" type="email" name="email" id="formwizard-email" placeholder="Adres e-mail" autoComplete="email" enterKeyHint="next" />
             <label htmlFor="formwizard-phone">Numer telefonu</label>
             <input className="form-control" type="text" name="phone" id="formwizard-phone" placeholder="Numer telefonu" autoComplete="tel" enterKeyHint="next" />
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={6}>
             <label htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
             <textarea className="form-control" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter"></textarea>
             <label htmlFor="formwizard-file">Załącznik:</label>
@@ -184,9 +179,9 @@ const FormWizard = () => {
             {attachment ? <div className='mb-3'>Załączono plik:<br /><b>{attachment.name}</b> - {(attachment.size / 1024 / 1024).toFixed(2)} MB</div> : ''}
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={8} replaceNextWithSubmit={true} formStatus={formStatus}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} replaceNextWithSubmit={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
-            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={9} additionalFields={{attachment}} />
+            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>

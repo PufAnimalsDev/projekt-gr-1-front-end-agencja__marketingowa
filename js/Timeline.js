@@ -6,7 +6,6 @@ const Timeline = ({ currentTile, formComplete }) => {
         "Cel Twojej firmy",
         "Budżet",
         "Dlaczego my?",
-        "Pomoc w podjęciu decyzji",
         "Dane osobiste",
         "Dane kontaktowe",
         "Dodatkowe informacje",
