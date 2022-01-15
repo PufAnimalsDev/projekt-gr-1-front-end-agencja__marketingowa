@@ -26,20 +26,11 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
       formObj.topic = selectOptions[formData.get("topic")];
       formObj.company_goal = formData.get("company_goal");
       formObj.company_goal_deadline = formData.get("company_goal_deadline");
-      console.log(additionalFields.attachments);
-      formObj.files = [];
-      if (additionalFields.attachments.length >= 1) {
-        for (let file of additionalFields.attachments) {
-          formObj.files.push(`${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`);
-        }
+      if (additionalFields.attachment) {
+        formObj.file = `${additionalFields.attachment.name} (${(additionalFields.attachment.size / 1024 / 1024).toFixed(2)} MB)`;
       } else {
-        formObj.files.push("nie załączono");
+        formObj.file = "nie załączono";
       }
-      // if (formData.get("file").size != 0) {
-      //   formObj.file = `${formData.get("file").name} (${(formData.get("file").size / 1024 / 1024).toFixed(2)} MB)`;
-      // } else {
-      //   formObj.file = "nie załączono"
-      // }
       formObj.why_us = formData.get("why_us");
       formObj.decision_help = formData.get("decision_help");
       if (formData.get("extra_info")) {
@@ -51,7 +42,7 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
 
       setFormValues(formObj);
     }
-  }, [currentTile])
+  }, [currentTile, additionalFields])
   return (
     <>
       {formValues != null ? (
@@ -67,7 +58,7 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
           <div>Adres e-mail:<br />{formValues.email}</div>
           <div>Numer telefonu:<br />{formValues.phone}</div>
           <div>Dodatkowe informacje:<br />{formValues.extra_info}</div>
-          <div>Załączniki:<br />{formValues.files ? formValues.files.map((file, index) => <p key={index}>{file}<br /></p>) : ""}</div>
+          <div>Załącznik:<br />{formValues.file}</div>
         </>
       ) : ""}
     </>

@@ -13,16 +13,16 @@ const FormWizard = () => {
   let [formStatus, setFormStatus] = useState("unsent");
   let [budget, setBudget] = useState({min: 5000, max: 20000});
 
-  let [attachments, setAttachments] = useState([]);
+  let [attachment, setAttachment] = useState(null);
   let [tooManyAttachments, setTooManyAttachments] = useState(false);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: onFileDrop, onDropRejected: onFileDropRejected, maxFiles: 5 });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: onFileDrop, onDropRejected: onFileDropRejected, maxFiles: 1, multiple: false });
 
   let formEl = useRef(null);
 
   const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   function onFileDrop(files) {
-    setAttachments(files);
+    setAttachment(files[0]);
     setTooManyAttachments(false);
   };
 
@@ -77,11 +77,9 @@ const FormWizard = () => {
     formData.append("budget_min", `${budget.min} zł`);
     formData.append("budget_max", `${budget.max} zł`);
 
-    for (let file of attachments) {
-      formData.append("files[]", file);
-    }
+    formData.append("file", attachment);
 
-    let response = await fetch(`${page.form_url}workon/formwizard`, {
+    let response = await fetch(`${page.api_url}workon/formwizard`, {
       method: 'POST',
       body: formData
     });
@@ -168,28 +166,27 @@ const FormWizard = () => {
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7}>
-            <label htmlFor="formwizard-extra_info">Dodaktowe informacje</label>
+            <label htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
             <textarea className="form-control" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter"></textarea>
-            <label htmlFor="formwizard-file">Załączniki</label>
+            <label htmlFor="formwizard-file">Załącznik:</label>
             <div className='dropzone' {...getRootProps()}>
               <input {...getInputProps()} />
               {isDragActive ?
-                <p>Upuść pliki tutaj ...</p>
+                <p>Upuść plik tutaj ...</p>
               : 
                 <>
-                  <p>Przeciągnij tutaj pliki lub kliknij tu, aby je wybrać.</p>
-                  <p>Możesz załączyć maksymalnie 5 plików.</p>
+                  <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
+                  <p>Możesz załączyć wyłącznie 1 plik.</p>
                 </> 
               }
             </div>
-            {tooManyAttachments ? <p>Błąd: Za dużo załączonych plików. Możesz załączyć nie więcej niż 5 plików.</p> : ""}
-            {attachments.length >= 1 ? <p>Załączone pliki:</p> : ""}
-            {attachments.length >= 1 ? attachments.map((file, index) => <div className='mb-3' key={index}><b>{file.name}</b> - {(file.size / 1024 / 1024).toFixed(2)} MB</div>)   : ''}
+            {tooManyAttachments ? <p>Błąd: Za dużo załączonych plików. Możesz załączyć wyłącznie 1 plik.</p> : ""}
+            {attachment ? <div className='mb-3'>Załączono plik:<br /><b>{attachment.name}</b> - {(attachment.size / 1024 / 1024).toFixed(2)} MB</div> : ''}
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={8} replaceNextWithSubmit={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
-            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={9} additionalFields={{attachments}} />
+            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={9} additionalFields={{attachment}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>

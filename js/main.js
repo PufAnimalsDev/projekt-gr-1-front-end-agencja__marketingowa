@@ -9,10 +9,6 @@ import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
 import Newsletter from "./Newsletter";
 
-
-import 'rc-slider/assets/index.css';
-
-
 window.onscroll = function () { scrollFunctionHide() };
 
 function scrollFunctionHide() {

@@ -25,11 +25,13 @@
     }
 
     &--tile {
+        max-height: 500px;
         position: absolute;
         background-color: #fff;
         transition: transform ease 0.7s, opacity ease 0.7s;
         z-index: 2;
         width: 40rem;
+        overflow-y: auto;
 
         &-border {
             height: 100%;
