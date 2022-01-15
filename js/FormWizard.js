@@ -151,6 +151,8 @@ const FormWizard = () => {
             <input className="form-control" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
             <label htmlFor="formwizard-company_name">Nazwa firmy*</label>
             <input className="form-control" type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
+            <label htmlFor="formwizard-company_job_title">Stanowisko</label>
+            <input className="form-control" type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={5} validationFunction={validateFormElement} validate={["email"]}>

@@ -44,6 +44,7 @@ add_action("rest_api_init", function () {
 
             $name = $request["name"] ? $request["name"] : "";
             $company_name = $request["company_name"] ? $request["company_name"] : "";
+            $company_job_title = $request["company_job_title"] ? $request["company_job_title"] : "";
             $email = $request["email"] ? $request["email"] : "";
             $phone = $request["phone"] ? $request["phone"] : "";
             $company_goal = $request["company_goal"] ? $request["company_goal"] : "";
@@ -61,6 +62,7 @@ add_action("rest_api_init", function () {
                 ]);
 
                 update_field('surname', $name, $newPost);
+                update_field('company_job_title', $company_job_title, $newPost);
                 update_field('email', $email, $newPost);
                 update_field('phone', $phone, $newPost);
                 update_field('company_goal', $company_goal, $newPost);
