@@ -15,7 +15,7 @@ const FormWizard = () => {
 
   let [attachment, setAttachment] = useState(null);
   let [tooManyAttachments, setTooManyAttachments] = useState(false);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: onFileDrop, onDropRejected: onFileDropRejected, maxFiles: 1, multiple: false });
+  const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({ onDrop: onFileDrop, onDropRejected: onFileDropRejected, maxFiles: 1, multiple: false });
 
   let formEl = useRef(null);
 
@@ -30,6 +30,11 @@ const FormWizard = () => {
     if (files[0].errors[0].code === "too-many-files") {
       setTooManyAttachments(true);
     }
+  }
+
+  function removeAttachment() {
+    setAttachment(null);
+    inputRef.current.value = "";
   }
 
   function validateFormElement(formFields) {
@@ -178,7 +183,15 @@ const FormWizard = () => {
               }
             </div>
             {tooManyAttachments ? <p>Błąd: Za dużo załączonych plików. Możesz załączyć wyłącznie 1 plik.</p> : ""}
-            {attachment ? <div className='mb-3'>Załączono plik:<br /><b>{attachment.name}</b> - {(attachment.size / 1024 / 1024).toFixed(2)} MB</div> : ''}
+            {attachment ? 
+              <>
+                <div className='mb-3'>
+                  Załączono plik:<br />
+                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB
+                </div>
+                <button type="button" onClick={removeAttachment}>Usuń plik</button>
+              </>
+            : ''}
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} replaceNextWithSubmit={true} formStatus={formStatus}>
