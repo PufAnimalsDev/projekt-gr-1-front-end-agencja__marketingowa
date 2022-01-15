@@ -48,6 +48,7 @@ add_action("rest_api_init", function () {
             $email = $request["email"] ? $request["email"] : "";
             $phone = $request["phone"] ? $request["phone"] : "";
             $company_goal = $request["company_goal"] ? $request["company_goal"] : "";
+            $company_goal_deadline = $request["company_goal_deadline"] ? $request["company_goal_deadline"] : "";
             $why_us = $request["why_us"] ? $request["why_us"] : "";
             $extra_info = $request["extra_info"] ? $request["extra_info"] : "";
             $topic = $request["topic"] ? $request["topic"] : "";
@@ -66,6 +67,7 @@ add_action("rest_api_init", function () {
                 update_field('email', $email, $newPost);
                 update_field('phone', $phone, $newPost);
                 update_field('company_goal', $company_goal, $newPost);
+                update_field('company_goal_deadline', $company_goal_deadline, $newPost);
                 update_field('why_us', $why_us, $newPost);
                 update_field('extra_info', $extra_info, $newPost);
                 update_field('topic', $topic, $newPost);

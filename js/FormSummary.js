@@ -18,7 +18,7 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
       formObj.topic = selectOptions[formData.get("topic")];
 
       formObj.company_goal = formData.get("company_goal");
-      formObj.company_goal_deadline = formData.get("company_goal_deadline");
+      formObj.company_goal_deadline = additionalFields.companyGoalDeadline.toLocaleDateString("pl-PL", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
 
       formObj.budget = `${formData.get("budget_min")} zł - ${formData.get("budget_max")} zł`;
 

@@ -50,6 +50,7 @@
             background-color: #fff0;
             pointer-events: none;
             transition: background-color ease 0.7s;
+            z-index: 1;
         }
 
         &.done {

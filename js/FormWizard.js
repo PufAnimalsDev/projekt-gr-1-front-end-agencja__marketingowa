@@ -4,6 +4,13 @@ import Timeline from "./Timeline";
 import Tile from "./Tile";
 import FormSummary from "./FormSummary";
 import { useDropzone } from 'react-dropzone';
+import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
+import pl from "date-fns/locale/pl";
+
+import "react-datepicker/dist/react-datepicker.css";
+
+registerLocale("pl", pl);
+setDefaultLocale("pl");
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -12,6 +19,8 @@ const FormWizard = () => {
   let [currentTile, setCurrentTile] = useState(0);
   let [formStatus, setFormStatus] = useState("unsent");
   let [budget, setBudget] = useState({min: 5000, max: 20000});
+
+  const [companyGoalDeadline, setCompanyGoalDeadline] = useState(new Date());
 
   let [attachment, setAttachment] = useState(null);
   let [tooManyAttachments, setTooManyAttachments] = useState(false);
@@ -82,6 +91,9 @@ const FormWizard = () => {
     formData.append("budget_min", `${budget.min} zł`);
     formData.append("budget_max", `${budget.max} zł`);
 
+    let companyGoalDeadlineFormatted = companyGoalDeadline.toLocaleDateString("pl-PL", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+    formData.append("company_goal_deadline", companyGoalDeadlineFormatted);
+
     formData.append("file", attachment);
 
     let response = await fetch(`${page.api_url}workon/formwizard`, {
@@ -120,11 +132,11 @@ const FormWizard = () => {
             </select>
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal", "company_goal_deadline"]}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal"]}>
             <label htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
             <textarea className="form-control" name="company_goal" id="formwizard-company_goal" enterKeyHint="enter" ></textarea>
             <label htmlFor="formwizard-company_goal_deadline">Do kiedy Twoja firma chce go osiągnąć?*</label>
-            <textarea className="form-control" name="company_goal_deadline" id="formwizard-company_goal_deadline" enterKeyHint="enter"></textarea>
+            <DatePicker id="formwizard-company_goal_deadline" name="company_goal_deadline" selected={companyGoalDeadline} onChange={(date) => setCompanyGoalDeadline(date)} inline minDate={new Date()} />
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={2} validationFunction={validateFormElement} validate={""}>
@@ -196,7 +208,7 @@ const FormWizard = () => {
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} replaceNextWithSubmit={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
-            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment}} />
+            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>
