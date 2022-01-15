@@ -32,12 +32,10 @@
         width: 40rem;
 
         &-border {
-            max-height: 500px;
             height: 100%;
             width: 100%;
             padding: 3rem;
             border: 1px solid #000;
-            overflow-y: auto;
         }
 
         .overlay {

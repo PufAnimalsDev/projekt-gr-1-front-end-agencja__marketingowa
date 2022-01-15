@@ -7,7 +7,8 @@ import $ from "jquery"
 import React from "react";
 import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
-import Newsletter from "./newsletter";
+import Newsletter from "./Newsletter";
+
 
 import 'rc-slider/assets/index.css';
 

@@ -87,10 +87,12 @@ const FormWizard = () => {
     });
 
     const result = await response.json();
+    const check = JSON.parse(result);
 
     console.log(result);
+    console.log(check);
 
-    if (result === "success") {
+    if (check.status === "success") {
       setFormStatus("success");
     } else {
       alert("Coś poszło nie tak")

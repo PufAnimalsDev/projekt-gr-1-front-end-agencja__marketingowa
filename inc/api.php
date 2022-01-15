@@ -7,17 +7,28 @@ add_action("rest_api_init", function () {
             $output = "";
 
             $email = $request["email"] ? $request["email"] : "";
+            $name = $request["name"] ? $request["name"] : "";
 
-            if ($email && !get_page_by_title($email, OBJECT, "subscriptions")) {
+            if ($name && !get_page_by_title($name, OBJECT, "subscriptions")) {
                 $newPost = wp_insert_post([
                     "post_title" => $email,
                     "post_status" => "publish",
                     "post_type" => "subscriptions"
                 ]);
 
-                $output = $newPost ? "success" : "error";
+                update_field('name', $name, $newPost);
+                $output = $newPost ? json_encode([
+                    "status" => "success",
+                    "request" => var_export($request, true)
+                ]) : json_encode([
+                    "status" => "error",
+                    "request" => var_export($request, true)
+                ]);
             } else {
-                $output = "error";
+                $output = json_encode([
+                    "status" => "error2",
+                    "request" => var_export($request, true)
+                ]);
             }
 
             return $output;
@@ -60,6 +71,10 @@ add_action("rest_api_init", function () {
                 update_field('topic', $topic, $newPost);
                 update_field('file', $file, $newPost);
 
+                if ($newPost) {
+                    wp_mail($email, 'Test', 'Hej ho wysłałeś formularz', 'Standard email body message');
+                }
+
                 $output = $newPost ? json_encode([
                     "status" => "success",
                     "request" => var_export($request, true)
@@ -69,7 +84,7 @@ add_action("rest_api_init", function () {
                 ]);
             } else {
                 $output = json_encode([
-                    "status" => "error",
+                    "status" => "error2",
                     "request" => var_export($request, true)
                 ]);
             }

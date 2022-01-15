@@ -14,21 +14,10 @@ $newsletter_desc = get_theme_mod('newsletter_desc');
 ?>
 
 <!-- start newsletter -->
-<section class="newsletter">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xxl-7">
-                <h2 class="newsletter--heading"> <?= $newsletter_headig ?></h2>
-                <p class="newsletter--description"><?= $newsletter_desc ?></p>
+<section id="newsletter">
 
-                <div class="newsletter--input">
-                    <input type="text" class="inputNews" placeholder="Adres e-mail">
-                    <button class="btnCustomNewsletter" type="submit">Wyślij</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
+
 <!-- end newsletter -->
 
 <!-- footer start  -->
