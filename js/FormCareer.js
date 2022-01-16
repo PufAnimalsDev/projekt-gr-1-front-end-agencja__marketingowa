@@ -7,14 +7,40 @@ const FormCareer = () => {
     let [cv, setCv] = useState(null);
     let [extraFile, setExtraFile] = useState(null);
 
+    const cvDropzone = useDropzone({ onDrop: onCvDrop, maxFiles: 1, multiple: false });
+    const extraFileDropzone = useDropzone({ onDrop: onExtraFileDrop, maxFiles: 1, multiple: false });
+
+    function onCvDrop(file) {
+        setCv(file[0]);
+    }
+
+    function removeCv() {
+        setCv(null);
+        cvDropzone.inputRef.current.value = "";
+    }
+
+    function onExtraFileDrop(file) {
+        setExtraFile(file[0]);
+    }
+
+    function removeExtraFile() {
+        setExtraFile(null);
+        extraFileDropzone.inputRef.current.value = "";
+    }
+
     async function formSubmitHandler(event) {
         event.preventDefault();
 
         setFormStatus("waiting");
 
+        let formData = new FormData(formEl.current);
+
+        formData.append("file", cv);
+        formData.append("file", extraFile);
+
         let response = await fetch(`${page.api_url}workon/formcareer`, {
             method: 'POST',
-            body: new FormData(formEl.current)
+            body: formData
         });
 
         let result = await response.json();
@@ -36,8 +62,48 @@ const FormCareer = () => {
             <textarea name="salary" id="career-form-salary" enterKeyHint="enter" ></textarea>
             <textarea name="join_reason" id="career-form-join_reason" enterKeyHint="enter" ></textarea>
             <textarea name="extra_questions" id="career-form-extra_questions" enterKeyHint="enter" ></textarea>
-            <input type="file" name="cv" id="career-form-cv" />
-            <input type="file" name="extra_file" id="career-form-extra_file" />
+            <label htmlFor="career-form-cv">CV:</label>
+            <div className='dropzone' {...cvDropzone.getRootProps()}>
+                <input id="career-form-cv" {...cvDropzone.getInputProps()} />
+                {cvDropzone.isDragActive ?
+                    <p>Upuść tutaj CV...</p>
+                : 
+                    <>
+                        <p>Przeciągnij tutaj CV lub kliknij tu, aby je wybrać.</p>
+                        <p>Możesz załączyć wyłącznie 1 plik.</p>
+                    </> 
+                }
+            </div>
+            {cv ? 
+                <>
+                    <div className='mb-3'>
+                        Załączono plik:<br />
+                        <strong>{cv.name}</strong> - {(cv.size / 1024 / 1024).toFixed(2)} MB
+                    </div>
+                    <button type="button" onClick={removeCv}>Usuń plik</button>
+                </>
+            : ''}
+            <label htmlFor="career-form-extra_file">Dodatkowy załącznik:</label>
+            <div className='dropzone' {...extraFileDropzone.getRootProps()}>
+                <input id="career-form-extra_file" {...extraFileDropzone.getInputProps()} />
+                {extraFileDropzone.isDragActive ?
+                    <p>Upuść tutaj plik...</p>
+                : 
+                    <>
+                        <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
+                        <p>Możesz załączyć wyłącznie 1 plik.</p>
+                    </> 
+                }
+            </div>
+            {extraFile ? 
+                <>
+                    <div className='mb-3'>
+                        Załączono plik:<br />
+                        <strong>{extraFile.name}</strong> - {(extraFile.size / 1024 / 1024).toFixed(2)} MB
+                    </div>
+                    <button type="button" onClick={removeExtraFile}>Usuń plik</button>
+                </>
+            : ''}
             <div className="checkbox-field-container">
                 <div className="checkbox-check-container">
                     <input type="checkbox" name="gdpr_agreement" id="career-form-gdpr_agreement" />

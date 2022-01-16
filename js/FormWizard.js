@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useRef, useState } from "react";
 import Slider from 'rc-slider';
 import Timeline from "./Timeline";
 import Tile from "./Tile";
@@ -184,9 +184,9 @@ const FormWizard = () => {
             <textarea className="form-control" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter"></textarea>
             <label htmlFor="formwizard-file">Załącznik:</label>
             <div className='dropzone' {...getRootProps()}>
-              <input {...getInputProps()} />
+              <input id="formwizard-file" {...getInputProps()} />
               {isDragActive ?
-                <p>Upuść plik tutaj ...</p>
+                <p>Upuść plik tutaj...</p>
               : 
                 <>
                   <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>

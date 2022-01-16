@@ -8,6 +8,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
 import Newsletter from "./Newsletter";
+import FormCareer from "./FormCareer";
 
 window.onscroll = function () { scrollFunctionHide() };
 
@@ -36,4 +37,6 @@ document.getElementById('closeNav').addEventListener('click', function () {
 $(() => {
   ReactDOM.render(<Newsletter />, document.getElementById("newsletter"));
   ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+  ReactDOM.render(<FormCareer />, document.getElementById("formcareer"));
+
 });
