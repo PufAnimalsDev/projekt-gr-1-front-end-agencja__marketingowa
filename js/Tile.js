@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithSubmit, validationFunction, validate, formStatus }) => {
+const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
   const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])';
 
@@ -105,12 +105,13 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
         {children}
         {tileNum != 0 ? (
           <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Wstecz</button>
-        ) : (null)}
-        {replaceNextWithSubmit ? (
+        ) : ""}
+        {showSubmit ? (
           <button type="submit" className="btn btn-success">Wyślij</button>
-        ) : (
+        ) : ""}
+        {!hideNext ? (
           <button type="button" className="btn btn-primary" onClick={moveNextTile}>Dalej</button>
-        )}
+        ) : ""}
       </div>
     </div>
   )

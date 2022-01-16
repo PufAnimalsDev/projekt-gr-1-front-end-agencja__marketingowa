@@ -16,19 +16,26 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
 const FormWizard = () => {
-  let [currentTile, setCurrentTile] = useState(0);
-  let [formStatus, setFormStatus] = useState("unsent");
-  let [budget, setBudget] = useState({min: 5000, max: 20000});
+  const [currentTile, setCurrentTile] = useState(0);
+  const [formStatus, setFormStatus] = useState("unsent");
+  const [budget, setBudget] = useState({min: 5000, max: 20000});
+
+  const [topic, setTopic] = useState("Opcja 1");
 
   const [companyGoalDeadline, setCompanyGoalDeadline] = useState(new Date());
 
-  let [attachment, setAttachment] = useState(null);
-  let [tooManyAttachments, setTooManyAttachments] = useState(false);
+  const [attachment, setAttachment] = useState(null);
+  const [tooManyAttachments, setTooManyAttachments] = useState(false);
   const { getRootProps, getInputProps, isDragActive, inputRef } = useDropzone({ onDrop: onFileDrop, onDropRejected: onFileDropRejected, maxFiles: 1, multiple: false });
 
-  let formEl = useRef(null);
+  const formEl = useRef(null);
 
   const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  function handleTopicStep(topic) {
+    setTopic(topic);
+    setCurrentTile(currentTile+1);
+  }
 
   function onFileDrop(files) {
     setAttachment(files[0]);
@@ -88,6 +95,8 @@ const FormWizard = () => {
 
     let formData = new FormData(formEl.current);
 
+    formData.append("topic", topic);
+
     formData.append("budget_min", `${budget.min} zł`);
     formData.append("budget_max", `${budget.max} zł`);
 
@@ -122,14 +131,14 @@ const FormWizard = () => {
       <div className="formwizard--container">
         <form className={`formwizard ${formStatus === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={0}>
-            <label htmlFor="formwizard-topic">Z czym możemy Ci pomóc?*</label>
-            <select className="form-select" name="topic" id="formwizard-topic">
-              <option value="op1">Opcja 1</option>
-              <option value="op2">Opcja 2</option>
-              <option value="op3">Opcja 3</option>
-              <option value="op4">Opcja 4</option>
-            </select>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={0} hideNext={true}>
+            <p>Z czym możemy Ci pomóc?</p>
+            <div className="formwizard--topic-container">
+              <button type="button" onClick={() => handleTopicStep("Opcja 1")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 1</button>
+              <button type="button" onClick={() => handleTopicStep("Opcja 2")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 2</button>
+              <button type="button" onClick={() => handleTopicStep("Opcja 3")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 3</button>
+              <button type="button" onClick={() => handleTopicStep("Opcja 4")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 4</button>
+            </div>
           </Tile>
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal"]}>
@@ -208,7 +217,7 @@ const FormWizard = () => {
 
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} replaceNextWithSubmit={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
-            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline}} />
+            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>

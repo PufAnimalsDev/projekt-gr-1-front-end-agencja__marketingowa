@@ -3,19 +3,12 @@ import React, { useEffect, useState, useRef } from "react";
 const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
   let [formValues, setFormValues] = useState({});
 
-  let selectOptions = {
-    "op1": "Opcja 1",
-    "op2": "Opcja 2",
-    "op3": "Opcja 3",
-    "op4": "Opcja 4"
-  }
-
   useEffect(() => {
     if (currentTile >= tileCount - 2) {
       let formObj = {};
       let formData = new FormData(formEl);
 
-      formObj.topic = selectOptions[formData.get("topic")];
+      formObj.topic = additionalFields.topic;
 
       formObj.company_goal = formData.get("company_goal");
       formObj.company_goal_deadline = additionalFields.companyGoalDeadline.toLocaleDateString("pl-PL", {weekday: "long", year: "numeric", month: "long", day: "numeric"});

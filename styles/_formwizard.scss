@@ -24,6 +24,30 @@
         overflow: hidden;
     }
 
+    &--topic-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        > button {
+            height: 10rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            appearance: none;
+            border: 1px solid #000;
+            background-color: transparent;
+            flex: 1 1 40%;
+        }
+    }
+
+    &--topic-icon {
+        position: absolute;
+        align-self: center;
+    }
+
     &--tile {
         max-height: 500px;
         position: absolute;
@@ -110,23 +134,23 @@
     }
 
     &--loading-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: hidden;
-      background-color: #FFFB;
-      opacity: 0;
-      transition: opacity ease 1s;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        background-color: #FFFB;
+        opacity: 0;
+        transition: opacity ease 1s;
 
-      &.show {
-        visibility: visible;
-        opacity: 1;
-      }
+        &.show {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
     &.hide {
