@@ -18,28 +18,25 @@ Features Style
     &--item {
     text-align: center;
     padding: 1rem;
-      @include media-breakpoint-up(lg){
-        margin-top: 0;
-
-        }
-
-    }
-  
-  
-    
     border-radius: 3rem;
     background: $white;
     transition: background-color .5s;
+
+    
   
-    &:hover {
-        background-color: $main_color;
-  
-      h4, p {
-        color: $white;
+      &:hover {
+          background-color: $main_color;
+    
+        h4, p {
+          color: $white;
+        }
+    
+        .line-dec {
+          background-color: $white;
+        }
       }
-  
-      .line-dec {
-        background-color: $white;
+    @include media-breakpoint-up(lg){
+      margin-top: 0;
       }
     }
 
@@ -53,10 +50,11 @@ Features Style
       font-size: 30px;
       font-weight: 700;
       text-align: center;
-      line-height: 10rem;
+      line-height: 5rem;
       margin-top: -3rem;
       margin-bottom: 3rem;
     }
+
     .icon {
       width: 63px;
       height: 63px;
@@ -89,6 +87,7 @@ Features Style
       margin-top: 0px;
       transition: all 0.5s;
     }
+    
     .number-background h6 {
       width: 8rem;
       height: auto;
@@ -120,7 +119,7 @@ Features Style
     background-color: #f5f5f5;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    padding: 110px 0px 50px 0px;
+    padding: 5rem 0 1rem 0;
     box-shadow: 0px 0px 0.5rem $main_color;
   }
   
@@ -129,8 +128,8 @@ Features Style
   }
   
   .progress {
-    width: 150px;
-    height: 150px;
+    width: 7rem;
+    height: 7rem;
     line-height: 150px;
     background: none;
     margin: 0 auto;
@@ -198,7 +197,7 @@ Features Style
       display: flex;
       width: 100%;
       border-radius: 50%;
-      font-size: 32px;
+      font-size: 20px;
       text-align: center;
       line-height: 20px;
       align-items: center;

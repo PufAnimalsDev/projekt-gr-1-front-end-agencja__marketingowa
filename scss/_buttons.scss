@@ -14,30 +14,25 @@
         color: $main_color;
         background-color: transparent;
     }
-    &:focus{
-        color: $red;
-        outline: none;
-        border: 0;
-    }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-color: $main_color;
-      transition: all 0.3s;
-      border-radius: 1rem;
-      border: 0;
-      padding: 0.75rem;      
-    }
-    &:hover::before {
-      opacity: 0 ;
-      transform: scale(0.5,0.5);
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   z-index: -1;
+    //   background-color: $main_color;
+    //   transition: all 0.3s;
+    //   border-radius: 1rem;
+    //   border: 0;
+    //   padding: 0.75rem;      
+    // }
+    // &:hover::before {
+    //   opacity: 0 ;
+    //   transform: scale(0.5,0.5);
+    // }
     &::after {
       content: '';
       position: absolute;
@@ -88,28 +83,24 @@
         padding: 0.75rem;
         color: #fff;
     }
-    &:focus{
-        background-color: $main_color-hover;
-        color: $red;
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: $main_color;
-        transition: all 0.3s;
-        border-radius: 1rem;
-        border: 0;
-        padding: 0.75rem;      
-      }
-      &:hover::before {
-        opacity: 0 ;
-        transform: scale(0.5,0.5);
-      }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: -1;
+    //     background-color: $main_color;
+    //     transition: all 0.3s;
+    //     border-radius: 1rem;
+    //     border: 0;
+    //     padding: 0.75rem;      
+    //   }
+    //   &:hover::before {
+    //     opacity: 0 ;
+    //     transform: scale(0.5,0.5);
+    //   }
       &::after {
         content: '';
         position: absolute;
@@ -133,7 +124,7 @@
 
 .btnOutlineCustomFooter {
   color: $main_color-footer;
-  background-color: transparent;
+  background-color: $bgShadow;
   border: 0.2rem solid $main_color-footer;
   transition: all 0.5s;
   position: relative;
@@ -150,28 +141,24 @@
       padding: 0.75rem;
       color: #fff;
   }
-  &:focus{
-      background-color: $main_color-hover;
-      color: $red;
-  }
-  &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-color: $main_color;
-      transition: all 0.3s;
-      border-radius: 1rem;
-      border: 0;
-      padding: 0.75rem;      
-    }
-    &:hover::before {
-      opacity: 0 ;
-      transform: scale(0.5,0.5);
-    }
+  // &::before {
+  //     content: '';
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     z-index: -1;
+  //     background-color: $main_color;
+  //     transition: all 0.3s;
+  //     border-radius: 1rem;
+  //     border: 0;
+  //     padding: 0.75rem;      
+  //   }
+  //   &:hover::before {
+  //     opacity: 0 ;
+  //     transform: scale(0.5,0.5);
+  //   }
     &::after {
       content: '';
       position: absolute;

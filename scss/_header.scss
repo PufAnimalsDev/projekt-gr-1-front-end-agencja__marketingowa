@@ -5,7 +5,7 @@
     background-color: transparent;
     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
     white-space: nowrap;
-    padding: 1rem 0 1rem 0;
+    padding: 0.5rem 0 0.5rem 0;
     &--full {
         display: flex;
         flex-direction: row;
@@ -21,7 +21,7 @@
 
     }
     &--logo-img {
-            max-width: 3rem;
+            max-width: 2.5rem;
             height: auto;
         }
       
@@ -34,6 +34,7 @@
         &--nav {
             font-weight: 600;
             letter-spacing: 1px;
+            padding-top: 1rem;
       
             ul {
               display: flex;
@@ -65,7 +66,7 @@
               }
           }
           a{
-              font-size: 1.5rem;
+              font-size: 1.2rem;
               color: $main_color;
               display: block;
               &:hover{
