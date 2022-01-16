@@ -34,26 +34,51 @@ const Newsletter = () => {
   }
 
   return (
-    <>
-      <div className="container" data-aos="fade-up">
-        <div className="row">
-          <div className="col-lg-8 col-xl-7 col-xxl-6">
-            <form onSubmit={newsletterSubmitHandler} ref={newsletterEl}>
-              <div className="input-group">
-                <input type="email" name="email" id="newsletter-email" placeholder="Adres e-mail" autoComplete="email" enterKeyHint="send" required />
-                <button type="button" onClick={() => setShowModal(true)}>Subskrybuj</button>
-              </div>
-              <Modal isOpen={showModal} setIsOpen={setShowModal}>
-                <p>modal</p>
-                <input type="text" name="name" id="newsletter-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" />
-                <button type="submit">Wyślij</button>
-              </Modal>
-            </form>
-          </div>
-        </div>
+    <form onSubmit={newsletterSubmitHandler} ref={newsletterEl}>
+      <div className="newsletter-content-form">
+        <input type="email" name="email" id="newsletter-email" className="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" autoComplete="email" enterKeyHint="send" required />
+        <p>We'll NOT share your email address to anyone else.</p>
+        <label className="checkbox-inline" htmlFor="monthly">
+          <input type="checkbox" name="monthly" id="monthly" value="" />Please send me a monthly newsletter.
+        </label>   
+        <button type="button" className="btnOutlineCustom" onClick={() => setShowModal(true)}>Sign up</button>
       </div>
-    </>
+      <Modal isOpen={showModal} setIsOpen={setShowModal}>
+        <p>modal</p>
+        <input type="text" name="name" id="newsletter-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" />
+        <button type="submit">Wyślij</button>
+      </Modal>
+    </form>
   )
 }
+
+/*
+
+<section class="newsletter">
+    <div class="container">
+        <div class="row">    
+            <div class="col-lg-5 ml-auto mt-5 pt-5 col-md-6 col-12" data-aos="zoom-in-down" data-aos-duration="1000">
+                <img src="./assets/img/newsletter.png" class="img-fluid" alt="newsletter">
+            </div>
+    
+            <div class="col-lg-5 mr-auto mt-5 pt-5 col-md-6 col-12 newsletter--content" data-aos="flip-up" data-aos-duration="1000">
+                <h4>Email Newsletter</h4>            
+                <h2>Let's stay up-to-date. We'll share you all good stuffs.</h2>
+                <form>
+                    <div class="newsletter--content-form">
+                        <input name="email" type="email" class="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" required>                
+                        <p>We'll NOT share your email address to anyone else.</p>
+                        <label class="checkbox-inline" for="monthly">
+                            <input type="checkbox" name="monthly" value="">Please send me a monthly newsletter.
+                        </label>        
+                        <button type="submit"class="btnOutlineCustom">Sign up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+*/
 
 export default Newsletter;
