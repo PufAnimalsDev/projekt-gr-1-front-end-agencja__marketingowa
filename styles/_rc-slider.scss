@@ -4,7 +4,7 @@
 
 $disabledColor: #ccc;
 $border-radius-base: 6px;
-$primary-color: #2db7f5;
+$primary-color: #ffe19b;
 $tooltip-color: #fff;
 $tooltip-bg: tint(#666, 4%);
 $tooltip-arrow-width: 4px;
@@ -102,6 +102,7 @@ $ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
     text-align: center;
     cursor: pointer;
     color: #999;
+    white-space: nowrap;
 
     &-active {
       color: #666;
@@ -219,6 +220,7 @@ $ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
   left: -9999px;
   top: -9999px;
   visibility: visible;
+  white-space: nowrap;
 
   @include borderBox();
 

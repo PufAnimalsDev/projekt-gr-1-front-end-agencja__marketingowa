@@ -208,9 +208,8 @@ const FormWizard = () => {
               <>
                 <div className='mb-3'>
                   Załączono plik:<br />
-                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB
+                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB <button className="btnDarkCustom formwizard--detach-btn" type="button" onClick={removeAttachment}><i className="fas fa-fw fa-times"></i></button>
                 </div>
-                <button type="button" onClick={removeAttachment}>Usuń plik</button>
               </>
             : ''}
           </Tile>
