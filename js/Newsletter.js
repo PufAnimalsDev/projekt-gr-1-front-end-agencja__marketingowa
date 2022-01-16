@@ -52,33 +52,4 @@ const Newsletter = () => {
   )
 }
 
-/*
-
-<section class="newsletter">
-    <div class="container">
-        <div class="row">    
-            <div class="col-lg-5 ml-auto mt-5 pt-5 col-md-6 col-12" data-aos="zoom-in-down" data-aos-duration="1000">
-                <img src="./assets/img/newsletter.png" class="img-fluid" alt="newsletter">
-            </div>
-    
-            <div class="col-lg-5 mr-auto mt-5 pt-5 col-md-6 col-12 newsletter--content" data-aos="flip-up" data-aos-duration="1000">
-                <h4>Email Newsletter</h4>            
-                <h2>Let's stay up-to-date. We'll share you all good stuffs.</h2>
-                <form>
-                    <div class="newsletter--content-form">
-                        <input name="email" type="email" class="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" required>                
-                        <p>We'll NOT share your email address to anyone else.</p>
-                        <label class="checkbox-inline" for="monthly">
-                            <input type="checkbox" name="monthly" value="">Please send me a monthly newsletter.
-                        </label>        
-                        <button type="submit"class="btnOutlineCustom">Sign up</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-*/
-
 export default Newsletter;
