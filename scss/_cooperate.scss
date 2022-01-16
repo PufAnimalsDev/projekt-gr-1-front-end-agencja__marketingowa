@@ -1,12 +1,19 @@
 .cooperate{
     padding: 7rem 0;
     min-height: 60vh;
+    background-color: $main_color;
+    display: flex;
+    flex-direction: column;
 
     &--heading{
-        margin-bottom: 2rem;
-        text-align: center;
-
-        
-
+        display: flex;
+        flex-direction: column;
+        &-sentence {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: $white;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
     }
 }

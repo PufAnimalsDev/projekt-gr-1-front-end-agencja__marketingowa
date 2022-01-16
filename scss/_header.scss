@@ -1,3 +1,89 @@
+// .header {
+//     position: fixed;
+//     width: 100%;
+//     z-index: 999999;
+//     background-color: transparent;
+//     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+//     white-space: nowrap;
+//     padding: 0.5rem 0 0.5rem 0;
+//     &--full {
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         .btnCustom {
+//             margin-left: 8rem;
+//         }
+//     }
+
+//     &--logo {
+//         position: relative;
+//         right: 5rem;
+
+//     }
+//     &--logo-img {
+//             max-width: 2.5rem;
+//             height: auto;
+//         }
+      
+//         .anim {
+//           transform: rotate(0deg);
+//           transition: 0.25s;
+//           font-size: medium;
+//         }
+      
+//         &--nav {
+//             font-weight: 600;
+//             letter-spacing: 1px;
+//             padding-top: 1rem;
+      
+//             ul {
+//               display: flex;
+//               flex-direction: row;
+//               gap: 1rem;
+              
+//               li{
+//                   position: relative;
+//                   padding-right: 1rem;
+//                   border-right: 0.2rem solid $main_color;
+//                       &:hover .anim{
+//                           transform: rotate(180deg);
+//                       }
+                  
+//                       &:nth-child(5){
+//                           border-right: 0;
+//                       }
+//               }
+//               ul {
+//                   display: flex;
+//                   flex-direction: column;
+//                   visibility: hidden;
+//                   transition: 0.2s 1s;
+//                   position: absolute;
+                  
+//                   li {
+//                       border-right: 0;
+//                   }
+//               }
+//           }
+//           a{
+//               font-size: 1.2rem;
+//               color: $main_color;
+//               display: block;
+//                 &:hover{
+//                   color: red;
+//                   transition: 0.5s;
+//                   }
+//               }
+          
+//           li:hover ul {
+//               visibility: visible;
+//               padding: 1rem;
+//               transition-delay: 0s;
+//               background-color: $bgShadow;
+//           }
+//       }
+//     }
+
 .header {
     position: fixed;
     width: 100%;
@@ -6,104 +92,169 @@
     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
     white-space: nowrap;
     padding: 0.5rem 0 0.5rem 0;
-    &--full {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        .btnCustom {
-            margin-left: 8rem;
+        #scrollMenu {
+            text-align: right;
+            a {
+                margin-right: 2rem;
+                bottom: 0.7rem;
+            }
+            span {
+                margin-right: 2rem;
+            }
         }
-    }
 
-    &--logo {
-        position: relative;
-        right: 5rem;
-
-    }
-    &--logo-img {
+        &--full {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .btnCustom {
+                margin-left: 8rem;
+            }
+        }
+        &--logo {
+            position: relative;
+            right: 5rem;            
+        }
+        &--logo-img {
             max-width: 2.5rem;
             height: auto;
         }
-      
+                  
         .anim {
-          transform: rotate(0deg);
-          transition: 0.25s;
-          font-size: medium;
+            transform: rotate(0deg);
+            transition: 0.25s;
+            font-size: medium;
         }
-      
         &--nav {
             font-weight: 600;
             letter-spacing: 1px;
             padding-top: 1rem;
-      
+                  
             ul {
-              display: flex;
-              flex-direction: row;
-              gap: 1rem;
-              
-              li{
-                  position: relative;
-                  padding-right: 1rem;
-                  border-right: 0.2rem solid $main_color;
-                      &:hover .anim{
-                          transform: rotate(180deg);
-                      }
-                  
-                      &:nth-child(5){
-                          border-right: 0;
-                      }
-              }
-              ul {
-                  display: flex;
-                  flex-direction: column;
-                  visibility: hidden;
-                  transition: 0.2s 1s;
-                  position: absolute;
-                  
-                  li {
-                      border-right: 0;
-                  }
-              }
-          }
-          a{
-              font-size: 1.2rem;
-              color: $main_color;
-              display: block;
-              &:hover{
-                  color: red;
-                  transition: 0.5s;
-                  }
-              }
-          
-          li:hover ul {
-              visibility: visible;
-              padding: 1rem;
-              transition-delay: 0s;
-              background-color: $bgShadow;
-          }
-      }
-}
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                          
+                    li{
+                        position: relative;
+                        padding-right: 1rem;
+                        border-right: 0.2rem solid $main_color;
+                            &:hover .anim{
+                                transform: rotate(180deg);
+                            }
+                              
+                            &:nth-child(5){
+                                border-right: 0;
+                            }
+                    }
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        visibility: hidden;
+                        transition: 0.2s 1s;
+                        position: absolute;
+                              
+                        li {
+                            border-right: 0;
+                        }
+                    }
+            }
+            a{
+                font-size: 1.2rem;
+                color: $main_color;
+                display: block;
+                    &:hover{
+                        color: red;
+                        transition: 0.5s;
+                    }
+            }
+                      
+            li:hover ul {
+                visibility: visible;
+                padding: 1rem;
+                transition-delay: 0s;
+                background-color: $bgShadow;
+            }
+        }
 
-.slideInDown {
-    animation-name: slideInDown;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+    #navbar {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        width: 100%;
+        transition: top 0.3s;
+        padding-right: 1rem;
+
+        img{
+            border: 1px solid $font_color-dark;
+            width: 2rem;
+            height: auto;
+        }
+
+
+        .selectLang {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: 2rem;
+        }
     }
-    @-webkit-keyframes slideInDown {
-    0% {
-    transform: translateY(-100%);
-    visibility: visible;
+
+
+    .overlay{
+        height: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: $main_color;
+        background-color: #FFB400e6;
+        overflow-x: hidden;
+        transition: 0.5s;
+
+        &-content{
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+
+            & a {
+                padding: 8px;
+                text-decoration: none;
+                font-size: 36px;
+                color: $font_color-dark;
+                display: block;
+                transition: 0.3s;
+                &:hover,
+                &:focus{
+                    color: #f1f1f1;
+                    transition: 0.4s;
+                }         
+            }
+        }
+        .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+
+            &:hover{
+                color: #fff;
+                transition: 0.4s; 
+            }
+        }
     }
-    100% {
-    transform: translateY(0);
-    }
-    }
-    @keyframes slideInDown {
-    0% {
-    transform: translateY(-100%);
-    visibility: visible;
-    }
-    100% {
-    transform: translateY(0);
+    @media screen and (max-height: 450px) {
+        .overlay {overflow-y: auto;}
+        .overlay a {font-size: 20px}
+        .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+        }
     }
 }

@@ -66,7 +66,7 @@
 
 .btnOutlineCustom {
     color: $main_color;
-    background-color: transparent;
+    background-color: $white;
     border: 0.2rem solid $main_color;
     transition: all 0.5s;
     position: relative;
@@ -124,7 +124,7 @@
 
 .btnOutlineCustomFooter {
   color: $main_color-footer;
-  background-color: $bgShadow;
+  background-color: $white;
   border: 0.2rem solid $main_color-footer;
   transition: all 0.5s;
   position: relative;
@@ -136,8 +136,8 @@
   letter-spacing: 1px;
 
   &:hover {
-      background-color: $main_color;
-      border: 0.2rem solid $main_color;
+      background-color: $black;
+      border: 0.2rem solid $black;
       padding: 0.75rem;
       color: #fff;
   }
@@ -171,7 +171,7 @@
       transition: all 0.3s;
       transform: scale(1.3,1.4);
       border-radius: 1rem;
-      border: 0.2rem solid $main_color;
+      border: 0.2rem solid $black;
       padding: 0.75rem;      
     }
     &:hover::after {

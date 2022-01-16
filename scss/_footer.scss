@@ -1,5 +1,5 @@
 .footer{
-    background-color: $bgFooter;
+    background-color: $shadows;
     min-height: 60vh;
     padding-top: 2rem;
 
@@ -17,7 +17,8 @@
     &--contact{
         text-align: center;
         margin: 0 2rem 0 2rem;
-
+        background-color: $white;
+        border-radius: 1rem;
     }
 
     ul{
@@ -45,7 +46,7 @@
     &--item-wrapper{
         text-align: center;
         padding-top: 4rem;
-        background-color: $bgShadow;
+        background-color: $white;
         border-radius: 1rem;
     }
 
@@ -75,8 +76,7 @@
     &--authors{
         border-top: 1px solid $main_color-footer;
         padding-top: 1rem;
-        color: $bgShadow;
-
+        color: $font_color-muted;
         display: flex;
         justify-content: space-between;
     }
