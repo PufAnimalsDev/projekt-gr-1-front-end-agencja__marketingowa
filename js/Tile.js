@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
-  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])';
+  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])';
 
   let [currentClass, setCurrentClass] = useState("active");
   let [zIndex, setZIndex] = useState(null);
@@ -20,7 +20,10 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = fal
       setCurrentClass("active");
       setZIndex(100);
       if (!firstRender.current) {
-        tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY).focus({ preventScroll: true });
+        let firstFocusableElement = tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY);
+        if (firstFocusableElement) {
+          firstFocusableElement.focus({ preventScroll: true });
+        }
       }
     } else if (currentTile + 1 == tileNum) {
       setCurrentClass("next");
@@ -103,15 +106,17 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = fal
       <div className="overlay"></div>
       <div className="formwizard--tile-border">
         {children}
-        {tileNum != 0 ? (
-          <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Wstecz</button>
-        ) : ""}
-        {showSubmit ? (
-          <button type="submit" className="btn btn-success">Wyślij</button>
-        ) : ""}
-        {!hideNext ? (
-          <button type="button" className="btn btn-primary" onClick={moveNextTile}>Dalej</button>
-        ) : ""}
+        <nav className="formwizard--tile-navs">
+          {tileNum != 0 ? (
+            <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)}><i className="fas fa-fw fa-arrow-left"></i></button>
+          ) : ""}
+          {showSubmit ? (
+            <button type="submit" className="btnDarkCustom"><i className="fas fa-fw fa-file-export"></i></button>
+          ) : ""}
+          {!hideNext ? (
+            <button type="button" className="btnDarkCustom" onClick={moveNextTile}><i className="fas fa-fw fa-arrow-right"></i></button>
+          ) : ""}
+        </nav>
       </div>
     </div>
   )
