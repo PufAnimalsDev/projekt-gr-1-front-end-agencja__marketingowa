@@ -215,7 +215,7 @@ const FormWizard = () => {
             : ''}
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} replaceNextWithSubmit={true} formStatus={formStatus}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus}>
             <h2>Przejrzyj dane</h2>
             <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>

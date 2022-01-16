@@ -100,8 +100,8 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = fal
 
   return (
     <div className={`formwizard--tile ${currentClass}`} style={{ zIndex: zIndex }} ref={tileElement}>
+      <div className="overlay"></div>
       <div className="formwizard--tile-border">
-        <div className="overlay"></div>
         {children}
         {tileNum != 0 ? (
           <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Wstecz</button>
