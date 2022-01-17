@@ -101,11 +101,11 @@ $ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
-    color: #999;
+    color: #555;
     white-space: nowrap;
 
     &-active {
-      color: #666;
+      color: #000;
     }
   }
 
