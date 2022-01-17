@@ -15,6 +15,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 const FormWizard = () => {
   const [currentTile, setCurrentTile] = useState(0);
+  const [fromSummary, setFromSummary] = useState(false);
   const [formStatus, setFormStatus] = useState("unsent");
   const [budget, setBudget] = useState({min: 20000, max: 50000});
 
@@ -28,11 +29,24 @@ const FormWizard = () => {
 
   const formEl = useRef(null);
 
+  const commonTileProps = {
+    currentTile: currentTile,
+    setCurrentTile: setCurrentTile,
+    fromSummary: fromSummary,
+    setFromSummary: setFromSummary,
+    validationFunction: validateFormElement
+  }
+
   const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   function handleTopicStep(topic) {
     setTopic(topic);
-    setCurrentTile(currentTile+1);
+    if (fromSummary) {
+      setCurrentTile(7);
+      setFromSummary(false);
+    } else {
+      setCurrentTile(currentTile+1);
+    }
   }
 
   function onFileDrop(files) {
@@ -125,11 +139,11 @@ const FormWizard = () => {
 
   return (
     <div>
-      <Timeline currentTile={currentTile} setCurrentTile={setCurrentTile} tileCount={8} formComplete={formStatus === "success" ? true : false} />
+      <Timeline currentTile={currentTile} tileCount={8} formComplete={formStatus === "success" ? true : false} />
       <div className="formwizard--container">
         <form className={`formwizard ${formStatus === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={0} hideNext={true} title="Z czym możemy Ci pomóc?">
+          <Tile {...commonTileProps} tileNum={0} hideNext={true} title="Z czym możemy Ci pomóc?">
             <div className="formwizard--topic-container">
               <button type="button" onClick={() => handleTopicStep("Opcja 1")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 1</button>
               <button type="button" onClick={() => handleTopicStep("Opcja 2")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 2</button>
@@ -138,14 +152,14 @@ const FormWizard = () => {
             </div>
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal"]} title="Cel twojej firmy">
+          <Tile {...commonTileProps} tileNum={1} validate={["company_goal"]} title="Cel twojej firmy">
             <label htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
             <textarea className="form-control" name="company_goal" id="formwizard-company_goal" enterKeyHint="enter" ></textarea>
             <label htmlFor="formwizard-company_goal_deadline">Do kiedy Twoja firma chce go osiągnąć?*</label>
             <DatePicker id="formwizard-company_goal_deadline" name="company_goal_deadline" selected={companyGoalDeadline} onChange={(date) => setCompanyGoalDeadline(date)} inline minDate={new Date()} />
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={2} title="Budżet">
+          <Tile {...commonTileProps} tileNum={2} title="Budżet">
             <p>Ile wynosi budżet przeznaczony na realizację tego celu?*</p>
             <Range 
               min={10000} 
@@ -164,12 +178,12 @@ const FormWizard = () => {
             <input type="number" name="budget_max" value={budget.max} onInput={event => setBudget({min: budget.min, max: parseInt(event.target.value)})} onBlur={() => budget.min > budget.max ? setBudget({min: budget.max, max: budget.min}) : null} /> zł
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={3} validationFunction={validateFormElement} validate={["why_us"]} title="Dlaczego my?">
+          <Tile {...commonTileProps} tileNum={3} validate={["why_us"]} title="Dlaczego my?">
             <label htmlFor="formwizard-why_us">Dlaczego wybrałeś/aś nas?*</label>
             <textarea className="form-control" name="why_us" id="formwizard-why_us" enterKeyHint="enter"></textarea>
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={4} validationFunction={validateFormElement} validate={["name", "company_name"]} title="Dane osobowe">
+          <Tile {...commonTileProps} tileNum={4} validate={["name", "company_name"]} title="Dane osobowe">
             <label htmlFor="formwizard-name">Imię i nazwisko*</label>
             <input className="form-control" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
             <label htmlFor="formwizard-company_name">Nazwa firmy*</label>
@@ -178,14 +192,14 @@ const FormWizard = () => {
             <input className="form-control" type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={5} validationFunction={validateFormElement} validate={["email"]} title="Dane kontaktowe">
+          <Tile {...commonTileProps} tileNum={5} validate={["email"]} title="Dane kontaktowe">
             <label htmlFor="formwizard-email">Adres e-mail*</label>
             <input className="form-control" type="email" name="email" id="formwizard-email" placeholder="Adres e-mail" autoComplete="email" enterKeyHint="next" />
             <label htmlFor="formwizard-phone">Numer telefonu</label>
             <input className="form-control" type="text" name="phone" id="formwizard-phone" placeholder="Numer telefonu" autoComplete="tel" enterKeyHint="next" />
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={6} title="Dodatkowe informacje">
+          <Tile {...commonTileProps} tileNum={6} title="Dodatkowe informacje">
             <label htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
             <textarea className="form-control" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter"></textarea>
             <label htmlFor="formwizard-file">Załącznik:</label>
@@ -211,8 +225,8 @@ const FormWizard = () => {
             : ''}
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
-            <FormSummary currentTile={currentTile} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
+          <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
+            <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <i className="fas fa-2x fa-circle-notch fa-spin"></i>
             </div>

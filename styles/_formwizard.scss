@@ -114,6 +114,9 @@
                 height: 2.5rem;
                 width: 2.5rem;
                 padding: 0;
+                &:only-child {
+                    margin-left: auto;
+                }
             }
         }
 
@@ -132,6 +135,8 @@
         &.done {
             transform: scale(0.8) translateX(-120%);
             opacity: 0;
+
+            &:not(:first-of-type)
 
             .overlay {
                 background-color: #bfbb;

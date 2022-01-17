@@ -1,7 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
+const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, formEl, additionalFields}) => {
   let [formValues, setFormValues] = useState({});
+
+  function summaryTileSwitch(tile, fieldName) {
+    setCurrentTile(tile);
+    setFromSummary(true);
+    if (fieldName) {
+      formEl.querySelector(fieldName).focus();
+    }
+  }
+  
 
   useEffect(() => {
     if (currentTile >= tileCount - 2) {
@@ -50,29 +59,65 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
     <>
       {formValues != null ? (
         <>
-          <div>Z czym możemy Ci pomóc:<br />{formValues.topic}</div>
+          <div onClick={() => summaryTileSwitch(0, "[name=topic]")}>
+            Z czym możemy Ci pomóc:
+            {formValues.topic}
+          </div>
           <hr />
-          <div>Jaki jest cel Twojej firmy:<br />{formValues.company_goal}</div>
+          <div onClick={() => summaryTileSwitch(1, "[name=company_goal]")}>
+            Jaki jest cel Twojej firmy:
+            {formValues.company_goal}
+          </div>
           <hr />
-          <div>Do kiedy Twoja firma chce go osiągnąć:<br />{formValues.company_goal_deadline}</div>
+          <div onClick={() => summaryTileSwitch(1, ".react-datepicker__day:not(.react-datepicker__day--disabled)")}>
+            Do kiedy Twoja firma chce go osiągnąć:
+            {formValues.company_goal_deadline}
+          </div>
           <hr />
-          <div>Budżet:<br />{formValues.budget}</div>
+          <div onClick={() => summaryTileSwitch(2, ".rc-slider-handle")}>
+            Budżet:
+            {formValues.budget}
+          </div>
           <hr />
-          <div>Dlaczego wybrałeś/aś nas?<br />{formValues.why_us}</div>
+          <div onClick={() => summaryTileSwitch(3, "[name=why_us]")}>
+            Dlaczego wybrałeś/aś nas?
+            {formValues.why_us}
+          </div>
           <hr />
-          <div>Imię i nazwisko:<br />{formValues.name}</div>
+          <div onClick={() => summaryTileSwitch(4, "[name=name]")}>
+            Imię i nazwisko:
+            {formValues.name}
+          </div>
           <hr />
-          <div>Nazwa firmy:<br />{formValues.company_name}</div>
+          <div onClick={() => summaryTileSwitch(4, "[name=company_name]")}>
+            Nazwa firmy:
+            {formValues.company_name}
+          </div>
           <hr />
-          <div>Stanowisko:<br />{formValues.company_job_title}</div>
+          <div onClick={() => summaryTileSwitch(4, "[name=company_job_title]")}>
+            Stanowisko:
+            {formValues.company_job_title}
+          </div>
           <hr />
-          <div>Adres e-mail:<br />{formValues.email}</div>
+          <div onClick={() => summaryTileSwitch(5, "[name=email]")}>
+            Adres e-mail:
+            {formValues.email}
+          </div>
           <hr />
-          <div>Numer telefonu:<br />{formValues.phone}</div>
+          <div onClick={() => summaryTileSwitch(5, "[name=phone]")}>
+            Numer telefonu:
+            {formValues.phone}
+          </div>
           <hr />
-          <div>Dodatkowe informacje:<br />{formValues.extra_info}</div>
+          <div onClick={() => summaryTileSwitch(6, "[name=extra_info]")}>
+            Dodatkowe informacje:
+            {formValues.extra_info}
+          </div>
           <hr />
-          <div>Załącznik:<br />{formValues.file}</div>
+          <div onClick={() => summaryTileSwitch(6, ".dropzone")}>
+            Załącznik:
+            {formValues.file}
+          </div>
         </>
       ) : ""}
     </>

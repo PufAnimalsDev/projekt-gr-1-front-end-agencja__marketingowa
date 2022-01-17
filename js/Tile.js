@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
+const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFromSummary, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
   const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
   const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
@@ -11,27 +11,40 @@ const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmi
   let firstRender = useRef(true);
 
   useEffect(() => {
-    if (currentTile - 1 > tileNum) {
-      setCurrentClass("done");
-      setZIndex(0);
-    } else if (currentTile > tileNum) {
-      setCurrentClass("donelast");
-      setZIndex(0);
-    } else if (currentTile == tileNum) {
-      setCurrentClass("active");
-      setZIndex(100);
-      if (!firstRender.current) {
-        let firstFocusableElement = tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY);
-        if (firstFocusableElement) {
-          firstFocusableElement.focus({ preventScroll: true });
-        }
+    if (fromSummary) {
+      if (tileNum === 7) {
+        setCurrentClass("next");
+        setZIndex(99);
+      } else if (currentTile == tileNum) {
+        setCurrentClass("active");
+        setZIndex(100);
+      } else {
+        setCurrentClass("done");
+        setZIndex(0);
       }
-    } else if (currentTile + 1 == tileNum) {
-      setCurrentClass("next");
-      setZIndex(99);
-    } else { // currentTile + 1 > tileNum
-      setCurrentClass("upcoming");
-      setZIndex(100 - Math.abs(currentTile - tileNum));
+    } else {
+      if (currentTile - 1 > tileNum) {
+        setCurrentClass("done");
+        setZIndex(0);
+      } else if (currentTile > tileNum) {
+        setCurrentClass("donelast");
+        setZIndex(0);
+      } else if (currentTile == tileNum) {
+        setCurrentClass("active");
+        setZIndex(100);
+        if (!firstRender.current) {
+          let firstFocusableElement = tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY);
+          if (firstFocusableElement) {
+            firstFocusableElement.focus({ preventScroll: true });
+          }
+        }
+      } else if (currentTile + 1 == tileNum) {
+        setCurrentClass("next");
+        setZIndex(99);
+      } else { // currentTile + 1 > tileNum
+        setCurrentClass("upcoming");
+        setZIndex(100 - Math.abs(currentTile - tileNum));
+      }
     }
     firstRender.current = false;
   }, [currentTile]);
@@ -85,7 +98,7 @@ const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmi
   }, [])
 
   function moveNextTile() {
-    if (validationFunction) {
+    if (validate && validate.length > 0) {
       let validationResult = validationFunction(validate);
       let allOk = true;
       for (let result of validationResult) {
@@ -102,6 +115,26 @@ const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmi
     }
   }
 
+  function moveToSummary() {
+    if (validate && validate.length > 0) {
+      let validationResult = validationFunction(validate);
+      let allOk = true;
+      for (let result of validationResult) {
+        if (!result.status) {
+          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
+          allOk = false;
+        }
+      }
+      if (allOk) {
+        setCurrentTile(7);
+          setFromSummary(false);
+      }
+    } else {
+      setCurrentTile(7);
+        setFromSummary(false);
+    }
+  }
+
   return (
     <div className={`formwizard--tile ${currentClass}`} style={{ zIndex: zIndex }} ref={tileElement}>
       <h2>{title}</h2>
@@ -110,15 +143,16 @@ const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmi
         <div className="formwizard--tile-content">
           {children}
           <nav className="formwizard--tile-navs">
-            {tileNum != 0 ? (
+            {tileNum != 0 && !fromSummary ? (
               <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz"><i className="fas fa-fw fa-arrow-left"></i></button>
             ) : ""}
-            {showSubmit ? (
+            {showSubmit && !fromSummary ? (
               <button type="submit" className="btnDarkCustom" aria-label="Wyślij"><i className="fas fa-fw fa-file-export"></i></button>
             ) : ""}
-            {!hideNext ? (
+            {!hideNext && !fromSummary ? (
               <button type="button" className="btnDarkCustom" onClick={moveNextTile} aria-label="Dalej"><i className="fas fa-fw fa-arrow-right"></i></button>
             ) : ""}
+            {fromSummary && <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania"><i className="fas fa-fw fa-step-forward"></i></button>}
           </nav>
         </div>
       </div>
