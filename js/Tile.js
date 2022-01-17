@@ -109,13 +109,13 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = fal
         {children}
         <nav className="formwizard--tile-navs">
           {tileNum != 0 ? (
-            <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)}><i className="fas fa-fw fa-arrow-left"></i></button>
+            <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz"><i className="fas fa-fw fa-arrow-left"></i></button>
           ) : ""}
           {showSubmit ? (
-            <button type="submit" className="btnDarkCustom"><i className="fas fa-fw fa-file-export"></i></button>
+            <button type="submit" className="btnDarkCustom" aria-label="Wyślij"><i className="fas fa-fw fa-file-export"></i></button>
           ) : ""}
           {!hideNext ? (
-            <button type="button" className="btnDarkCustom" onClick={moveNextTile}><i className="fas fa-fw fa-arrow-right"></i></button>
+            <button type="button" className="btnDarkCustom" onClick={moveNextTile} aria-label="Dalej"><i className="fas fa-fw fa-arrow-right"></i></button>
           ) : ""}
         </nav>
       </div>

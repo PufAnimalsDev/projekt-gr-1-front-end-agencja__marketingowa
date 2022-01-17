@@ -35,8 +35,9 @@
             justify-content: center;
             align-items: flex-end;
             appearance: none;
-            border: 1px solid #000;
-            background-color: transparent;
+            border: 1px solid #ffe19b;
+            border-radius: 8px;
+            background-color: #ffe19b;
             flex: 1 1 40%;
         }
     }
@@ -229,6 +230,19 @@
         }
     }
 }
+
+.react-datepicker__day:hover {
+    background-color: #ffe19b;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: #FFC410;
+}
+
+.react-datepicker__day--selected {
+    background-color: #FFB400;
+}
+
 
 @keyframes hide-up {
     0% {

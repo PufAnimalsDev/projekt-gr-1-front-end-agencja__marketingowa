@@ -7,8 +7,6 @@ import { useDropzone } from 'react-dropzone';
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl";
 
-import "react-datepicker/dist/react-datepicker.css";
-
 registerLocale("pl", pl);
 setDefaultLocale("pl");
 
