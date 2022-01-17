@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
+const Tile = ({ children, title, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
   const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
   const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
@@ -104,20 +104,23 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = fal
 
   return (
     <div className={`formwizard--tile ${currentClass}`} style={{ zIndex: zIndex }} ref={tileElement}>
-      <div className="overlay"></div>
+      <h2>{title}</h2>
       <div className="formwizard--tile-border">
-        {children}
-        <nav className="formwizard--tile-navs">
-          {tileNum != 0 ? (
-            <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz"><i className="fas fa-fw fa-arrow-left"></i></button>
-          ) : ""}
-          {showSubmit ? (
-            <button type="submit" className="btnDarkCustom" aria-label="Wyślij"><i className="fas fa-fw fa-file-export"></i></button>
-          ) : ""}
-          {!hideNext ? (
-            <button type="button" className="btnDarkCustom" onClick={moveNextTile} aria-label="Dalej"><i className="fas fa-fw fa-arrow-right"></i></button>
-          ) : ""}
-        </nav>
+        <div className="overlay"></div>
+        <div className="formwizard--tile-content">
+          {children}
+          <nav className="formwizard--tile-navs">
+            {tileNum != 0 ? (
+              <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz"><i className="fas fa-fw fa-arrow-left"></i></button>
+            ) : ""}
+            {showSubmit ? (
+              <button type="submit" className="btnDarkCustom" aria-label="Wyślij"><i className="fas fa-fw fa-file-export"></i></button>
+            ) : ""}
+            {!hideNext ? (
+              <button type="button" className="btnDarkCustom" onClick={moveNextTile} aria-label="Dalej"><i className="fas fa-fw fa-arrow-right"></i></button>
+            ) : ""}
+          </nav>
+        </div>
       </div>
     </div>
   )
