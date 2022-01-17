@@ -1,17 +1,6 @@
 import React from "react";
 
-const Timeline = ({ currentTile, formComplete }) => {
-    let nodeTitles = [
-        "Z czym możemy Ci pomóc?",
-        "Cel Twojej firmy",
-        "Budżet",
-        "Dlaczego my?",
-        "Dane osobiste",
-        "Dane kontaktowe",
-        "Dodatkowe informacje",
-        "Przejrzyj dane"
-    ]
-
+const Timeline = ({ currentTile, formComplete, tileCount }) => {
     function getNodeClass(index) {
         if (index < currentTile || formComplete) {
             return "done";
@@ -22,22 +11,25 @@ const Timeline = ({ currentTile, formComplete }) => {
         }
     }
 
-    const distanceBetweenNodes = 100 / nodeTitles.length;
+    function renderNodes() {
+        let nodeArray = [];
+        for (let i=0; i < tileCount; i++) {
+            nodeArray.push((
+                <div className={`timeline--node ${getNodeClass(i)}`} key={i}>
+                    {i + 1}
+                </div>
+            ))
+        }
+        return nodeArray;
+    }
+
+    const distanceBetweenNodes = 100 / tileCount;
 
     return (
         <div className="timeline">
             <div className="timeline--line" style={{ left: `${distanceBetweenNodes / 2}%`, width: `${distanceBetweenNodes * currentTile}%` }}></div>
-            <div className="timeline--line-shadow" style={{ left: `${distanceBetweenNodes / 2}%`, width: `${distanceBetweenNodes * (nodeTitles.length - 1)}%` }}></div>
-            {nodeTitles.map((item, index) => (
-                <div className="timeline--item" key={index}>
-                    <div className="timeline--title">
-                        {item}
-                    </div>
-                    <div className={`timeline--node ${getNodeClass(index)}`}>
-                        {index + 1}
-                    </div>
-                </div>
-            ))}
+            <div className="timeline--line-shadow" style={{ left: `${distanceBetweenNodes / 2}%`, width: `${distanceBetweenNodes * (tileCount - 1)}%` }}></div>
+            {renderNodes().map(item => item)}
         </div>
     );
 }
