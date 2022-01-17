@@ -57,6 +57,7 @@
 
     &--tile {
         position: absolute;
+        overflow: hidden;
         background-color: #FFB400;
         border-radius: 2rem;
         transition: transform ease 0.7s, opacity ease 0.7s;
@@ -193,6 +194,16 @@
         background-color: #ffe19b;
         bottom: $timeline-node-size / 2 - $timeline-line-height / 2;
         transition: width 1s ease-out;
+    }
+
+    &--line-shadow {
+        z-index: 0;
+        position: absolute;
+        max-width: 100%;
+        height: $timeline-line-height;
+        background-color: transparent;
+        bottom: $timeline-node-size / 2 - $timeline-line-height / 2;
+        box-shadow: inset 0px 0px 3px 0px #0002;
     }
 
     &--item {

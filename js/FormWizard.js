@@ -16,7 +16,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 const FormWizard = () => {
   const [currentTile, setCurrentTile] = useState(0);
   const [formStatus, setFormStatus] = useState("unsent");
-  const [budget, setBudget] = useState({min: 5000, max: 20000});
+  const [budget, setBudget] = useState({min: 20000, max: 50000});
 
   const [topic, setTopic] = useState("Opcja 1");
 
@@ -149,15 +149,15 @@ const FormWizard = () => {
           <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={2} validationFunction={validateFormElement} validate={""}>
             <p>Ile wynosi budżet przeznaczony na realizację tego celu?*</p>
             <Range 
-              min={1000} 
-              max={50000}
-              defaultValue={[5000, 20000]}
+              min={10000} 
+              max={100000}
+              defaultValue={[20000, 50000]}
               value={[budget.min, budget.max]}
-              step={1000}
+              step={5000}
               onChange={values => {
                 setBudget({min: values[0], max: values[1]});
               }}
-              marks={{1000: "1 000 zł", 10000: "10 000 zł", 20000: "20 000 zł", 30000: "30 000 zł", 40000: "40 000 zł", 50000: "50 000 zł"}}
+              marks={{10000: "10 000 zł", 25000: "25 000 zł", 50000: "50 000 zł", 75000: "75 000 zł", 100000: "100 000 zł",}}
               tipFormatter={value => `${value / 1000} 000 zł`}
               />
             <p>lub wpisz ręcznie:</p>

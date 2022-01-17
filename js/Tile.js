@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 const Tile = ({ children, currentTile, setCurrentTile, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
   const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
-  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])';
+  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
 
   let [currentClass, setCurrentClass] = useState("active");
   let [zIndex, setZIndex] = useState(null);

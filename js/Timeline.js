@@ -27,6 +27,7 @@ const Timeline = ({ currentTile, formComplete }) => {
     return (
         <div className="timeline">
             <div className="timeline--line" style={{ left: `${distanceBetweenNodes / 2}%`, width: `${distanceBetweenNodes * currentTile}%` }}></div>
+            <div className="timeline--line-shadow" style={{ left: `${distanceBetweenNodes / 2}%`, width: `${distanceBetweenNodes * (nodeTitles.length - 1)}%` }}></div>
             {nodeTitles.map((item, index) => (
                 <div className="timeline--item" key={index}>
                     <div className="timeline--title">
