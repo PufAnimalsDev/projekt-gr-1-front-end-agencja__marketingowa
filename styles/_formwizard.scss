@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .formwizard {
     display: flex;
     justify-content: center;
@@ -55,10 +57,11 @@
         line-height: 0;
     }
 
+    $scrollbar-track-color: #ffe19b;
+
     &--tile {
         position: absolute;
         overflow: hidden;
-        background-color: #FFB400;
         border-radius: 2rem;
         transition: transform ease 0.7s, opacity ease 0.7s;
         z-index: 2;
@@ -70,9 +73,32 @@
             max-height: 500px;
             width: 100%;
             padding: 2rem 3rem;
+            background-color: #ffb400;
             border: 2px solid #ffe19b;
             border-radius: 2rem;
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: transparent #ffe19b;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $scrollbar-track-color;
+                border-radius: 20px;
+                border: 3px solid transparent;
+                &:hover {
+                    background-color: color.scale($scrollbar-track-color, $lightness: -10%);
+                }
+                &:active {
+                    background-color: color.scale($scrollbar-track-color, $lightness: -20%);
+                }
+            }
         }
 
         &-navs {
@@ -165,7 +191,7 @@
         justify-content: center;
         align-items: center;
         visibility: hidden;
-        background-color: #FFFB;
+        background-color: #fffb;
         opacity: 0;
         transition: opacity ease 1s;
 
@@ -235,7 +261,8 @@
         transition: background-color 0.5s;
         font-weight: 700;
 
-        &.done, &.current {
+        &.done,
+        &.current {
             transition-delay: 0.8s;
             background-color: $main_color;
         }
@@ -247,13 +274,12 @@
 }
 
 .react-datepicker__day--keyboard-selected {
-    background-color: #FFC410;
+    background-color: #ffc410;
 }
 
 .react-datepicker__day--selected {
-    background-color: #FFB400;
+    background-color: #ffb400;
 }
-
 
 @keyframes hide-up {
     0% {
@@ -295,14 +321,14 @@
 }
 
 @keyframes slide-in {
-  from {
-    transform: translateX(150px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+    from {
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .rc-slider {
@@ -310,9 +336,15 @@
 }
 
 .dropzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-bottom: 2rem;
     padding: 2rem;
     border: 2px dashed $dark;
     border-radius: 5px;
     text-align: center;
+    height: 140px;
+    background-color: #eee;
 }

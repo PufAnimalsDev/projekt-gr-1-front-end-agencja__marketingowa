@@ -51,16 +51,27 @@ const FormSummary = ({currentTile, tileCount, formEl, additionalFields}) => {
       {formValues != null ? (
         <>
           <div>Z czym możemy Ci pomóc:<br />{formValues.topic}</div>
+          <hr />
           <div>Jaki jest cel Twojej firmy:<br />{formValues.company_goal}</div>
+          <hr />
           <div>Do kiedy Twoja firma chce go osiągnąć:<br />{formValues.company_goal_deadline}</div>
+          <hr />
           <div>Budżet:<br />{formValues.budget}</div>
+          <hr />
           <div>Dlaczego wybrałeś/aś nas?<br />{formValues.why_us}</div>
+          <hr />
           <div>Imię i nazwisko:<br />{formValues.name}</div>
+          <hr />
           <div>Nazwa firmy:<br />{formValues.company_name}</div>
+          <hr />
           <div>Stanowisko:<br />{formValues.company_job_title}</div>
+          <hr />
           <div>Adres e-mail:<br />{formValues.email}</div>
+          <hr />
           <div>Numer telefonu:<br />{formValues.phone}</div>
+          <hr />
           <div>Dodatkowe informacje:<br />{formValues.extra_info}</div>
+          <hr />
           <div>Załącznik:<br />{formValues.file}</div>
         </>
       ) : ""}

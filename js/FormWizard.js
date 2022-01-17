@@ -129,7 +129,7 @@ const FormWizard = () => {
       <div className="formwizard--container">
         <form className={`formwizard ${formStatus === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={0} hideNext={true}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={0} hideNext={true} title="Z czym możemy Ci pomóc?">
             <p>Z czym możemy Ci pomóc?</p>
             <div className="formwizard--topic-container">
               <button type="button" onClick={() => handleTopicStep("Opcja 1")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 1</button>
@@ -139,7 +139,7 @@ const FormWizard = () => {
             </div>
           </Tile>
 
-          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal"]}>
+          <Tile currentTile={currentTile} setCurrentTile={setCurrentTile} tileNum={1} validationFunction={validateFormElement} validate={["company_goal"]} title="Cel twojej firmy">
             <label htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
             <textarea className="form-control" name="company_goal" id="formwizard-company_goal" enterKeyHint="enter" ></textarea>
             <label htmlFor="formwizard-company_goal_deadline">Do kiedy Twoja firma chce go osiągnąć?*</label>
@@ -196,8 +196,8 @@ const FormWizard = () => {
                 <p>Upuść plik tutaj...</p>
               : 
                 <>
-                  <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
-                  <p>Możesz załączyć wyłącznie 1 plik.</p>
+                  Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.<br />
+                  Możesz załączyć wyłącznie 1 plik.
                 </> 
               }
             </div>
@@ -225,6 +225,7 @@ const FormWizard = () => {
         <div className={`formwizard--success ${formStatus === "success" ? "show" : ""}`}>
           <h2>Wysłano formularz</h2>
           <p>Dziękujemy! Skontaktujemy się wkrótce.</p>
+          <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
         </div>
       </div>
     </div>
