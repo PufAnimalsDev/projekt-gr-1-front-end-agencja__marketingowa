@@ -44,11 +44,12 @@ add_action("rest_api_init", function () {
 
             $name = $request["name"] ? $request["name"] : "";
             $company_name = $request["company_name"] ? $request["company_name"] : "";
+            $company_job_title = $request["company_job_title"] ? $request["company_job_title"] : "";
             $email = $request["email"] ? $request["email"] : "";
             $phone = $request["phone"] ? $request["phone"] : "";
             $company_goal = $request["company_goal"] ? $request["company_goal"] : "";
+            $company_goal_deadline = $request["company_goal_deadline"] ? $request["company_goal_deadline"] : "";
             $why_us = $request["why_us"] ? $request["why_us"] : "";
-            $decision_help = $request["decision_help"] ? $request["decision_help"] : "";
             $extra_info = $request["extra_info"] ? $request["extra_info"] : "";
             $topic = $request["topic"] ? $request["topic"] : "";
             $file = $request["file"] ? $request["file"] : "";
@@ -62,11 +63,12 @@ add_action("rest_api_init", function () {
                 ]);
 
                 update_field('surname', $name, $newPost);
+                update_field('company_job_title', $company_job_title, $newPost);
                 update_field('email', $email, $newPost);
                 update_field('phone', $phone, $newPost);
                 update_field('company_goal', $company_goal, $newPost);
+                update_field('company_goal_deadline', $company_goal_deadline, $newPost);
                 update_field('why_us', $why_us, $newPost);
-                update_field('decision_help', $decision_help, $newPost);
                 update_field('extra_info', $extra_info, $newPost);
                 update_field('topic', $topic, $newPost);
                 update_field('file', $file, $newPost);

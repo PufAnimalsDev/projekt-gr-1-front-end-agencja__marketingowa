@@ -3,9 +3,12 @@ $main_color: #FFB400;
 $main_color-hover: #db9a00;
 $font_color-dark: #464646;
 
-$timeline-node-size: 3rem;
-$timeline-line-height: 1rem;
+$timeline-node-size: 1.75rem;
+$timeline-node-size-l: 2.25rem;
+$timeline-breakpoint-l: 550px;
 
-// Bootstrap
-$font-size-root: 10px;
-$font-size-base: 1.6rem;
+$timeline-line-height: 0.375rem;
+
+$datepicker__selected-color: #ffb400;
+$datepicker__muted-color: #ddd;
+$datepicker__background-color: #ffe19b;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithSubmit, validationFunction, validate, formStatus }) => {
+const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFromSummary, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
 
-  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])';
+  const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
+  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
 
   let [currentClass, setCurrentClass] = useState("active");
   let [zIndex, setZIndex] = useState(null);
@@ -10,24 +11,40 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
   let firstRender = useRef(true);
 
   useEffect(() => {
-    if (currentTile - 1 > tileNum) {
-      setCurrentClass("done");
-      setZIndex(0);
-    } else if (currentTile > tileNum) {
-      setCurrentClass("donelast");
-      setZIndex(0);
-    } else if (currentTile == tileNum) {
-      setCurrentClass("active");
-      setZIndex(100);
-      if (!firstRender.current) {
-        tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY).focus({ preventScroll: true });
+    if (fromSummary) {
+      if (tileNum === 7) {
+        setCurrentClass("next");
+        setZIndex(99);
+      } else if (currentTile == tileNum) {
+        setCurrentClass("active");
+        setZIndex(100);
+      } else {
+        setCurrentClass("done");
+        setZIndex(0);
       }
-    } else if (currentTile + 1 == tileNum) {
-      setCurrentClass("next");
-      setZIndex(99);
-    } else { // currentTile + 1 > tileNum
-      setCurrentClass("upcoming");
-      setZIndex(100 - Math.abs(currentTile - tileNum));
+    } else {
+      if (currentTile - 1 > tileNum) {
+        setCurrentClass("done");
+        setZIndex(0);
+      } else if (currentTile > tileNum) {
+        setCurrentClass("donelast");
+        setZIndex(0);
+      } else if (currentTile == tileNum) {
+        setCurrentClass("active");
+        setZIndex(100);
+        if (!firstRender.current) {
+          let firstFocusableElement = tileElement.current.querySelector(FOCUSABLE_ELEMENTS_QUERY);
+          if (firstFocusableElement) {
+            firstFocusableElement.focus({ preventScroll: true });
+          }
+        }
+      } else if (currentTile + 1 == tileNum) {
+        setCurrentClass("next");
+        setZIndex(99);
+      } else { // currentTile + 1 > tileNum
+        setCurrentClass("upcoming");
+        setZIndex(100 - Math.abs(currentTile - tileNum));
+      }
     }
     firstRender.current = false;
   }, [currentTile]);
@@ -35,7 +52,7 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
   useEffect(() => {
     // Prevent focusable elements from being focused if tile is not currently active
 
-    let focusableElements = tileElement.current.querySelectorAll(FOCUSABLE_ELEMENTS_QUERY);
+    let focusableElements = tileElement.current.querySelectorAll(FOCUSABLE_FORM_ELEMENTS_QUERY);
     if (currentClass === "active") {
       focusableElements.forEach(el => {
         el.tabIndex = 0;
@@ -81,31 +98,76 @@ const Tile = ({ children, currentTile, setCurrentTile, tileNum, replaceNextWithS
   }, [])
 
   function moveNextTile() {
-    if (validationFunction) {
+    if (validate && validate.length > 0) {
       let validationResult = validationFunction(validate);
-      if (validationResult.status) {
+      let allOk = true;
+      for (let result of validationResult) {
+        if (!result.status) {
+          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
+          allOk = false;
+        }
+      }
+      if (allOk) {
         setCurrentTile(tileNum + 1);
-      } else {
-        alert(`Validation failed for ${validate}. Reason: ${validationResult.error}`);
       }
     } else {
       setCurrentTile(tileNum + 1);
     }
   }
 
+  function moveToSummary() {
+    if (validate && validate.length > 0) {
+      let validationResult = validationFunction(validate);
+      let allOk = true;
+      for (let result of validationResult) {
+        if (!result.status) {
+          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
+          allOk = false;
+        }
+      }
+      if (allOk) {
+        setCurrentTile(7);
+          setFromSummary(false);
+      }
+    } else {
+      setCurrentTile(7);
+        setFromSummary(false);
+    }
+  }
+
   return (
     <div className={`formwizard--tile ${currentClass}`} style={{ zIndex: zIndex }} ref={tileElement}>
+      <h2>{title}</h2>
       <div className="formwizard--tile-border">
         <div className="overlay"></div>
-        {children}
-        {tileNum != 0 ? (
-          <button type="button" className="btn btn-secondary" onClick={() => setCurrentTile(tileNum - 1)}>Prev</button>
-        ) : (null)}
-        {replaceNextWithSubmit ? (
-          <button type="submit" className="btn btn-success">Wyślij</button>
-        ) : (
-          <button type="button" className="btn btn-primary" onClick={moveNextTile}>Next</button>
-        )}
+        <div className="formwizard--tile-content">
+          {children}
+        </div>
+        <nav className={`formwizard--tile-navs ${!fromSummary || tileNum === 7 ? "show" : "hide"}`}>
+            {tileNum != 0 &&
+              <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz">
+                <i className="fas fa-fw fa-arrow-left"></i>
+              </button>
+            }
+            {showSubmit && 
+              <button type="submit" className={`btnDarkCustom ${(showSubmit && !fromSummary) ? "show" : "hide"}`} aria-label="Wyślij">
+                <i className="fas fa-fw fa-file-export"></i>
+              </button>
+            }
+            {!hideNext &&
+              <button type="button" className={`btnDarkCustom ${(!hideNext && !fromSummary) ? "show" : "hide"}`} onClick={moveNextTile} aria-label="Dalej">
+                <i className="fas fa-fw fa-arrow-right"></i>
+              </button>
+            }
+            <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
+              <i className="fas fa-fw fa-step-forward"></i>
+            </button>
+          </nav>
+          <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && tileNum != 7 ? "show" : "hide"}`}>
+            <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
+              <i className="fas fa-fw fa-step-forward"></i>
+            </button>
+          </nav>
       </div>
     </div>
   )

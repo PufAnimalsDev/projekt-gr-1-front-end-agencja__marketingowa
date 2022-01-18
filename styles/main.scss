@@ -7,6 +7,8 @@
 @import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
+@import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+
 @import "header";
 @import "footer";
 @import "start";
@@ -22,7 +24,7 @@
 @import "newsletter";
 @import "formwizard";
 @import "newsletter-form";
-
+@import "rc-slider";
 
 
 *{
