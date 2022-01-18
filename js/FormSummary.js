@@ -6,7 +6,7 @@ const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, fo
   function summaryTileSwitch(tile, fieldName) {
     setCurrentTile(tile);
     setFromSummary(true);
-    if (fieldName) {
+    if (fieldName && formEl.querySelector(fieldName)) {
       formEl.querySelector(fieldName).focus();
     }
   }

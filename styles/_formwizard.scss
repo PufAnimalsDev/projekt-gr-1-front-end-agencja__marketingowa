@@ -104,10 +104,24 @@
             scrollbar-color: transparent #ffe19b;
         }
 
-        &-navs {
+        &-navs,
+        &-navs__fromSummary {
             display: flex;
             justify-content: space-between;
             margin-top: 1.25rem;
+
+            &.show {
+                animation: show 1s 0.25s ease backwards;
+            }
+
+            &.hide {
+                visibility: hidden;
+                animation: hide 0.5s ease backwards;
+            }
+
+            &:empty {
+                margin-top: 0;
+            }
 
             > button {
                 line-height: 0px;
@@ -117,6 +131,19 @@
                 &:only-child {
                     margin-left: auto;
                 }
+            }
+        }
+
+        &-navs__fromSummary {
+            margin-top: -2.5rem;
+
+            &.show {
+                animation: show 1s ease forwards;
+            }
+
+            &.hide {
+                visibility: hidden;
+                animation: hide 1s ease backwards;
             }
         }
 
@@ -261,6 +288,40 @@
             transition-delay: 0.8s;
             background-color: $main_color;
         }
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    60% {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes show {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    0.01% {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
     }
 }
 
