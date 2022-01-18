@@ -1,5 +1,5 @@
 .footer{
-    background-color: $bgFooter;
+    background-color: $shadows;
     min-height: 60vh;
     padding-top: 2rem;
 
@@ -17,7 +17,8 @@
     &--contact{
         text-align: center;
         margin: 0 2rem 0 2rem;
-
+        background-color: $white;
+        border-radius: 1rem;
     }
 
     ul{
@@ -43,9 +44,10 @@
     }
 
     &--item-wrapper{
-        text-align: center;
-        padding-top: 4rem;
-        background-color: $bgShadow;
+        text-align: left;
+        padding-top: 6rem;
+        padding-left: 6rem;
+        background-color: $white;
         border-radius: 1rem;
     }
 
@@ -60,12 +62,12 @@
             margin: 2rem 2rem;
     
             a {
-                background-color: $white;
+                background-color: $main_color-footer;
                 width: 4rem;
                 height: 4rem;
                 font-size: 25px;
                 border-radius: 50%;
-                color: $main_socials;
+                color: $main_color;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -75,8 +77,7 @@
     &--authors{
         border-top: 1px solid $main_color-footer;
         padding-top: 1rem;
-        color: $bgShadow;
-
+        color: $font_color-muted;
         display: flex;
         justify-content: space-between;
     }

@@ -1,10 +1,10 @@
 .inputCustom {
     border: 0.2rem solid $main_color;
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: $white;
 
     margin: 0.2rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
 
     &::placeholder {
         text-align: center;
@@ -12,7 +12,7 @@
 
     &:focus {
         outline: 0;
-        background-color: $main_color-light;
+        background-color: $shadows;
         color: $black;
     }
 }
@@ -20,18 +20,19 @@
 .inputCustomFooter {
     border: 0.2rem solid $main_color-footer;
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: $white;
     margin: 0.2rem;
     padding: 0.5rem;
 
     &::placeholder {
-        text-align: center;
+        text-align: left;
     }
 
     &:focus {
         outline: 0;
-        background-color: $bgShadow;
+        background-color: $shadows;
         color: $black;
+        border: 0.2rem solid $main_color;
     }
 
 }

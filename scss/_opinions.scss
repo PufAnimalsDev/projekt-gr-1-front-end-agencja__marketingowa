@@ -1,18 +1,21 @@
 .opinions{
     padding: 7rem 0;
-    background-color: rgb(163, 163, 163);
     min-height: 70vh;
 
     &--heading{
         margin-bottom: 2rem;
         text-align: center;
-
-        
-
+        color: $main_color;
     }
 
     &--description{
         text-align: center;
         margin-bottom: 3rem;
+    }
+
+    &--footer {
+        img {
+            border-radius: 2rem;
+        }
     }
 }

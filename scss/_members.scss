@@ -1,0 +1,33 @@
+.members{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $shadows;
+
+    &--header {
+        padding-bottom: 2rem;
+    }
+
+    &--body {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid $main_color;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding-left: 0;
+        &-img{
+            width: 10rem;
+            height: auto;
+            border-radius: 1rem;
+            background-color: $white;
+        }
+        &-position {
+            padding-top: 2rem;
+        }
+        &:hover {
+            background-color: $main_color;
+            cursor: pointer;
+        }
+    }
+}
