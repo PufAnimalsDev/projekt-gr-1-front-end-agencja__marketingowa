@@ -44,83 +44,83 @@ const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, fo
       if (formData.get("extra_info")) {
         formObj.extra_info = formData.get("extra_info");
       } else {
-        formObj.extra_info = "brak"
+        formObj.extra_info = "*nie podano*"
       }
       if (additionalFields.attachment) {
         formObj.file = `${additionalFields.attachment.name} (${(additionalFields.attachment.size / 1024 / 1024).toFixed(2)} MB)`;
       } else {
-        formObj.file = "nie załączono";
+        formObj.file = "*nie załączono*";
       }
 
       setFormValues(formObj);
     }
   }, [currentTile, additionalFields])
   return (
-    <>
+    <div>
       {formValues != null ? (
-        <>
+        <div className="formwizard--summary-container">
           <div onClick={() => summaryTileSwitch(0, "[name=topic]")}>
-            Z czym możemy Ci pomóc:
+            <div className="formwizard--summary-title">Z czym możemy Ci pomóc:</div>
             {formValues.topic}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(1, "[name=company_goal]")}>
-            Jaki jest cel Twojej firmy:
+            <div className="formwizard--summary-title">Jaki jest cel Twojej firmy:</div>
             {formValues.company_goal}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(1, ".react-datepicker__day:not(.react-datepicker__day--disabled)")}>
-            Do kiedy Twoja firma chce go osiągnąć:
+            <div className="formwizard--summary-title">Do kiedy Twoja firma chce go osiągnąć:</div>
             {formValues.company_goal_deadline}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(2, ".rc-slider-handle")}>
-            Budżet:
+            <div className="formwizard--summary-title">Budżet:</div>
             {formValues.budget}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(3, "[name=why_us]")}>
-            Dlaczego wybrałeś/aś nas?
+            <div className="formwizard--summary-title">Dlaczego wybrałeś/aś nas?</div>
             {formValues.why_us}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(4, "[name=name]")}>
-            Imię i nazwisko:
+            <div className="formwizard--summary-title">Imię i nazwisko:</div>
             {formValues.name}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(4, "[name=company_name]")}>
-            Nazwa firmy:
+            <div className="formwizard--summary-title">Nazwa firmy:</div>
             {formValues.company_name}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(4, "[name=company_job_title]")}>
-            Stanowisko:
+            <div className="formwizard--summary-title">Stanowisko:</div>
             {formValues.company_job_title}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(5, "[name=email]")}>
-            Adres e-mail:
+            <div className="formwizard--summary-title">Adres e-mail:</div>
             {formValues.email}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(5, "[name=phone]")}>
-            Numer telefonu:
+            <div className="formwizard--summary-title">Numer telefonu:</div>
             {formValues.phone}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(6, "[name=extra_info]")}>
-            Dodatkowe informacje:
+            <div className="formwizard--summary-title">Dodatkowe informacje:</div>
             {formValues.extra_info}
           </div>
           <hr />
           <div onClick={() => summaryTileSwitch(6, ".dropzone")}>
-            Załącznik:
+            <div className="formwizard--summary-title">Załącznik:</div>
             {formValues.file}
           </div>
-        </>
+        </div>
       ) : ""}
-    </>
+    </div>
   )
 }
 

@@ -3,7 +3,10 @@ $main_color: #FFB400;
 $main_color-hover: #db9a00;
 $font_color-dark: #464646;
 
-$timeline-node-size: 2rem;
-$timeline-line-height: 0.25rem;
+$timeline-node-size: 1.75rem;
+$timeline-node-size-l: 2.25rem;
+$timeline-breakpoint-l: 550px;
+
+$timeline-line-height: 0.375rem;
 
 $datepicker__selected-color: #ffb400;
