@@ -144,10 +144,10 @@ const FormWizard = () => {
 
           <Tile {...commonTileProps} tileNum={0} hideNext={true} title="Z czym możemy Ci pomóc?">
             <div className="formwizard--topic-container">
-              <button type="button" onClick={() => handleTopicStep("Opcja 1")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 1</button>
-              <button type="button" onClick={() => handleTopicStep("Opcja 2")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 2</button>
-              <button type="button" onClick={() => handleTopicStep("Opcja 3")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 3</button>
-              <button type="button" onClick={() => handleTopicStep("Opcja 4")}><i className="formwizard--topic-icon fas fa-user"></i> Opcja 4</button>
+              <button type="button" onClick={() => handleTopicStep("SEO")}><i className="formwizard--topic-icon fas fa-search"></i> SEO</button>
+              <button type="button" onClick={() => handleTopicStep("Analityka internetowa")}><i className="formwizard--topic-icon fas fa-chart-bar"></i> Analityka internetowa</button>
+              <button type="button" onClick={() => handleTopicStep("Social Media")}><i className="formwizard--topic-icon fas fa-thumbs-up"></i> Social Media</button>
+              <button type="button" onClick={() => handleTopicStep("Content Marketing")}><i className="formwizard--topic-icon fas fa-newspaper"></i> Content Marketing</button>
             </div>
           </Tile>
 
