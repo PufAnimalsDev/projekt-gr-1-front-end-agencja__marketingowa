@@ -228,7 +228,9 @@ const FormWizard = () => {
           <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
             <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
             <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
-              <i className="fas fa-2x fa-circle-notch fa-spin"></i>
+              <div className={`circle-loader ${formStatus === "success" ? "success" : ""}`}>
+                <div className="status draw"></div>
+              </div>
             </div>
           </Tile>
 
