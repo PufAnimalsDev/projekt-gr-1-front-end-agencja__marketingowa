@@ -152,8 +152,10 @@ const FormWizard = () => {
           </Tile>
 
           <Tile {...commonTileProps} tileNum={1} validate={["company_goal"]} title="Cel twojej firmy">
-            <label htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
-            <textarea className="form-control" name="company_goal" id="formwizard-company_goal" enterKeyHint="enter" ></textarea>
+            <div className="floating-label-group">
+              <textarea name="company_goal" id="formwizard-company_goal" enterKeyHint="enter" placeholder="Cel twojej firmy"></textarea>
+              <label className="floating-label" htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
+            </div>
             <label htmlFor="formwizard-company_goal_deadline">Do kiedy Twoja firma chce go osiągnąć?*</label>
             <DatePicker id="formwizard-company_goal_deadline" name="company_goal_deadline" selected={companyGoalDeadline} onChange={(date) => setCompanyGoalDeadline(date)} inline minDate={new Date()} />
           </Tile>
@@ -178,29 +180,43 @@ const FormWizard = () => {
           </Tile>
 
           <Tile {...commonTileProps} tileNum={3} validate={["why_us"]} title="Dlaczego my?">
-            <label htmlFor="formwizard-why_us">Dlaczego wybrałeś/aś nas?*</label>
-            <textarea className="form-control" name="why_us" id="formwizard-why_us" enterKeyHint="enter"></textarea>
+            <div className="floating-label-group">
+              <textarea name="why_us" id="formwizard-why_us" enterKeyHint="enter" placeholder="Dlaczego my?"></textarea>
+              <label className="floating-label" htmlFor="formwizard-why_us">Dlaczego wybrałeś/aś nas?*</label>
+            </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={4} validate={["name", "company_name"]} title="Dane osobowe">
-            <label htmlFor="formwizard-name">Imię i nazwisko*</label>
-            <input className="form-control" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
-            <label htmlFor="formwizard-company_name">Nazwa firmy*</label>
-            <input className="form-control" type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
-            <label htmlFor="formwizard-company_job_title">Stanowisko</label>
-            <input className="form-control" type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
+          <div className="floating-label-group">
+            <input type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
+            <label htmlFor="formwizard-name" className="floating-label">Imię i nazwisko*</label>
+          </div>
+          <div className="floating-label-group">
+            <input type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
+            <label htmlFor="formwizard-company_name" className="floating-label">Nazwa firmy*</label>
+          </div>
+          <div className="floating-label-group">
+            <input type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
+            <label htmlFor="formwizard-company_job_title" className="floating-label">Stanowisko</label>
+          </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={5} validate={["email"]} title="Dane kontaktowe">
-            <label htmlFor="formwizard-email">Adres e-mail*</label>
-            <input className="form-control" type="email" name="email" id="formwizard-email" placeholder="Adres e-mail" autoComplete="email" enterKeyHint="next" />
-            <label htmlFor="formwizard-phone">Numer telefonu</label>
-            <input className="form-control" type="text" name="phone" id="formwizard-phone" placeholder="Numer telefonu" autoComplete="tel" enterKeyHint="next" />
+            <div className="floating-label-group">
+              <input type="email" name="email" id="formwizard-email" placeholder="Adres e-mail" autoComplete="email" enterKeyHint="next" />
+              <label className="floating-label" htmlFor="formwizard-email">Adres e-mail*</label>
+            </div>
+            <div className="floating-label-group">
+              <input type="text" name="phone" id="formwizard-phone" placeholder="Numer telefonu" autoComplete="tel" enterKeyHint="next" />
+              <label className="floating-label" htmlFor="formwizard-phone">Numer telefonu</label>
+            </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={6} title="Dodatkowe informacje">
-            <label htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
-            <textarea className="form-control" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter"></textarea>
+          <div className="floating-label-group">
+            <textarea name="extra_info" id="formwizard-extra_info" enterKeyHint="enter" placeholder="Dodatkowe informacje"></textarea>
+            <label className="floating-label" htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
+          </div>
             <label htmlFor="formwizard-file">Załącznik:</label>
             <div className='dropzone' {...getRootProps()}>
               <input id="formwizard-file" {...getInputProps()} />

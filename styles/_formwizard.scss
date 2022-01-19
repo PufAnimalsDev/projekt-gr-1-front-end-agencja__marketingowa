@@ -182,8 +182,7 @@
         &.done {
             transform: scale(0.8) translateX(-120%);
             opacity: 0;
-
-            &:not(:first-of-type)
+            user-select: none;
 
             .overlay {
                 background-color: #bfbb;
@@ -194,6 +193,7 @@
         &.donelast {
             transform: scale(0.8) translateX(-120%);
             opacity: 0.4;
+            user-select: none;
 
             .overlay {
                 background-color: #bfbb;
@@ -204,6 +204,7 @@
         &.upcoming {
             transform: scale(0.8) translateX(120%);
             opacity: 0;
+            user-select: none;
 
             .overlay {
                 background-color: #fffb;
@@ -214,6 +215,7 @@
         &.next {
             transform: scale(0.8) translateX(120%);
             opacity: 0.4;
+            user-select: none;
 
             .overlay {
                 background-color: #fffb;
@@ -286,6 +288,7 @@
     max-width: 100rem;
     margin: 0 auto;
     font-size: $timeline-node-size / 1.75;
+    user-select: none;
 
     @media (min-width: $timeline-breakpoint-l) {
         font-size: $timeline-node-size-l / 2;
@@ -567,4 +570,41 @@ hr {
 
 .react-datepicker__day--outside-month:not(.react-datepicker__day--disabled) {
     color: #999;
+}
+
+.floating-label-group {
+	position: relative;
+	margin-top: 2rem;
+
+	.floating-label {
+		font-size: 1rem;
+		color: #999;
+		position: absolute;
+		pointer-events: none;
+		left: 12px;
+		transition: all 0.2s ease;
+	}
+
+    input ~ .floating-label {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    textarea ~ .floating-label {
+        top: 2px;
+    }
+
+	input:focus ~ .floating-label,
+    input:not(:placeholder-shown) ~ .floating-label,
+    textarea:focus ~ .floating-label,
+    textarea:not(:placeholder-shown) ~ .floating-label {
+		top: -1.5rem;
+		left: 0px;
+		color: #404040;
+        transform: none;
+	}
+    input::placeholder,
+    textarea::placeholder {
+        opacity: 0;
+    }
 }
