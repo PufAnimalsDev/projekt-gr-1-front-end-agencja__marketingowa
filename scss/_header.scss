@@ -17,6 +17,9 @@
                 margin-right: 2rem;
             }
         }
+        .sideMenu {
+            pointer-events: none;
+        }
 
         &--full {
             display: flex;
@@ -49,9 +52,7 @@
             letter-spacing: 1px;
             padding-top: 1rem;
 
-            .sideMenu {
-                pointer-events: none;
-            }
+            
                   
             ul {
                 display: flex;
