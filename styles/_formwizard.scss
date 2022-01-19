@@ -12,6 +12,16 @@
     opacity: 0;
     animation: slide-in 0.75s ease 0.35s forwards;
 
+    input, textarea {
+        width: 100%;
+        resize: none;
+        margin: 0;
+    }
+
+    textarea {
+        height: 20rem;
+    }
+
     &--container {
         position: relative;
         display: flex;
@@ -59,8 +69,6 @@
         line-height: 0;
     }
 
-    $scrollbar-track-color: #ffe19b;
-
     &--tile {
         position: absolute;
         transition: transform ease 0.7s, opacity ease 0.7s;
@@ -84,26 +92,6 @@
                     background-color: #fff3; 
                 }
                 
-            }
-
-            &::-webkit-scrollbar {
-                width: 0.5rem;
-            }
-
-            &::-webkit-scrollbar-track {
-                background: transparent;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background-color: $scrollbar-track-color;
-                border-radius: 1.25rem;
-                border: 0.33rem solid transparent;
-                &:hover {
-                    background-color: color.scale($scrollbar-track-color, $lightness: -10%);
-                }
-                &:active {
-                    background-color: color.scale($scrollbar-track-color, $lightness: -20%);
-                }
             }
         }
 
@@ -259,6 +247,15 @@
         }
     }
 
+    &--datepicker-wrapper {
+        position: relative;
+    }
+
+    &--budget-inputs {
+        display: flex;
+        align-items: center;
+    }
+
     &--summary-title {
         font-weight: bold;
     }
@@ -279,6 +276,10 @@
         visibility: hidden;
         animation: hide-up 1s 0.8s ease backwards;
     }
+}
+
+#formwizard-extra_info {
+    height: 9rem;
 }
 
 .timeline {
@@ -572,16 +573,20 @@ hr {
     color: #999;
 }
 
+.react-datepicker__navigation-icon::before {
+    border-color: #db9a00;
+}
+
 .floating-label-group {
 	position: relative;
-	margin-top: 2rem;
+	margin-top: 1.5rem;
 
 	.floating-label {
 		font-size: 1rem;
 		color: #999;
 		position: absolute;
 		pointer-events: none;
-		left: 12px;
+		left: 0.75rem;
 		transition: all 0.2s ease;
 	}
 
@@ -591,15 +596,15 @@ hr {
     }
 
     textarea ~ .floating-label {
-        top: 2px;
+        top: 1.2rem;
     }
 
 	input:focus ~ .floating-label,
     input:not(:placeholder-shown) ~ .floating-label,
     textarea:focus ~ .floating-label,
     textarea:not(:placeholder-shown) ~ .floating-label {
-		top: -1.5rem;
-		left: 0px;
+		top: -1.25rem;
+		left: 0;
 		color: #404040;
         transform: none;
 	}
@@ -607,4 +612,46 @@ hr {
     textarea::placeholder {
         opacity: 0;
     }
+}
+
+.validation-error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    color: #dc3545;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-track-color;
+    border-radius: 1.25rem;
+    border: 0.33rem solid transparent;
+    &:hover {
+        background-color: color.scale($scrollbar-track-color, $lightness: -10%);
+    }
+    &:active {
+        background-color: color.scale($scrollbar-track-color, $lightness: -20%);
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

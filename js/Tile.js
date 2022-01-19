@@ -99,15 +99,7 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
 
   function moveNextTile() {
     if (validate && validate.length > 0) {
-      let validationResult = validationFunction(validate);
-      let allOk = true;
-      for (let result of validationResult) {
-        if (!result.status) {
-          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
-          allOk = false;
-        }
-      }
-      if (allOk) {
+      if (validationFunction(validate)) {
         setCurrentTile(tileNum + 1);
       }
     } else {
@@ -117,21 +109,13 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
 
   function moveToSummary() {
     if (validate && validate.length > 0) {
-      let validationResult = validationFunction(validate);
-      let allOk = true;
-      for (let result of validationResult) {
-        if (!result.status) {
-          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
-          allOk = false;
-        }
-      }
-      if (allOk) {
+      if (validationFunction(validate)) {
         setCurrentTile(7);
-          setFromSummary(false);
+        setFromSummary(false);
       }
     } else {
       setCurrentTile(7);
-        setFromSummary(false);
+      setFromSummary(false);
     }
   }
 
