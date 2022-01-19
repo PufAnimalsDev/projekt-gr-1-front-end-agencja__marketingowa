@@ -99,15 +99,7 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
 
   function moveNextTile() {
     if (validate && validate.length > 0) {
-      let validationResult = validationFunction(validate);
-      let allOk = true;
-      for (let result of validationResult) {
-        if (!result.status) {
-          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
-          allOk = false;
-        }
-      }
-      if (allOk) {
+      if (validationFunction(validate)) {
         setCurrentTile(tileNum + 1);
       }
     } else {
@@ -117,21 +109,13 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
 
   function moveToSummary() {
     if (validate && validate.length > 0) {
-      let validationResult = validationFunction(validate);
-      let allOk = true;
-      for (let result of validationResult) {
-        if (!result.status) {
-          alert(`Validation failed for ${result.field}. Reason: ${result.error}`);
-          allOk = false;
-        }
-      }
-      if (allOk) {
+      if (validationFunction(validate)) {
         setCurrentTile(7);
-          setFromSummary(false);
+        setFromSummary(false);
       }
     } else {
       setCurrentTile(7);
-        setFromSummary(false);
+      setFromSummary(false);
     }
   }
 
@@ -159,11 +143,8 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
                 <i className="fas fa-fw fa-arrow-right"></i>
               </button>
             }
-            <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
-              <i className="fas fa-fw fa-step-forward"></i>
-            </button>
           </nav>
-          <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && tileNum != 7 ? "show" : "hide"}`}>
+          <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && (tileNum != 7 && tileNum != 0) ? "show" : "hide"}`}>
             <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
               <i className="fas fa-fw fa-step-forward"></i>
             </button>
