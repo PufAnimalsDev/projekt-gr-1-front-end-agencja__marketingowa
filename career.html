@@ -57,46 +57,35 @@
     <!-- header end  -->
 
     <!-- start start  -->
-    <section class="start">
-
-         <div class="container">
-             <div class="row align-items-center">
-                 <div class="col-lg-7">
-                    <!-- miejsce na potencjalny slider -->
-                    <img class="d-block w-100" src="./assets/img/slider_menu_2.png">
-                </div>
-
-                <div class="col-lg-5 start--item-wrapper">
-                    <h1 class="start--heading">KARIERA</h1>
-                    <p class="start--description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fugiat quaerat et delectus hic repudiandae.</p>
-                    <button type="submit" class="btn btn-outline-dark mb-5 mb-lg-0">Współpracuj</button>
-                </div>
-
+    <section class="career--start">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">               
+            <div class="col-lg-5 career--start-wrapper">
+              <h1 class="career--start-wrapper__heading">Kariera</h1>
+              <p class="career--start-wrapper__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fugiat quaerat et delectus hic repudiandae.</p>
+              <a class="btnOutlineCustom" href="#sectionJobList" role="button">Więcej</a>
             </div>
-
-         </div>
-        
-        </section>
+                
+            <div class="col-lg-7 career--start-photo">
+              <img class="d-block w-100" src="./assets/img/career.png">
+            </div>
+          </div>
+        </div>        
+    </section>
     <!-- start end  -->
 
     <!-- offers start  -->
-    <section id="sectionJobList" class="section section-job-list gradient-light--lean-left bg-light">
+    <section id="sectionJobList" class="career--job-list">
       <div class="container">
-
-        <div class="row row-grid justify-content-center">
-
-          <div class="col-md-8 col-lg-7 col-xl-6 text-center">
-            <h2 class="section__title mb-4">Aktualne oferty stanowisk w naszej firmie:</h2>
-
-            <p>We’re always searching for amazing people to join our team. Take a look at our current openings.</p>
-
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-7 col-xl-6 career--job-list__header">
+            <h2>Aktualne oferty stanowisk w naszej firmie:</h2>
+            <p>We're always searching for amazing people to join our team. Take a look at our current openings.</p>
           </div>
 
           <div class="col-md-10">
-
             <form class="filter-form mt-5 mb-4">
               <div class="row justify-content-center">
-
                 <div class="col-md-4 mb-3">
                   <div class="form-group">
                     <label for="jobPosition">Position :</label>
@@ -131,149 +120,143 @@
                     </select>
                   </div>
                 </div>
-
               </div>
             </form>
 
-            <div class="job-list__wrapper mb-6">
+            <div class="career--job-list__wrapper">
               <h3 class="mb-4">Design</h3>
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm ">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--danger text-white mr-3">GD</span> Senior Graphic Designer
+                      <span class="badge badge-circle">GD</span> Senior Graphic Designer
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Full time
+                      <i class="fas fa-clock mr-1 icon"></i> Full time
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
-                      
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>                      
                     </span>
                   </span>
                 </div>
               </a> <!-- Job Card -->
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--tertiary text-white mr-3">UX</span> UI/UX Designer
+                      <span class="badge badge-circle">UX</span> UI/UX Designer
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Remote
+                      <i class="fas fa-clock mr-1 icon"></i> Remote
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
-                      
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>                      
                     </span>
                   </span>
                 </div>
               </a> <!-- Job Card -->
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--warning text-white mr-3">AN</span> Multimedia Artist &amp; Animator
+                      <span class="badge badge-circle">AN</span> Multimedia Artist &amp; Animator
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Full time
+                      <i class="fas fa-clock mr-1 icon"></i> Full time
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
-                      
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>                      
                     </span>
                   </span>
                 </div>
               </a> <!-- Job Card -->
             </div>
 
-            <div class="job-list__wrapper mb-6">
+            <div class="career--job-list__wrapper">
               <h3 class="mb-4">Development</h3>
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--success text-white mr-3">FE</span> Front End Developer
+                      <span class="badge badge-circle">FE</span> Front End Developer
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Part time
+                      <i class="fas fa-clock mr-1 icon"></i> Part time
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
-                      
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>                      
                     </span>
                   </span>
                 </div>
               </a> <!-- Job Card -->
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--warning2 text-white mr-3">MD</span> Mobile Developer
+                      <span class="badge badge-circle">MD</span> Mobile Developer
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Full-time
+                      <i class="fas fa-clock mr-1 icon"></i> Full-time
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
-                      
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>                      
                     </span>
                   </span>
                 </div>
               </a> <!-- Job Card -->
 
-              <a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+              <a href="career-single.html" class="card">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-lg-4 col-sm-6 color--heading">
-                      <span class="badge badge-circle background--info text-white mr-3">NT</span> .NET Developer
+                      <span class="badge badge-circle">NT</span> .NET Developer
                     </span>
 
                     <span class="col-lg-2 my-3 my-sm-0 color--text">
-                      <i class="fas fa-clock mr-1"></i> Full time
+                      <i class="fas fa-clock mr-1 icon"></i> Full time
                     </span>
 
                     <span class="col-lg-1 my-3 my-sm-0 color--text">
-                      <i class="fas fa-hand-holding-usd"></i> 10k
+                      <i class="fas fa-hand-holding-usd icon"></i> 10k
                     </span>
 
-                    <span class="col-lg-3 text-center color--text">
-                      <button type="submit" class="btn btn-dark shadow--on-hover">Aplikuj</button>
+                    <span class="col-lg-3 text-end color--text">
+                      <button type="submit" class="btnCustom">Aplikuj</button>
                       
                     </span>
                   </span>

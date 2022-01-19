@@ -1,78 +1,83 @@
-
+.career {
+    &--start {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        &-photo {
+            width: 30rem;
+            height: auto;
+        }
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-right: 2rem;
+            &__heading {
+                color: $main_color;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            h1 {
+                text-align: center;
+            }
+            a {
+                text-align: center;
+            }
+        }
+    }
+    &--job-list {
+        padding-top: 8rem;
+        .form-group {
+            label {
+                color: $main_color;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            .custom-select {
+                position: relative;
+                border: 2px solid $main_color;
+                border-radius: 0.5rem;
+                outline: none;
+                & select {
+                    display: none;
+                }
+            }
+        }
+        &__header {
+            h2 {
+                color: $main_color;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+        }
+        &__wrapper {
+            color: $main_color;
+            font-weight: 600;
+            letter-spacing: 1px;
+            .card {
+                border: 1px solid $main_color;
+                border-radius: 1rem;
+                margin-bottom: 2rem;
+                .icon {
+                    color: $main_color;
+                }
+            }
+        }
+    }
+}
 
 .badge-circle {
     border-radius: 50%;
     height: 2.5rem;
     width: 2.5rem;
+    margin-right: 1rem;
     font-size: 1rem;
     line-height: 2.5rem;
-    padding: 0
+    padding: 0;
+    background-color: $main_color;
+    color: $white;
 }
 
 .text-white {
     color: #fff!important;
-}
-
-
-.background--white,
-.bg-white {
-    background-color: #fff !important
-}
-
-.background--brand,
-.background--primary,
-.bg-brand,
-.bg-primary {
-    background-color: #4d5bed !important;
-    color: #fff
-}
-
-.background--dark,
-.bg-dark {
-    background: #0c2050 !important;
-    color: #939eb8
-}
-
-.background--secondary,
-.bg-secondary {
-    background-color: #939eb8 !important
-}
-
-.background--tertiary,
-.bg-tertiary {
-    background-color: #9779e3 !important
-}
-
-.background--danger,
-.bg-danger {
-    background-color: #f53d55 !important
-}
-
-.background--success,
-.bg-success {
-    background-color: #66df7c !important
-}
-
-.background--warning,
-.bg-warning {
-    background-color: #f6c460 !important
-}
-
-.background--warning2,
-.bg-warning2 {
-    background-color: #f89c59 !important
-}
-
-.background--info,
-.bg-info {
-    background-color: #52bbd3 !important
-}
-
-.background--light,
-.bg-light {
-    background-color: #f6f8fb !important
-}
-
-a {
-    text-decoration: none !important;
 }
