@@ -17,6 +17,9 @@
                 margin-right: 2rem;
             }
         }
+        .sideMenu {
+            pointer-events: none;
+        }
 
         &--full {
             display: flex;
