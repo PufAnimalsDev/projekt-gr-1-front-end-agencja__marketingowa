@@ -48,6 +48,10 @@
             font-weight: 600;
             letter-spacing: 1px;
             padding-top: 1rem;
+
+            .sideMenu {
+                pointer-events: none;
+            }
                   
             ul {
                 display: flex;
