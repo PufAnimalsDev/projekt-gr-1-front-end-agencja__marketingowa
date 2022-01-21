@@ -421,3 +421,119 @@ hr {
     border: 0;
     opacity: 0.25;
 }
+
+.react-datepicker,
+.react-datepicker__month-container {
+    width: 100%;
+}
+
+.react-datepicker__day-names, 
+.react-datepicker__week {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    width: 2rem;
+}
+
+.react-datepicker__day--outside-month:not(.react-datepicker__day--disabled) {
+    color: #999;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-color: #db9a00;
+}
+
+.floating-label-group {
+	position: relative;
+	margin-top: 1.5rem;
+
+	.floating-label {
+		font-size: 1rem;
+		color: #999;
+		position: absolute;
+		pointer-events: none;
+		left: 0.75rem;
+		transition: all 0.2s ease;
+
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+	}
+
+    input ~ .floating-label {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.center {
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    textarea ~ .floating-label {
+        top: 1.2rem;
+    }
+
+	input:focus ~ .floating-label,
+    input:not(:placeholder-shown) ~ .floating-label,
+    textarea:focus ~ .floating-label,
+    textarea:not(:placeholder-shown) ~ .floating-label {
+		top: -1.5rem;
+		left: 0;
+		color: #404040;
+        transform: none;
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+	}
+    input::placeholder,
+    textarea::placeholder {
+        opacity: 0;
+    }
+}
+
+.validation-error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    color: #dc3545;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-track-color;
+    border-radius: 1.25rem;
+    border: 0.33rem solid transparent;
+    &:hover {
+        background-color: color.scale($scrollbar-track-color, $lightness: -10%);
+    }
+    &:active {
+        background-color: color.scale($scrollbar-track-color, $lightness: -20%);
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
