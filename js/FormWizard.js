@@ -308,7 +308,6 @@ const FormWizard = () => {
           <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
         </div>
       </div>
-      <div id="datepicker-portal"></div>
     </div>
   )
 }
