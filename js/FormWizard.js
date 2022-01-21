@@ -293,7 +293,7 @@ const FormWizard = () => {
           <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
             <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
             {formStatus === "error" && <p>Błąd podczas wysyłania formularza. Spróbuj ponownie później.</p>}
-            <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
+            <div className={`circle-loader-container ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <div className={`circle-loader ${formStatus === "success" ? "success" : ""}`}>
                 <div className="status draw"></div>
               </div>
