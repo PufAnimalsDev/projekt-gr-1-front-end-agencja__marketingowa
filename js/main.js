@@ -35,8 +35,13 @@ document.getElementById('closeNav').addEventListener('click', function () {
 }, false);
 
 $(() => {
-  ReactDOM.render(<Newsletter />, document.getElementById("newsletter"));
-  ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
-  ReactDOM.render(<FormCareer />, document.getElementById("formcareer"));
-
+  if (document.getElementById("newsletter_form")) {
+    ReactDOM.render(<Newsletter />, document.getElementById("newsletter_form"));
+  }
+  if (document.getElementById("formwizard")) {
+    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+  }
+  if (document.getElementById("formcareer")) {
+    ReactDOM.render(<FormCareer />, document.getElementById("formcareer"));
+  }
 });

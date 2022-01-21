@@ -588,11 +588,21 @@ hr {
 		pointer-events: none;
 		left: 0.75rem;
 		transition: all 0.2s ease;
+
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
 	}
 
     input ~ .floating-label {
         top: 50%;
         transform: translateY(-50%);
+
+        &.center {
+            transform: translate(-50%, -50%);
+        }
     }
 
     textarea ~ .floating-label {
@@ -603,10 +613,14 @@ hr {
     input:not(:placeholder-shown) ~ .floating-label,
     textarea:focus ~ .floating-label,
     textarea:not(:placeholder-shown) ~ .floating-label {
-		top: -1.25rem;
+		top: -1.5rem;
 		left: 0;
 		color: #404040;
         transform: none;
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
 	}
     input::placeholder,
     textarea::placeholder {

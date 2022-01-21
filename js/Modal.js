@@ -4,7 +4,9 @@ const Modal = ({children, isOpen, setIsOpen}) => {
   return (
     <div className={`newsletter--modal ${isOpen ? "open" : ""}`}>
       <div className="newsletter--modal-container">
-        <div className="newsletter--modal-close" onClick={() => setIsOpen(false)}>X</div>
+        <button type="button" className="newsletter--modal-close" onClick={() => setIsOpen(false)}>
+          <i className="fas fa-2x fa-times"></i>
+        </button>
         {children}
       </div>
     </div>
