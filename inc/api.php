@@ -96,6 +96,17 @@ add_action("rest_api_init", function () {
     ]);
 });
 
+add_action("rest_api_init", function () {
+    register_rest_route("workon", "/formcareer", [
+        "methods" => "POST",
+        "callback" => function ($request) {
+            return new WP_REST_RESPONSE(array(
+                "response" => "success"
+            ), 200);
+        }
+    ]);
+});
+
 // register_rest_route("workon", "/formwizard", [
 //     "methods" => "POST",
 //     "callback" => function ($request) {

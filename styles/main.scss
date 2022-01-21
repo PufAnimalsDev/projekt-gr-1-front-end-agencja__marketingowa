@@ -26,6 +26,7 @@
 @import "form";
 @import "formwizard";
 @import "newsletter-form";
+@import "career-form";
 @import "rc-slider";
 @import "datepicker";
 
@@ -61,5 +62,19 @@ a {
     }
     &:active {
         background-color: color.scale($scrollbar-track-color, $lightness: -20%);
+    }
+}
+
+textarea {
+    &::-webkit-scrollbar-thumb {
+        background-color: color.scale($main_color, $lightness: -5%);
+        border-radius: 1.25rem;
+        border: 0.33rem solid transparent;
+        &:hover {
+            background-color: color.scale($main_color, $lightness: -15%);
+        }
+        &:active {
+            background-color: color.scale($main_color, $lightness: -25%);
+        }
     }
 }

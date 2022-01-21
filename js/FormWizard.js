@@ -14,6 +14,8 @@ setDefaultLocale("pl");
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
+const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 const FormWizard = () => {
   const [currentTile, setCurrentTile] = useState(0);
   const [fromSummary, setFromSummary] = useState(false);
@@ -38,8 +40,6 @@ const FormWizard = () => {
     setFromSummary: setFromSummary,
     validationFunction: validateFormElement
   }
-
-  const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   function handleTopicStep(topic) {
     setTopic(topic);
@@ -284,7 +284,7 @@ const FormWizard = () => {
               <>
                 <div className='mb-3'>
                   Załączono plik:<br />
-                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB <button className="btnDarkCustom formwizard--detach-btn" type="button" onClick={removeAttachment}><i className="fas fa-fw fa-times"></i></button>
+                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB <button className="btnDarkCustom btn-remove-attachment" type="button" onClick={removeAttachment}><i className="fas fa-fw fa-times"></i></button>
                 </div>
               </>
             : ''}
@@ -303,9 +303,9 @@ const FormWizard = () => {
         </form>
 
         <div className={`formwizard--success ${formStatus === "success" ? "show" : ""}`}>
-          <h2>Wysłano formularz</h2>
-          <p>Dziękujemy! Skontaktujemy się wkrótce.</p>
-          <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
+          <h2><i className="fas fa-check"></i> Sukces!</h2>
+          <p><strong>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.<br />Dziękujemy!</strong></p>
+          <p>Wysłaliśmy na podany adres e-mail<br />potwierdzenie razem z kopią wprowadzonych danych.</p>
         </div>
       </div>
     </div>

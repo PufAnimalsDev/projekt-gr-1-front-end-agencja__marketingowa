@@ -58,7 +58,7 @@ $check-color: $brand-success;
     }
 
     &-container {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         height: 100%;
@@ -71,10 +71,8 @@ $check-color: $brand-success;
         background-color: #fffd;
         opacity: 0;
         transition: opacity ease 1s;
-
-        &.absolute {
-            position: absolute;
-        }
+        text-align: center;
+        z-index: 5;
 
         &.show {
             visibility: visible;
@@ -124,9 +122,29 @@ $check-color: $brand-success;
     flex-direction: column;
     margin-bottom: 1.25rem;
     padding: 1.25rem;
-    border: 0.2rem dashed $dark;
+    border: 0.2rem dashed $main_color-dark;
     border-radius: 5px;
     text-align: center;
     height: 10rem;
     background-color: #eee;
+    position: relative;
+    &-colored {
+        border-color: $main_color;
+    }
+}
+
+// Remove attachment button
+
+.btn-remove-attachment {
+    border-radius: 100%;
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    line-height: 0;
+    &:hover {
+        padding: 0;
+    }
+    &::after {
+        padding: 0;
+    }
 }

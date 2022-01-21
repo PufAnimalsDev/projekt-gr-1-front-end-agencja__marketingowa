@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import Modal from "./Modal";
 import ReactTooltip from "react-tooltip";
 
-const Newsletter = () => {
+const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const Newsletter = () => {
 
   let [newsletterStatus, setNewsletterStatus] = useState("unsent");
   let [showModal, setShowModal] = useState(false);
@@ -32,7 +32,6 @@ const Newsletter = () => {
     if (VALID_EMAIL_REGEX.test(formData.get("email"))) {
       setEmailValid(true);
       setShowModal(true);
-      console.log(newsletterEl.current.querySelector("#newsletter-name"));
       setTimeout(() => {
         newsletterEl.current.querySelector("#newsletter-name").focus();
       }, 100)
