@@ -1,3 +1,13 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .inputCustom {
     border: 0.2rem solid #FFB400;
     border-radius: 1rem;
@@ -20,4 +30,67 @@
 .inputNews{
     border: 0.25rem solid #FFB400;
     width: 42rem;
+}
+
+.floating-label-group {
+	position: relative;
+	margin-top: 1.5rem;
+
+	.floating-label {
+		font-size: 1rem;
+		color: #999;
+		position: absolute;
+		pointer-events: none;
+		left: 0.75rem;
+		transition: all 0.2s ease;
+
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+	}
+
+    input ~ .floating-label {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.center {
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    textarea ~ .floating-label {
+        top: 1.2rem;
+    }
+
+	input:focus ~ .floating-label,
+    input:not(:placeholder-shown) ~ .floating-label,
+    textarea:focus ~ .floating-label,
+    textarea:not(:placeholder-shown) ~ .floating-label {
+		top: -1.5rem;
+		left: 0;
+		color: #404040;
+        transform: none;
+        &.center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+	}
+    input::placeholder,
+    textarea::placeholder {
+        opacity: 0;
+    }
+}
+
+.validation-error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    font-size: 1.5rem;
+    color: #dc3545;
 }
