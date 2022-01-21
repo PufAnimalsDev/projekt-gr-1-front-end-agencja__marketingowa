@@ -1,18 +1,53 @@
-.newsletter{
-    padding: 7rem 0;
-    min-height: 50vh;
+.newsletter {
+    min-height: 100vh;
+    text-align: center;
+    background-color: $bgHover;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 0;
 
-    &--heading{
-        margin-bottom: 2rem;
-        text-align: center;   
-    }
+    @include media-breakpoint-only(lg){
+            padding: 0;
+        }
 
-    &--description{
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+        img {
+            border-radius: 1rem;
+            height: 20rem;
+            width: auto;
+            @include media-breakpoint-between(md, xl){
+            height: 15rem;
+        }
+        }      
 
-    &--input {
-        display: flex;
-    }   
-}
+    &--content{
+        border-radius: 1rem;
+        background-color: $shadows;
+        padding: 2rem;
+        margin-top: 5rem;
+        @include media-breakpoint-up(md){
+            margin-top: 0;
+        }
+
+        h2{
+            color: $main_color;
+        }
+            &-form { 
+                display: flex;
+                flex-direction: column; 
+                background: $shadowsD;
+                border: 0;
+                border-radius: 1rem;
+                padding-top: 2rem;
+                color: $font_color-muted;
+                p {
+                    padding-top: 1rem;
+                }
+            }
+        }
+        .floating-label-group input {
+            width: 100%;
+            margin: 0;
+        }
+  }

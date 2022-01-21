@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Modal from "./Modal";
+import ReactTooltip from "react-tooltip";
 
 const Newsletter = () => {
 
@@ -10,6 +11,15 @@ const Newsletter = () => {
   let newsletterEl = useRef(null);
 
   let [emailValid, setEmailValid] = useState(null);
+  let [nameValid, setNameValid] = useState(null);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [showModal])
 
   function validateEmail() {
     let formData = new FormData(newsletterEl.current);
@@ -19,6 +29,17 @@ const Newsletter = () => {
       setShowModal(true)
     } else {
       setEmailValid(false);
+    }
+  }
+
+  function validateName(event) {
+    let formData = new FormData(newsletterEl.current);
+    
+    if (formData.get("name")) {
+      setNameValid(true);
+    } else {
+      setNameValid(false);
+      event.preventDefault();
     }
   }
 
@@ -50,19 +71,33 @@ const Newsletter = () => {
 
   return (
     <form onSubmit={newsletterSubmitHandler} ref={newsletterEl}>
-      <div className="newsletter-content-form">
-        <input type="email" name="email" id="newsletter-email" className="inputCustom" aria-describedby="emailHelp" placeholder="Please enter your email" autoComplete="email" enterKeyHint="send" required />
-        {emailValid === false && <p>This email is invalid</p>}
-        <p>We'll NOT share your email address to anyone else.</p>
-        <label className="checkbox-inline" htmlFor="monthly">
-          <input type="checkbox" name="monthly" id="monthly" value="" />Please send me a monthly newsletter.
-        </label>   
-        <button type="button" className="btnOutlineCustom" onClick={() => validateEmail()}>Sign up</button>
+      <div className="newsletter--content-form">
+        <div className="floating-label-group">
+          <input type="email" name="email" id="newsletter-email" className="inputCustom" placeholder="Podaj swój adres e-mail" autoComplete="email" enterKeyHint="send" required />
+          <label className="floating-label center" htmlFor="newsletter-email">Podaj swój adres e-mail</label>
+          {emailValid === false && <div className="validation-error">
+            <span data-tip="Adres e-mail jest niepoprawny"><i className="fas fa-exclamation-circle"></i></span>
+            <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+          </div>}
+        </div>
+        <p>Nikomu nie udostępnimy twojego adresu email.</p>
+        <button type="button" className="btnOutlineCustom" onClick={validateEmail}>Zapisz się</button>
       </div>
       <Modal isOpen={showModal} setIsOpen={setShowModal}>
-        <p>modal</p>
-        <input type="text" name="name" id="newsletter-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" />
-        <button type="submit">Wyślij</button>
+        <p>
+          <strong>Dziękujemy, że chcesz do nas dołączyć!</strong><br />
+          Prosimy Cię o jeszcze tylko jedną małą rzecz.<br />
+          Podaj nam swoje imię i ciesz się nowinkami razem z nami!
+        </p>
+        <div className="floating-label-group">
+          <input type="text" name="name" id="newsletter-name" className="inputCustom" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" />
+          <label className="floating-label" htmlFor="newsletter-name">Imię</label>
+          {nameValid === false && <div className="validation-error">
+            <span data-tip="Pole jest obowiązkowe"><i className="fas fa-exclamation-circle"></i></span>
+            <ReactTooltip backgroundColor="#dc3545" place="top" type="error" effect="solid"/>
+          </div>}
+        </div>
+        <button type="submit" onClick={validateName} className="btnDarkCustom">Wyślij</button>
       </Modal>
     </form>
   )
