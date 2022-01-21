@@ -1,0 +1,22 @@
+.career-form-container {
+    position: relative;
+    
+    .inputCustom {
+        width: 100%;
+    }
+    textarea {
+        resize: none;
+    }
+    button[type="submit"] {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .dropzone {
+        margin-top: 0.25rem;
+    }
+}
+
+#career-form-join_reason,
+#career-form-extra_questions {
+    height: 8rem;
+}

@@ -1,35 +1,39 @@
-.btnCustom{
+.btnCustom {
+    color: $white;
+    background-color: $main_color;
+    transition: all 0.5s;
+    position: relative;
     border-radius: 1rem;
     border: 0;
-    background-color: $main_color;
-    font-weight: 600;
     padding: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
 
     &:hover{
-        background-color: $main_color-hover;
-        color: #fff;
+        color: $main_color;
+        background-color: transparent;
     }
-    &:focus{
-        background-color: $main_color-hover;
-        color: $red;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+      transform: scale(1.2,1.2);
+      border-radius: 1rem;
+      border: 0.2rem solid $main_color;
+      padding: 0.75rem;      
     }
-}
-
-.btnCustomNewsletter {
-    border: 0;
-    background-color: $main_color;
-    font-weight: 600;
-    padding: 0.75rem;
-
-    &:hover{
-        background-color: $main_color-hover;
-        color: #fff;
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1,1);
     }
-    &:focus{
-        background-color: $main_color-hover;
-        color: $red;
-    }
-}
+  }
 
 .navOpen{
     color: $main_color;
@@ -42,21 +46,161 @@
 }
 
 .btnOutlineCustom {
+    color: $main_color;
+    background-color: $white;
     border: 0.2rem solid $main_color;
-    background-color: transparent;
+    transition: all 0.5s;
+    position: relative;
     border-radius: 1rem;
-    color: $font_color-dark;
     font-weight: 600;
     padding: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
 
     &:hover {
         background-color: $main_color;
         border: 0.2rem solid $main_color;
+        padding: 0.75rem;
         color: #fff;
     }
-    &:focus{
-        background-color: $main_color-hover;
-        color: $red;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        transform: scale(1.3,1.4);
+        border-radius: 1rem;
+        border: 0.2rem solid $main_color;
+        padding: 0.75rem;      
+      }
+      &:hover::after {
+        opacity: 1;
+        transform: scale(1,1);
+      }
+}
+
+.btnOutlineCustomFeatures {
+    color: $main_color;
+    background-color: $white;
+    border: 0.2rem solid $main_color;
+    transition: all 0.5s;
+    position: relative;
+    border-radius: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $white;
+        padding: 0.75rem;
+        color: #fff;
+    }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        transform: scale(1.3,1.4);
+        border-radius: 1rem;
+        border: 0.2rem solid $main_color;
+        padding: 0.75rem;      
+      }
+      &:hover::after {
+        opacity: 1;
+        transform: scale(1,1);
+      }
+}
+.btnOutlineCustom {
+    color: $main_color;
+    background-color: $white;
+    border: 0.2rem solid $main_color;
+    transition: all 0.5s;
+    position: relative;
+    border-radius: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: $main_color;
+        border: 0.2rem solid $main_color;
+        padding: 0.75rem;
+        color: #fff;
+    }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.3s;
+        transform: scale(1.3,1.4);
+        border-radius: 1rem;
+        border: 0.2rem solid $main_color;
+        padding: 0.75rem;      
+      }
+      &:hover::after {
+        opacity: 1;
+        transform: scale(1,1);
+      }
+}
+
+.btnOutlineCustomFooter {
+  color: $main_color-footer;
+  background-color: $white;
+  border: 0.2rem solid $main_color-footer;
+  transition: all 0.5s;
+  position: relative;
+  border-radius: 1rem;
+  font-weight: 600;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  &:hover {
+      background-color: $black;
+      border: 0.2rem solid $black;
+      padding: 0.75rem;
+      color: #fff;
+  }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+      transform: scale(1.3,1.4);
+      border-radius: 1rem;
+      border: 0.2rem solid $black;
+      padding: 0.75rem;      
+    }
+    &:hover::after {
+      opacity: 1;
+      transform: scale(1,1);
     }
 }
 
@@ -66,7 +210,7 @@
     border-radius: 1rem;
     color: $font_color-dark;
     font-weight: 600;
-    padding: 0.75rem;
+    padding: 0.55rem;
 
     &:hover {
         background-color: $main_color;
@@ -78,4 +222,3 @@
         color: $red;
     }
 }
-

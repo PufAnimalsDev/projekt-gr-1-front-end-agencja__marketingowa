@@ -27,31 +27,31 @@ input[type=number] {
     }
 }
 
-.inputNews{
+.inputNews {
     border: 0.25rem solid #FFB400;
     width: 42rem;
 }
 
 .floating-label-group {
-	position: relative;
-	margin-top: 1.5rem;
+    position: relative;
+    margin-top: 1.5rem;
 
-	.floating-label {
-		font-size: 1rem;
-		color: #999;
-		position: absolute;
-		pointer-events: none;
-		left: 0.75rem;
-		transition: all 0.2s ease;
+    .floating-label {
+        font-size: 1rem;
+        color: #999;
+        position: absolute;
+        pointer-events: none;
+        left: 0.75rem;
+        transition: all 0.2s ease;
 
         &.center {
             left: 50%;
             transform: translateX(-50%);
             white-space: nowrap;
         }
-	}
+    }
 
-    input ~ .floating-label {
+    input~.floating-label {
         top: 50%;
         transform: translateY(-50%);
 
@@ -60,23 +60,25 @@ input[type=number] {
         }
     }
 
-    textarea ~ .floating-label {
+    textarea~.floating-label {
         top: 1.2rem;
     }
 
-	input:focus ~ .floating-label,
-    input:not(:placeholder-shown) ~ .floating-label,
-    textarea:focus ~ .floating-label,
-    textarea:not(:placeholder-shown) ~ .floating-label {
-		top: -1.5rem;
-		left: 0;
-		color: #404040;
+    input:focus~.floating-label,
+    input:not(:placeholder-shown)~.floating-label,
+    textarea:focus~.floating-label,
+    textarea:not(:placeholder-shown)~.floating-label {
+        top: -1.5rem;
+        left: 0;
+        color: #404040;
         transform: none;
+
         &.center {
             left: 50%;
             transform: translateX(-50%);
         }
-	}
+    }
+
     input::placeholder,
     textarea::placeholder {
         opacity: 0;
@@ -93,4 +95,73 @@ input[type=number] {
     padding-right: 1rem;
     font-size: 1.5rem;
     color: #dc3545;
+}
+
+.validation-under .validation-error {
+    height: auto;
+    top: 2.5rem;
+    right: initial;
+    left: 0.25rem;
+}
+
+/*style wrapper to give some space*/
+.checkbox-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/*style label to give some more space*/
+.checkbox-wrapper label {
+    display: block;
+    margin-left: 0.5rem;
+}
+
+/*style and hide original checkbox*/
+.checkbox-wrapper input {
+    height: 2rem;
+    left: 0;
+    opacity: 0;
+    top: 0;
+    width: 2rem;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/*position new box*/
+.checkbox-wrapper input+label::before {
+    border: 2px solid $main_color;
+    content: "";
+    height: 2rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2rem;
+}
+
+/*create check symbol with pseudo element*/
+.checkbox-wrapper input+label::after {
+    content: "";
+    border: 0.25rem solid;
+    border-left: 0;
+    border-top: 0;
+    height: 1.25rem;
+    width: 0.66rem;
+    left: 0.7rem;
+    top: 0.2rem;
+    opacity: 0;
+    position: absolute;
+    transform: rotate(45deg);
+    transition: opacity 0.2s ease-in-out;
+}
+
+/*reveal check for 'on' state*/
+.checkbox-wrapper input:checked+label::after {
+    opacity: 1;
+}
+
+.checkbox-wrapper input:focus+label::before {
+    box-shadow: 0 0 0 3px $main_color-dark;
+    outline: 3px solid transparent;
 }

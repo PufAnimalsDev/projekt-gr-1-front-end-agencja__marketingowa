@@ -41,7 +41,7 @@ $(() => {
   if (document.getElementById("formwizard")) {
     ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
   }
-  if (document.getElementById("formcareer")) {
-    ReactDOM.render(<FormCareer />, document.getElementById("formcareer"));
+  if (document.getElementById("career-form")) {
+    ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
   }
 });
