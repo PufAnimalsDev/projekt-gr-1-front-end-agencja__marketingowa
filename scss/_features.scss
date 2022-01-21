@@ -1,0 +1,399 @@
+/* 
+---------------------------------------------
+Features Style
+--------------------------------------------- 
+*/
+
+.features {
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    @include media-breakpoint-up(sm){
+            padding-top: 20rem;
+        }
+    @include media-breakpoint-up(xl){
+            padding-top: 10rem;
+        }
+    @include media-breakpoint-only(lg){
+            padding-top: 35rem;
+        }
+  
+    &--content {
+      z-index: 2;
+      position: relative;
+      border-radius: 3rem;
+    } 
+    
+    &--item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 3rem;
+    border: 1px solid $main_color;
+    background: $white;
+    transition: background-color .5s;
+    margin-bottom: 7rem;
+    @include media-breakpoint-up(xl){
+            margin-bottom: 0;
+        }
+    
+    
+      .content {
+        padding-bottom: 1rem;
+      }
+  
+      &:hover {
+          background-color: $main_color;
+          cursor: pointer;
+    
+        h4, p {
+          color: $white;
+        }
+    
+        .line-dec {
+          background-color: $white;
+        }
+      }
+    @include media-breakpoint-up(lg){
+      margin-top: 0;
+      }
+    }
+
+    .number h6 {
+      background-repeat: no-repeat;
+      width: 8rem;
+      height: auto;
+      color: $white;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 25px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 5rem;
+      margin-top: -3rem;
+      margin-bottom: 1rem;
+      width: 8rem;
+      height: auto;
+      background-image: url(../assets/img_styles/features-number-01.png);
+    }
+
+    .icon {
+      width: 63px;
+      height: 63px;
+      margin: 0 auto;
+      transition: all 0.5s;
+      color: $main_color;
+    }
+  
+    h4 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+      font-size: 20px;
+      line-height: 1.5rem;
+      font-weight: 700;
+      color: $main_color;
+      position: relative;
+      transition: all 0.5s;
+    }
+  
+    .line-dec {
+      width: 100px;
+      height: 2px;
+      background-color: $main_color;
+      margin: 1rem auto;
+      transition: all 0.5s;
+    }
+  
+    p {
+      position: relative;
+      padding-bottom: 0.5rem;
+      transition: all 0.5s;
+    }
+
+    // .number-background h6 {
+    //   width: 8rem;
+    //   height: auto;
+    //   background-image: url(../assets/img_styles/features-number-01.png);
+    // }
+}  
+  
+  .first-feature:hover .icon {
+    background-image: url(../assets/img_styles/features-icon-white-01.png);
+  }
+  
+  .second-feature:hover .icon {
+    background-image: url(../assets/img_styles/features-icon-white-02.png);
+  }
+  
+  .first-feature .icon {
+    background-image: url(../assets/img_styles/features-icon-black-01.png);
+  }
+  
+  .second-feature .icon {
+    background-image: url(../assets/img_styles/features-icon-black-02.png);
+
+  }
+  
+  .skills-content {
+    position: relative;
+    z-index: 1;
+    margin-top: -160px;
+    background-color: $shadows;
+    border-radius: 2rem;
+    padding: 5rem 0 1rem 0;
+
+    @include media-breakpoint-only(lg){
+                margin-top: -175px;
+            }
+    @include media-breakpoint-up(xl){
+                margin-top: -50px;
+            }
+  }
+  
+  .skill-item {
+    text-align: center;
+  }
+  
+  .progress {
+    width: 7rem;
+    height: 7rem;
+    line-height: 150px;
+    background: none;
+    margin: 0 auto;
+    box-shadow: none;
+    position: relative;
+  
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 5px solid #ddd;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  
+    > span {
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      z-index: 1;
+    }
+  
+    .progress-left {
+      left: 0;
+    }
+  
+    .progress-bar {
+      width: 100%;
+      height: 100%;
+      background: none;
+      border-width: 5px;
+      border-style: solid;
+      position: absolute;
+      top: 0;
+      border-color: $main_color;
+    }
+  
+    .progress-left .progress-bar {
+      left: 100%;
+      border-top-right-radius: 75px;
+      border-bottom-right-radius: 75px;
+      border-left: 0;
+      transform-origin: center left;
+    }
+  
+    .progress-right {
+      right: 0;
+  
+      .progress-bar {
+        left: -100%;
+        border-top-left-radius: 75px;
+        border-bottom-left-radius: 75px;
+        border-right: 0;
+        transform-origin: center right;
+      }
+    }
+  
+    .progress-value {
+      text-align: center;
+      color: $black;
+      display: flex;
+      width: 100%;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      line-height: 20px;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-weight: 700;
+  
+      div {
+        margin-top: 10px;
+      }
+  
+      span {
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+  
+    &[data-percentage="10"] {
+      .progress-right .progress-bar {
+        animation: loading-1 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: 0;
+      }
+    }
+  
+    &[data-percentage="20"] {
+      .progress-right .progress-bar {
+        animation: loading-2 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: 0;
+      }
+    }
+  
+    &[data-percentage="30"] {
+      .progress-right .progress-bar {
+        animation: loading-3 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: 0;
+      }
+    }
+  
+    &[data-percentage="40"] {
+      .progress-right .progress-bar {
+        animation: loading-4 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: 0;
+      }
+    }
+  
+    &[data-percentage="50"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: 0;
+      }
+    }
+  
+    &[data-percentage="60"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: loading-1 1.5s linear forwards 1.5s;
+      }
+    }
+  
+    &[data-percentage="70"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: loading-2 1.5s linear forwards 1.5s;
+      }
+    }
+  
+    &[data-percentage="80"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: loading-3 1.5s linear forwards 1.5s;
+      }
+    }
+  
+    &[data-percentage="90"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: loading-4 1.5s linear forwards 1.5s;
+      }
+    }
+  
+    &[data-percentage="100"] {
+      .progress-right .progress-bar {
+        animation: loading-5 1.5s linear forwards;
+      }
+  
+      .progress-left .progress-bar {
+        animation: loading-5 1.5s linear forwards 1.5s;
+      }
+    }
+  
+    margin-bottom: 1em;
+  }
+  
+  /* 
+  Animacja robienia okręgu może da się to zrobić proście  
+  */
+  
+  @keyframes loading-1 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(36deg);
+    }
+  }
+  
+  @keyframes loading-2 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(72deg);
+    }
+  }
+  
+  @keyframes loading-3 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(108deg);
+    }
+  }
+  
+  @keyframes loading-4 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(144deg);
+    }
+  }
+  
+  @keyframes loading-5 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(180deg);
+    }
+  }

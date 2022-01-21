@@ -8,9 +8,11 @@ function scrollFunctionHide() {
 
   if (scrolled > 20) {
     document.getElementById("navHider").style.display = "none";
+    document.getElementById("scrollMenu").style.display = "block";
   }
   else {
     document.getElementById("navHider").style.display = "";
+    document.getElementById("scrollMenu").style.display = "none";
   }});  
 }
 //end navbar hidding
@@ -18,10 +20,10 @@ function scrollFunctionHide() {
 /*Start function of toggling navbar*/
 /* Open */
 function openNav() {
-    document.getElementById("myNav").style.height = "100%";
+    document.getElementById("myNav").style.height = "100vh";
 }  
 /* Close */
 function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
+    document.getElementById("myNav").style.height = "0vh";
 }
 /*End function of toggling navbar*/

@@ -1,16 +1,16 @@
 @import "variables";
-
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
+@import "about";
 @import "header";
 @import "footer";
 @import "start";
-@import "functions";
 @import "aboutus";
 @import "portfolio";
 @import "members";
@@ -20,14 +20,27 @@
 @import "buttons";
 @import "inputs";
 @import "newsletter";
+@import "features";
+@import "cooperate";
+@import "politics";
+@import "offer-analitics";
+@import "offer-search";
+@import "offer-contentMark";
+@import "offer-socialMedia";
+
 
 *{
     list-style-type: none;
-   
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
  a{
     text-decoration: none; 
     color: rgb(0, 0, 0);
 }
+
 

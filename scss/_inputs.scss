@@ -1,7 +1,61 @@
-.form-control {
+.inputCustom {
     border: 0.2rem solid $main_color;
     border-radius: 1rem;
-    background-color: #00000000;
+    background-color: $white;
+
+    margin: 0.2rem;
+    padding: 0.75rem;
+
+    &::placeholder {
+        text-align: center;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $shadows;
+        color: $black;
+    }
+}
+
+.inputCustomFooter {
+    border: 0.2rem solid $main_color-footer;
+    border-radius: 1rem;
+    background-color: $white;
     margin: 0.2rem;
     padding: 0.5rem;
+
+    &::placeholder {
+        text-align: left;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $shadows;
+        color: $black;
+        border: 0.2rem solid $main_color;
+    }
+
+}
+
+.inputNews{
+    border: 0.25rem solid $main_color;
+    border-radius: 0.5rem 0 0 0.5rem;
+    width: 42rem;
+
+    &:hover {
+        &::placeholder {
+            color: $main_color-footer;
+
+        }
+    }
+
+    &::placeholder {
+        text-align: right;
+        margin-right: 1rem;
+    }
+
+    &:focus {
+        outline: 0;
+        background-color: $main_color-light;
+    }
 }

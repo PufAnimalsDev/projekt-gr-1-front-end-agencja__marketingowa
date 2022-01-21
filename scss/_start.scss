@@ -1,24 +1,93 @@
-.start{
-    background-color: #fff;
-    min-height: 80vh;
-    padding: 7rem 0;
-   
+// .start{
+//     display: flex;
+//     padding-top: 11rem;
+//     height: 100vh;
         
+//     &--item-wrapper{        
+//         text-align: center;
+//         background-color: $shadows;
+//         border-radius: 2rem 0 0 2rem;
+//         padding: 10rem 6rem;
+//         &__heading{
+//             margin-bottom: 2rem;
+//             text-align: center;
+//             color: $main_color;
+//         }
+
+//         &__description{
+//         text-align: center;
+//         margin-bottom: 3rem;
+//         color: $black;
+//         }
+//     }    
+    
+    
+
+//     &--item-slider {
+//         position: absolute;
+//         right: 8rem;
+//         width: 50rem;
+//         height: auto;
+//         img {
+//             border-radius: 2rem;        
+//         }
+//     }
+
+// }  
+        
+
+
+.start{
+    padding: 7rem 0;
+    height: 100vh;
+    padding-top: 11rem;
+
+
     &--item-wrapper{
         text-align: center;
-    
-    }  
-    
-        &--heading{
-            margin-bottom: 2rem;
-            text-align: center;
-    
+        background-color: $shadows;
+        border-radius: 2rem;
+        padding: 5rem 4rem;
+        margin-right: 0;
+        margin-bottom: -2rem;
             
-    
+
+        @include media-breakpoint-up(xl){
+            margin-right: -2rem;
+            border-radius: 2rem 0 0 2rem;
+            padding: 5rem 6rem;
+            margin-bottom: 0;
         }
-    
-        &--description{
+        @include media-breakpoint-up(xxl){
+            border-radius: 2rem 0 0 2rem;
+            padding: 10rem 6rem;
+            margin-bottom: 0;
+        }
+        // @include media-breakpoint-only(md){
+        //     margin-right: -2rem;
+        //     padding: 4rem 5rem;
+
+        // }
+
+        &__description{
             text-align: center;
             margin-bottom: 3rem;
+            color: $black;
         }
     }
+
+    &--item-slider {
+        
+        img{
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: auto;
+
+            border-radius: 2rem;
+
+        }
+
+
+    }
+}

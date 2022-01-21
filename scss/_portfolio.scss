@@ -1,5 +1,14 @@
 .portfolio{
-    padding: 7rem 0;
-    background-color: rgb(255, 255, 255);
-    min-height: 60vh;
+    height: 100vh;
+    &--heading {
+        padding: 8rem 2rem 2rem 2rem;
+        text-align: center;
+        color: $main_color;
+    }
+    &--footer {
+        padding-top: 2rem;
+    }
+    img {
+        border-radius: 2rem;
+    }
 }
