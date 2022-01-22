@@ -2,8 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: $shadows;
+    margin-top: 25rem;
+    padding: 10rem 0;
+    
+    @include media-breakpoint-only(xl){
+                margin-top: 12rem;
+            }
+    @include media-breakpoint-only(lg){
+                margin-top: 45rem;
+            }
 
     &--header {
         padding-bottom: 2rem;

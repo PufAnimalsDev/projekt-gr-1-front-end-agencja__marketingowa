@@ -5,8 +5,18 @@ Features Style
 */
 
 .features {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 15rem;
+    padding-bottom: 2rem;
+    @include media-breakpoint-up(sm){
+            padding-top: 25rem;
+        }
+    @include media-breakpoint-up(xl){
+            padding-top: 10rem;
+        }
+    @include media-breakpoint-only(lg){
+            padding-top: 45rem;
+        }
+
   
     &--content {
       z-index: 2;
@@ -21,7 +31,11 @@ Features Style
     border: 1px solid $main_color;
     background: $white;
     transition: background-color .5s;
-    
+    margin-bottom: 5rem;
+    @include media-breakpoint-up(xl){
+            margin-bottom: 0;
+        }
+      
       .content {
         padding-bottom: 1rem;
       }
@@ -116,16 +130,22 @@ Features Style
   
   .second-feature .icon {
     background-image: url(../assets/img_styles/features-icon-black-02.png);
-
   }
   
   .skills-content {
     position: relative;
     z-index: 1;
-    margin-top: -50px;
+    margin-top: -140px;
     background-color: $shadows;
     border-radius: 2rem;
     padding: 5rem 0 1rem 0;
+
+    @include media-breakpoint-only(lg){
+                margin-top: -145px;
+            }
+    @include media-breakpoint-up(xl){
+                margin-top: -50px;
+            }
   }
   
   .skill-item {
@@ -220,7 +240,7 @@ Features Style
       }
     }
   
-    &[data-percentage="10"] {
+   &[data-percentage="10"] {
       .progress-right .progress-bar {
         animation: loading-1 1.5s linear forwards;
       }

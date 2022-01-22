@@ -1,22 +1,35 @@
 .newsletter {
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
     background-color: $bgHover;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 10rem 0;
+
+    @include media-breakpoint-only(lg){
+            padding: 0;
+        }
 
         img {
             border-radius: 1rem;
             height: 20rem;
             width: auto;
+            @include media-breakpoint-between(md, xl){
+            height: 15rem;
+        }
         }      
 
     &--content{
         border-radius: 1rem;
         background-color: $shadows;
         padding: 2rem;
+        margin-top: 5rem;
+        @include media-breakpoint-up(md){
+            margin-top: 0;
+        }
+
 
         h2{
             color: $main_color;
@@ -35,3 +48,4 @@
             }
         }
   }
+
