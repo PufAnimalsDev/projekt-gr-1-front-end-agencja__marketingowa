@@ -175,12 +175,12 @@ get_header();
 <section class="portfolio">
     <div class="container">
         <div class="row justify-content-center portfolio--heading">
-            <div class="col-lg-8 col-xxl-7">
+            <div class="col">
                 <h2>Nasze realizacje</h2>
             </div>
         </div>
         <div class="row justify-content-center ">
-            <div class="col-lg-8 col-xxl-7 text-center">
+            <div class="col text-center">
                 <div class="portfolio--slider">
                     <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-01.jpg" alt="">
                     <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-02.jpg" alt="">

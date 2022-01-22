@@ -18,7 +18,16 @@
         object-fit: cover;
     }
     .slick-slide {
-        margin: 0 1rem;
+        margin: 0 2rem;
+        transition: transform 0.5s ease;
+    }
+    @media (min-width: 800px) {
+        .slick-current {
+            transform: scale(1.2);
+        }
+        .slick-track {
+            padding: 2rem 0;
+        }
     }
     .slick-prev,
     .slick-next {

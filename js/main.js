@@ -47,6 +47,17 @@ $(() => {
   }
   $('.portfolio--slider').slick({
     adaptiveHeight: true,
-    dots: true
+    dots: true,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 799,
+        settings: {
+          centerMode: true,
+          centerPadding: "0px",
+          slidesToShow: 3
+        }
+      }
+    ]
   });
 });
