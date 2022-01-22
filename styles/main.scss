@@ -2,6 +2,10 @@
 
 @import "variables";
 
+$slick-font-path: "../node_modules/slick-carousel/slick/fonts/";
+$slick-loader-path: "../node_modules/slick-carousel/slick/";
+$slick-arrow-color: #000;
+
 @import "bootstrap";
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -10,6 +14,8 @@
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
 @import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/slick-carousel/slick/slick-theme.scss";
 
 @import "header";
 @import "footer";

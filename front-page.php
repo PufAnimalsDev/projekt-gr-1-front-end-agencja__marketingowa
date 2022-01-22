@@ -172,4 +172,30 @@ get_header();
 </section>
 <!-- End Team Member -->
 
+<section class="portfolio">
+    <div class="container">
+        <div class="row justify-content-center portfolio--heading">
+            <div class="col-lg-8 col-xxl-7">
+                <h2>Nasze realizacje</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-lg-8 col-xxl-7 text-center">
+                <div class="portfolio--slider">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-01.jpg" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-02.jpg" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-03.jpg" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-04.jpg" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-05.jpg" alt="">
+                    <img src="<?= get_template_directory_uri() ?>/assets/img/our-work-06.jpg" alt="">
+                </div>
+
+                <div class="portfolio--footer">
+                    <a class="btnOutlineCustom" href="./caseStudies.html" role="button">Zobacz więcej</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>

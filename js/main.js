@@ -4,6 +4,7 @@ import "../styles/main.scss";
 import "@fortawesome/fontawesome-free/js/all.min.js";
 
 import $ from "jquery"
+import slick from "slick-carousel";
 import React from "react";
 import ReactDOM from "react-dom";
 import FormWizard from "./FormWizard";
@@ -44,4 +45,6 @@ $(() => {
   if (document.getElementById("career-form")) {
     ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
   }
+  $('.portfolio--slider').slick({
+  });
 });
