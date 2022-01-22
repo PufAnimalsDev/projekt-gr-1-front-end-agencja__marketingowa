@@ -101,13 +101,13 @@
 
     #navbar {
         position: fixed;
+        z-index: 99999;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: end;
         width: 100%;
         transition: top 0.3s;
-        padding-right: 1rem;
 
         img{
             border: 1px solid $font_color-dark;
@@ -129,7 +129,7 @@
         height: 0;
         width: 100%;
         position: fixed;
-        z-index: 1;
+        z-index: 9999999999999;
         left: 0;
         top: 0;
         background-color: $main_color-trans;

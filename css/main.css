@@ -17407,13 +17407,13 @@ readers do not read off random characters that represent icons */
 }
 .header #navbar {
   position: fixed;
+  z-index: 99999;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
   width: 100%;
   transition: top 0.3s;
-  padding-right: 1rem;
 }
 .header #navbar img {
   border: 1px solid #2e2e2e;
@@ -17430,7 +17430,7 @@ readers do not read off random characters that represent icons */
   height: 0;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 9999999999999;
   left: 0;
   top: 0;
   background-color: #FFB400e6;
@@ -17621,6 +17621,11 @@ readers do not read off random characters that represent icons */
   padding: 5rem 4rem;
   margin-right: 0;
   margin-bottom: -2rem;
+}
+@media (min-width: 992px) {
+  .start--item-wrapper {
+    padding: 9rem 6rem;
+  }
 }
 @media (min-width: 1200px) {
   .start--item-wrapper {
@@ -18250,12 +18255,12 @@ Features Style
 --------------------------------------------- 
 */
 .features {
-  padding-top: 10rem;
+  padding-top: 15rem;
   padding-bottom: 2rem;
 }
 @media (min-width: 576px) {
   .features {
-    padding-top: 20rem;
+    padding-top: 25rem;
   }
 }
 @media (min-width: 1200px) {
@@ -18265,7 +18270,7 @@ Features Style
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .features {
-    padding-top: 35rem;
+    padding-top: 45rem;
   }
 }
 .features--content {
@@ -18280,7 +18285,7 @@ Features Style
   border: 1px solid #FFB400;
   background: #fff;
   transition: background-color 0.5s;
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
 }
 @media (min-width: 1200px) {
   .features--item {
@@ -18372,14 +18377,14 @@ Features Style
 .skills-content {
   position: relative;
   z-index: 1;
-  margin-top: -160px;
+  margin-top: -140px;
   background-color: #f1f0f0;
   border-radius: 2rem;
   padding: 5rem 0 1rem 0;
 }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .skills-content {
-    margin-top: -175px;
+    margin-top: -145px;
   }
 }
 @media (min-width: 1200px) {
