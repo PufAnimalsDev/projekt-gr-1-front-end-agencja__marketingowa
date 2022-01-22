@@ -37,13 +37,28 @@ $white-trans: #ffffff2c;
 //socials
 $main_socials: #006eff;
 
+//formwizard - timeline
+
 $timeline-node-size: 1.75rem;
 $timeline-node-size-l: 2.25rem;
 $timeline-breakpoint-l: 550px;
 $timeline-line-height: 0.375rem;
 
+// date picker
+
 $datepicker__selected-color: #ffb400;
 $datepicker__muted-color: #ddd;
 $datepicker__background-color: #ffe19b;
 
+// scrollbar
+
 $scrollbar-track-color: #ffe19b;
+
+// slick carousel
+
+$slick-font-path: "../node_modules/slick-carousel/slick/fonts/";
+$slick-loader-path: "../node_modules/slick-carousel/slick/";
+$slick-arrow-color: $main_color;
+$slick-dot-color: $main_color-dark;
+$slick-dot-color-active: $main_color;
+$slick-dot-size: 1rem;

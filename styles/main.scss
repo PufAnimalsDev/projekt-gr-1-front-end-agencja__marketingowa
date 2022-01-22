@@ -1,7 +1,6 @@
 @use "sass:color";
 
 @import "variables";
-
 @import "bootstrap";
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -10,6 +9,8 @@
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
 @import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
+@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "../node_modules/slick-carousel/slick/slick-theme.scss";
 
 @import "header";
 @import "footer";
@@ -46,7 +47,11 @@ a {
 // Scrollbar styling
 
 ::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #0001;
 }
 
 ::-webkit-scrollbar-track {
