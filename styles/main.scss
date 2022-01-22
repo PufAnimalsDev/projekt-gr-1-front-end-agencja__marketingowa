@@ -1,11 +1,6 @@
 @use "sass:color";
 
 @import "variables";
-
-$slick-font-path: "../node_modules/slick-carousel/slick/fonts/";
-$slick-loader-path: "../node_modules/slick-carousel/slick/";
-$slick-arrow-color: #000;
-
 @import "bootstrap";
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
@@ -52,7 +47,11 @@ a {
 // Scrollbar styling
 
 ::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #0001;
 }
 
 ::-webkit-scrollbar-track {

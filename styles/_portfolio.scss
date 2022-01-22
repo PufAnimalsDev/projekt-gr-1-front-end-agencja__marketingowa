@@ -1,4 +1,4 @@
-.portfolio{
+.portfolio {
     height: 100vh;
     &--heading {
         padding: 2rem;
@@ -8,10 +8,33 @@
     &--footer {
         padding-top: 2rem;
     }
+    &--slider {
+        margin: 0 2.5rem;
+    }
     img {
         border-radius: 2rem;
+        max-height: 30rem;
+        width: 100%;
+        object-fit: cover;
     }
     .slick-slide {
         margin: 0 1rem;
+    }
+    .slick-prev,
+    .slick-next {
+        height: 2rem;
+        width: 2rem;
+        &:before {
+            font-size: 2rem;
+        }
+    }
+    .slick-prev {
+        left: -2.25rem;
+    }
+    .slick-next {
+        right: -2.25rem;
+    }
+    .slick-dots {
+        bottom: -2rem;
     }
 }

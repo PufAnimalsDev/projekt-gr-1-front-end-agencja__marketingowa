@@ -46,5 +46,7 @@ $(() => {
     ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
   }
   $('.portfolio--slider').slick({
+    adaptiveHeight: true,
+    dots: true
   });
 });
