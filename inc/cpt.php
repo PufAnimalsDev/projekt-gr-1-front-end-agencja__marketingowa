@@ -48,14 +48,35 @@ function add_cpt()
 
     register_post_type('wizard', $wizardArgs);
 
-    $argsOffersCategories = [
+    $worksArgs = [
         "labels" => [
-            "name" => "Dzialy"
+            "name" => "CV"
+        ],
+        "public" => false,
+        "show_ui" => true,
+        "menu_icon" => "dashicons-list-view",
+        "supports" => ["title"]
+    ];
+
+    register_post_type('work', $worksArgs);
+
+    $argsOffersDepartments = [
+        "labels" => [
+            "name" => "Działy"
         ],
         "hierarchical" => true
     ];
 
-    register_taxonomy('offers_categories', ['offers'], $argsOffersCategories);
+    register_taxonomy('departments_categories', ['offers'], $argsOffersDepartments);
+
+    $argsOffersExperiences = [
+        "labels" => [
+            "name" => "Doświadczenie"
+        ],
+        "hierarchical" => true
+    ];
+
+    register_taxonomy('experiences_categories', ['offers'], $argsOffersExperiences);
 
     $offersArgs = [
         "labels" => [
@@ -67,6 +88,7 @@ function add_cpt()
     ];
 
     register_post_type('offers', $offersArgs);
+
 
     $teamMembersArgs = [
         "labels" => [

@@ -1,5 +1,25 @@
 <?php get_header(); ?>
 
+<!-- start start  -->
+<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 career--start-wrapper">
+                <h1 class="career--start-wrapper__heading">Sprawdź,
+                    co się u nas dzieje!</h1>
+                <p class="career--start-wrapper__description">Zapoznaj się z artykułami tworzonymi przez naszych ekspertów
+                    oraz informacjami prasowymi. </p>
+                <a class="btnOutlineCustom" href="#sectionJobList" role="button">Więcej</a>
+            </div>
+
+            <div class="col-lg-7 career--start-photo">
+                <img class="d-block w-100" src="./assets/img/career.png">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- start end  -->
+
 <section class="">
     <div class="container">
         <div class="row justify-content-center blog-post-list g-4">

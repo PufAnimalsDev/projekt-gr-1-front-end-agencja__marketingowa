@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
-const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
-
 const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFromSummary, tileNum, showSubmit = false, hideNext = false, validationFunction, validate, formStatus }) => {
+
+  const FOCUSABLE_FORM_ELEMENTS_QUERY = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle, .react-datepicker__day, .dropzone';
+  const FOCUSABLE_ELEMENTS_QUERY = 'a[href]:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), .rc-slider-handle';
 
   let [currentClass, setCurrentClass] = useState("active");
   let [zIndex, setZIndex] = useState(null);
@@ -128,27 +128,27 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
           {children}
         </div>
         <nav className={`formwizard--tile-navs ${!fromSummary || tileNum === 7 ? "show" : "hide"}`}>
-            {tileNum != 0 &&
-              <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz">
-                <i className="fas fa-fw fa-arrow-left"></i>
-              </button>
-            }
-            {showSubmit && 
-              <button type="submit" className={`btnDarkCustom ${(showSubmit && !fromSummary) ? "show" : "hide"}`} aria-label="Wyślij">
-                <i className="fas fa-fw fa-file-export"></i>
-              </button>
-            }
-            {!hideNext &&
-              <button type="button" className={`btnDarkCustom ${(!hideNext && !fromSummary) ? "show" : "hide"}`} onClick={moveNextTile} aria-label="Dalej">
-                <i className="fas fa-fw fa-arrow-right"></i>
-              </button>
-            }
-          </nav>
-          <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && (tileNum != 7 && tileNum != 0) ? "show" : "hide"}`}>
-            <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
-              <i className="fas fa-fw fa-step-forward"></i>
+          {tileNum != 0 &&
+            <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz">
+              <i className="fas fa-fw fa-arrow-left"></i>
             </button>
-          </nav>
+          }
+          {showSubmit &&
+            <button type="submit" className={`btnDarkCustom ${(showSubmit && !fromSummary) ? "show" : "hide"}`} aria-label="Wyślij">
+              <i className="fas fa-fw fa-file-export"></i>
+            </button>
+          }
+          {!hideNext &&
+            <button type="button" className={`btnDarkCustom ${(!hideNext && !fromSummary) ? "show" : "hide"}`} onClick={moveNextTile} aria-label="Dalej">
+              <i className="fas fa-fw fa-arrow-right"></i>
+            </button>
+          }
+        </nav>
+        <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && (tileNum != 7 && tileNum != 0) ? "show" : "hide"}`}>
+          <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
+            <i className="fas fa-fw fa-step-forward"></i>
+          </button>
+        </nav>
       </div>
     </div>
   )

@@ -44,6 +44,7 @@ const FormCareer = () => {
     }
 
     async function formSubmitHandler() {
+
         setFormStatus("waiting");
 
         let formData = new FormData(formEl.current);
@@ -57,13 +58,17 @@ const FormCareer = () => {
         });
 
         let result = await response.json();
+        let check = JSON.parse(result);
 
-        console.log(response);
         console.log(result);
+        console.log(check);
 
-        setTimeout(() => {
+        if (check.status === "success") {
             setFormStatus("success");
-        }, 4000)
+        } else {
+            alert("Coś poszło nie tak");
+            setFormStatus("error");
+        }
     }
 
     useEffect(() => {
@@ -83,69 +88,69 @@ const FormCareer = () => {
             <h2>Formularz aplikacyjny</h2>
             <div className="col-12 col-xl-6">
                 <div className="floating-label-group">
-                    <input type="text" className="inputCustom" id="career-form-first-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="next" { ...register("first_name", { required: true, maxLength: 255 }) } />
+                    <input type="text" name="name" className="inputCustom" id="career-form-first-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="next" {...register("first_name", { required: true, maxLength: 255 })} />
                     <label className="floating-label" htmlFor="career-form-first-name">Imię*:</label>
                     {errors.first_name && <div className="validation-error">
                         <span data-tip={errorMessages[errors.first_name.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
                 </div>
             </div>
             <div className="col-12 col-xl-6">
                 <div className="floating-label-group">
-                    <input type="text" className="inputCustom" id="career-form-last-name" placeholder="Nazwisko*" autoComplete="family-name" enterKeyHint="next" { ...register("last_name", { required: true, maxLength: 255 }) }  />
+                    <input type="text" name="career-form-last-name" className="inputCustom" id="career-form-last-name" placeholder="Nazwisko*" autoComplete="family-name" enterKeyHint="next" {...register("last_name", { required: true, maxLength: 255 })} />
                     <label className="floating-label" htmlFor="career-form-last-name">Nazwisko*:</label>
                     {errors.last_name && <div className="validation-error">
                         <span data-tip={errorMessages[errors.last_name.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
                 </div>
             </div>
             <div className="col-12 col-xl-6">
                 <div className="floating-label-group">
-                    <input type="text" className="inputCustom" id="career-form-email" placeholder="Adres e-mail*" autoComplete="email" enterKeyHint="next" { ...register("email", { required: true, validate: value => VALID_EMAIL_REGEX.test(value), maxLength: 255 }) } />
+                    <input type="text" name="career-form-email" className="inputCustom" id="career-form-email" placeholder="Adres e-mail*" autoComplete="email" enterKeyHint="next" {...register("email", { required: true, validate: value => VALID_EMAIL_REGEX.test(value), maxLength: 255 })} />
                     <label className="floating-label" htmlFor="career-form-email">Adres e-mail*:</label>
                     {errors.email && <div className="validation-error">
                         <span data-tip={errorMessages[errors.email.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
-                </div> 
-            </div>   
+                </div>
+            </div>
             <div className="col-12 col-xl-6">
                 <div className="floating-label-group">
-                    <input type="text" className="inputCustom" id="career-form-phone" placeholder="Numer telefonu*" autoComplete="tel" enterKeyHint="next" { ...register("phone", { required: true }) } />
+                    <input type="text" name="career_form_email" className="inputCustom" id="career-form-phone" placeholder="Numer telefonu*" autoComplete="tel" enterKeyHint="next" {...register("phone", { required: true })} />
                     <label className="floating-label" htmlFor="career-form-phone">Numer telefonu*:</label>
                     {errors.phone && <div className="validation-error">
                         <span data-tip={errorMessages[errors.phone.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
                 </div>
             </div>
             <div className="col-12">
                 <div className="floating-label-group">
-                    <textarea className="inputCustom" id="career-form-salary" placeholder="Jakich stawek oczekujesz?*" enterKeyHint="enter" { ...register("salary", { required: true, maxLength: 5000 }) } ></textarea>
+                    <textarea name="form_salary" className="inputCustom" id="career-form-salary" placeholder="Jakich stawek oczekujesz?*" enterKeyHint="enter" {...register("salary", { required: true, maxLength: 5000 })} ></textarea>
                     <label className="floating-label" htmlFor="career-form-salary">Jakich stawek oczekujesz?*</label>
                     {errors.salary && <div className="validation-error">
                         <span data-tip={errorMessages[errors.salary.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
                 </div>
                 <div className="floating-label-group">
-                    <textarea name="join_reason" className="inputCustom" id="career-form-join_reason" placeholder="Dlaczego chcesz do nas dołączyć?*" enterKeyHint="enter" { ...register("join_reason", { required: true, maxLength: 5000 }) } ></textarea>
+                    <textarea name="join_reason" className="inputCustom" id="career-form-join_reason" placeholder="Dlaczego chcesz do nas dołączyć?*" enterKeyHint="enter" {...register("join_reason", { required: true, maxLength: 5000 })} ></textarea>
                     <label className="floating-label" htmlFor="career-form-join_reason">Dlaczego chcesz do nas dołączyć?*</label>
                     {errors.join_reason && <div className="validation-error">
                         <span data-tip={errorMessages[errors.join_reason.type]}><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                     </div>
                     }
                 </div>
                 <div className="floating-label-group">
-                    <textarea name="extra_questions" className="inputCustom" id="career-form-extra_questions" placeholder="Dodatkowe pytania" enterKeyHint="enter" { ...register("extra_questions", { maxLength: 5000 }) } ></textarea>
+                    <textarea name="extra_questions" className="inputCustom" id="career-form-extra_questions" placeholder="Dodatkowe pytania" enterKeyHint="enter" {...register("extra_questions", { maxLength: 5000 })} ></textarea>
                     <label className="floating-label" htmlFor="career-form-extra_questions">Dodatkowe pytania:</label>
                 </div>
             </div>
@@ -154,28 +159,28 @@ const FormCareer = () => {
                 <Controller
                     name="cv"
                     render={({ field: { onChange } }) => (
-                        <div className='dropzone dropzone-colored' {...cvDropzone.getRootProps() }>
-                        <input id="career-form-cv" {...cvDropzone.getInputProps({onChange: e => onChange(e.target.files[0])})} />
-                        {cvDropzone.isDragActive ?
-                            <p>Upuść plik tutaj...</p>
-                        : 
-                            <>
-                                <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
-                                <p>Możesz wybrać tylko 1 plik.</p>
-                            </> 
-                        }
-                        {errors.cv && <div className="validation-error">
-                            <span data-tip={errorMessages[errors.cv.type]}><i className="fas fa-exclamation-circle"></i></span>
-                            <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                        <div className='dropzone dropzone-colored' {...cvDropzone.getRootProps()}>
+                            <input id="career-form-cv" {...cvDropzone.getInputProps({ onChange: e => onChange(e.target.files[0]) })} />
+                            {cvDropzone.isDragActive ?
+                                <p>Upuść plik tutaj...</p>
+                                :
+                                <>
+                                    <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
+                                    <p>Możesz wybrać tylko 1 plik.</p>
+                                </>
+                            }
+                            {errors.cv && <div className="validation-error">
+                                <span data-tip={errorMessages[errors.cv.type]}><i className="fas fa-exclamation-circle"></i></span>
+                                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
                             </div>
-                        }
+                            }
                         </div>
                     )}
                     control={control}
                     defaultValue=''
                     rules={{ required: true }}
                 />
-                {cv ? 
+                {cv ?
                     <>
                         <div className='mb-3'>
                             Załączono plik:<br />
@@ -183,55 +188,55 @@ const FormCareer = () => {
                             {(cv.size / 1024 / 1024).toFixed(2)} MB <button className="btnOutlineCustom btn-remove-attachment" type="button" onClick={removeCv}><i className="fas fa-fw fa-times"></i></button>
                         </div>
                     </>
-                : ''}
+                    : ''}
             </div>
             <div className="col-12 col-xl-6">
                 <label htmlFor="career-form-extra_file">Dodatkowy załącznik:</label>
                 <Controller
                     name="extra_file"
                     render={({ field: { onChange } }) => (
-                        <div className='dropzone dropzone-colored' {...extraFileDropzone.getRootProps() }>
-                        <input id="career-form-cv" {...extraFileDropzone.getInputProps({onChange: e => onChange(e.target.files[0])})} />
-                        {extraFileDropzone.isDragActive ?
-                            <p>Upuść plik tutaj...</p>
-                        : 
-                            <>
-                                <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
-                                <p>Możesz wybrać tylko 1 plik.</p>
-                            </> 
-                        }
+                        <div className='dropzone dropzone-colored' {...extraFileDropzone.getRootProps()}>
+                            <input id="career-form-cv" {...extraFileDropzone.getInputProps({ onChange: e => onChange(e.target.files[0]) })} />
+                            {extraFileDropzone.isDragActive ?
+                                <p>Upuść plik tutaj...</p>
+                                :
+                                <>
+                                    <p>Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.</p>
+                                    <p>Możesz wybrać tylko 1 plik.</p>
+                                </>
+                            }
                         </div>
                     )}
                     control={control}
                     defaultValue=''
                 />
-                {extraFile ? 
+                {extraFile ?
                     <>
                         <div className='mb-3'>
                             Załączono plik:<br />
                             <strong>{extraFile.name}</strong><br />
                             {(extraFile.size / 1024 / 1024).toFixed(2)} MB <button className="btnOutlineCustom btn-remove-attachment" type="button" onClick={removeExtraFile}><i className="fas fa-fw fa-times"></i></button>
-                        </div> 
+                        </div>
                     </>
-                : ''}
+                    : ''}
             </div>
             <div className="col-12">
                 <div className="checkbox-wrapper validation-under">
-                    <input type="checkbox" id="career-form-agreement1" { ...register("agreement1", { required: true }) }/>
+                    <input type="checkbox" id="career-form-agreement1" {...register("agreement1", { required: true })} />
                     <label htmlFor="career-form-agreement1">Zgodnie z ustawą z dnia 18 lipca 2002 roku o świadczeniu usług drogą elektroniczną wyrażam zgodę na kontakt ze mną przez spółkę pod firmą: Peacocko Agency z siedzibą w Warszawie wpisaną do Rejestru Przedsiębiorców Krajowego Rejestru Sądowego, prowadzonego przez Sąd Rejonowy dla m. st. Warszawy w Warszawie, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 00000 („Spóła”) oraz podmioty współpracujące ze Spółką celem wykonania czynności kontaktowych.</label>
                     {errors.agreement1 && <div className="validation-error">
                         <span data-tip="Musisz wyrazić zgodę na kontakt"><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
-                        </div>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
+                    </div>
                     }
                 </div>
                 <div className="checkbox-wrapper validation-under">
-                    <input type="checkbox" id="career-form-agreement2" { ...register("agreement2", { required: true }) }/>
+                    <input type="checkbox" id="career-form-agreement2" {...register("agreement2", { required: true })} />
                     <label htmlFor="career-form-agreement2">Zgodnie z art. 6 ust. 1 lit. a) Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 roku w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych) wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb bieżącej oraz przyszłych procesów rekrutacji.</label>
                     {errors.agreement2 && <div className="validation-error">
                         <span data-tip="Musisz wyrazić zgodę na przetwarzanie danych osobowych"><i className="fas fa-exclamation-circle"></i></span>
-                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
-                        </div>
+                        <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
+                    </div>
                     }
                 </div>
                 <button type="submit" className="btnOutlineCustom">Wyślij</button>

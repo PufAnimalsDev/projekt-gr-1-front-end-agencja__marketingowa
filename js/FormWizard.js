@@ -14,13 +14,11 @@ setDefaultLocale("pl");
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
-const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 const FormWizard = () => {
   const [currentTile, setCurrentTile] = useState(0);
   const [fromSummary, setFromSummary] = useState(false);
   const [formStatus, setFormStatus] = useState("unsent");
-  const [budget, setBudget] = useState({min: 20000, max: 50000});
+  const [budget, setBudget] = useState({ min: 20000, max: 50000 });
   const [formErrors, setFormErrors] = useState({});
 
   const [topic, setTopic] = useState("Opcja 1");
@@ -41,13 +39,15 @@ const FormWizard = () => {
     validationFunction: validateFormElement
   }
 
+  const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
   function handleTopicStep(topic) {
     setTopic(topic);
     if (fromSummary) {
       setCurrentTile(7);
       setFromSummary(false);
     } else {
-      setCurrentTile(currentTile+1);
+      setCurrentTile(currentTile + 1);
     }
   }
 
@@ -115,7 +115,7 @@ const FormWizard = () => {
     formData.append("budget_min", `${budget.min} zł`);
     formData.append("budget_max", `${budget.max} zł`);
 
-    let companyGoalDeadlineFormatted = companyGoalDeadline.toLocaleDateString("pl-PL", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+    let companyGoalDeadlineFormatted = companyGoalDeadline.toLocaleDateString("pl-PL", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
     formData.append("company_goal_deadline", companyGoalDeadlineFormatted);
 
     formData.append("file", attachment);
@@ -160,56 +160,56 @@ const FormWizard = () => {
               <label className="floating-label" htmlFor="formwizard-company_goal">Jaki jest cel Twojej firmy?*</label>
               {formErrors.company_goal && <div className="validation-error">
                 <span data-tip={formErrors.company_goal}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
-                </div>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
+              </div>
               }
             </div>
             <label htmlFor="formwizard-company_goal_deadline">Do kiedy Twoja firma chce go osiągnąć?*</label>
             <div className="formwizard--datepicker-wrapper">
-              <DatePicker 
+              <DatePicker
                 dateFormat="dd.MM.yyyy"
-                className="inputCustom" 
-                id="formwizard-company_goal_deadline" 
-                name="company_goal_deadline" 
-                selected={companyGoalDeadline} 
-                onChange={(date) => setCompanyGoalDeadline(date)} 
+                className="inputCustom"
+                id="formwizard-company_goal_deadline"
+                name="company_goal_deadline"
+                selected={companyGoalDeadline}
+                onChange={(date) => setCompanyGoalDeadline(date)}
                 popperPlacement="top"
                 popperModifiers={[
                   {
                     name: "offset",
                     options: {
                       offset: [0, 8],
-                  },
+                    },
                   }
-                ]} 
-                minDate={new Date()} 
+                ]}
+                minDate={new Date()}
               />
               {formErrors.company_goal_deadline && <div className="validation-error">
                 <span data-tip={formErrors.company_goal_deadline}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
-                </div>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
+              </div>
               }
             </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={2} title="Budżet">
             <p>Ile wynosi budżet przeznaczony na realizację tego celu?*</p>
-            <Range 
-              min={10000} 
+            <Range
+              min={10000}
               max={100000}
               defaultValue={[20000, 50000]}
               value={[budget.min, budget.max]}
               step={5000}
               onChange={values => {
-                setBudget({min: values[0], max: values[1]});
+                setBudget({ min: values[0], max: values[1] });
               }}
-              marks={{10000: "10 000 zł", 25000: "25 000 zł", 50000: "50 000 zł", 75000: "75 000 zł", 100000: "100 000 zł",}}
+              marks={{ 10000: "10 000 zł", 25000: "25 000 zł", 50000: "50 000 zł", 75000: "75 000 zł", 100000: "100 000 zł", }}
               tipFormatter={value => `${value / 1000} 000 zł`}
-              />
+            />
             <p>lub wpisz ręcznie:</p>
             <div className="formwizard--budget-inputs">
-              <input className="inputCustom" type="number" name="budget_min" value={budget.min} onInput={event => setBudget({min: parseInt(event.target.value), max: budget.max})} onBlur={() => budget.min > budget.max ? setBudget({min: budget.max, max: budget.min}) : null} /> - 
-              <input className="inputCustom" type="number" name="budget_max" value={budget.max} onInput={event => setBudget({min: budget.min, max: parseInt(event.target.value)})} onBlur={() => budget.min > budget.max ? setBudget({min: budget.max, max: budget.min}) : null} /> zł
+              <input className="inputCustom" type="number" name="budget_min" value={budget.min} onInput={event => setBudget({ min: parseInt(event.target.value), max: budget.max })} onBlur={() => budget.min > budget.max ? setBudget({ min: budget.max, max: budget.min }) : null} /> -
+              <input className="inputCustom" type="number" name="budget_max" value={budget.max} onInput={event => setBudget({ min: budget.min, max: parseInt(event.target.value) })} onBlur={() => budget.min > budget.max ? setBudget({ min: budget.max, max: budget.min }) : null} /> zł
             </div>
           </Tile>
 
@@ -219,32 +219,32 @@ const FormWizard = () => {
               <label className="floating-label" htmlFor="formwizard-why_us">Dlaczego wybrałeś/aś nas?*</label>
               {formErrors.why_us && <div className="validation-error">
                 <span data-tip={formErrors.why_us}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
               </div>}
             </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={4} validate={["name", "company_name"]} title="Dane osobowe">
-          <div className="floating-label-group">
-            <input className="inputCustom" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
-            <label htmlFor="formwizard-name" className="floating-label">Imię i nazwisko*</label>
-            {formErrors.name && <div className="validation-error">
+            <div className="floating-label-group">
+              <input className="inputCustom" type="text" name="name" id="formwizard-name" placeholder="Imię i nazwisko" autoComplete="name" enterKeyHint="next" />
+              <label htmlFor="formwizard-name" className="floating-label">Imię i nazwisko*</label>
+              {formErrors.name && <div className="validation-error">
                 <span data-tip={formErrors.name}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
               </div>}
-          </div>
-          <div className="floating-label-group">
-            <input className="inputCustom" type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
-            <label htmlFor="formwizard-company_name" className="floating-label">Nazwa firmy*</label>
-            {formErrors.company_name && <div className="validation-error">
+            </div>
+            <div className="floating-label-group">
+              <input className="inputCustom" type="text" name="company_name" id="formwizard-company_name" placeholder="Nazwa firmy" autoComplete="organization" enterKeyHint="next" />
+              <label htmlFor="formwizard-company_name" className="floating-label">Nazwa firmy*</label>
+              {formErrors.company_name && <div className="validation-error">
                 <span data-tip={formErrors.company_name}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
               </div>}
-          </div>
-          <div className="floating-label-group">
-            <input className="inputCustom" type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
-            <label htmlFor="formwizard-company_job_title" className="floating-label">Stanowisko</label>
-          </div>
+            </div>
+            <div className="floating-label-group">
+              <input className="inputCustom" type="text" name="company_job_title" id="formwizard-company_job_title" placeholder="Stanowisko" autoComplete="organization-title" enterKeyHint="next" />
+              <label htmlFor="formwizard-company_job_title" className="floating-label">Stanowisko</label>
+            </div>
           </Tile>
 
           <Tile {...commonTileProps} tileNum={5} validate={["email"]} title="Dane kontaktowe">
@@ -253,7 +253,7 @@ const FormWizard = () => {
               <label className="floating-label" htmlFor="formwizard-email">Adres e-mail*</label>
               {formErrors.email && <div className="validation-error">
                 <span data-tip={formErrors.email}><i className="fas fa-exclamation-circle"></i></span>
-                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+                <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
               </div>}
             </div>
             <div className="floating-label-group">
@@ -263,37 +263,37 @@ const FormWizard = () => {
           </Tile>
 
           <Tile {...commonTileProps} tileNum={6} title="Dodatkowe informacje">
-          <div className="floating-label-group">
-            <textarea className="inputCustom" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter" placeholder="Dodatkowe informacje"></textarea>
-            <label className="floating-label" htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
-          </div>
+            <div className="floating-label-group">
+              <textarea className="inputCustom" name="extra_info" id="formwizard-extra_info" enterKeyHint="enter" placeholder="Dodatkowe informacje"></textarea>
+              <label className="floating-label" htmlFor="formwizard-extra_info">Dodaktowe informacje:</label>
+            </div>
             <label htmlFor="formwizard-file">Załącznik:</label>
             <div className='dropzone' {...getRootProps()}>
               <input id="formwizard-file" {...getInputProps()} />
               {isDragActive ?
                 <p>Upuść plik tutaj...</p>
-              : 
+                :
                 <>
                   Przeciągnij tutaj plik lub kliknij tu, aby go wybrać.<br />
                   Możesz załączyć wyłącznie 1 plik.
-                </> 
+                </>
               }
             </div>
             {tooManyAttachments ? <p>Błąd: Za dużo załączonych plików. Możesz załączyć wyłącznie 1 plik.</p> : ""}
-            {attachment ? 
+            {attachment ?
               <>
                 <div className='mb-3'>
                   Załączono plik:<br />
-                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB <button className="btnDarkCustom btn-remove-attachment" type="button" onClick={removeAttachment}><i className="fas fa-fw fa-times"></i></button>
+                  <strong>{attachment.name}</strong> - {(attachment.size / 1024 / 1024).toFixed(2)} MB <button className="btnDarkCustom formwizard--detach-btn" type="button" onClick={removeAttachment}><i className="fas fa-fw fa-times"></i></button>
                 </div>
               </>
-            : ''}
+              : ''}
           </Tile>
 
           <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
-            <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{attachment, companyGoalDeadline, topic}} />
+            <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{ attachment, companyGoalDeadline, topic }} />
             {formStatus === "error" && <p>Błąd podczas wysyłania formularza. Spróbuj ponownie później.</p>}
-            <div className={`circle-loader-container ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
+            <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <div className={`circle-loader ${formStatus === "success" ? "success" : ""}`}>
                 <div className="status draw"></div>
               </div>
@@ -303,11 +303,12 @@ const FormWizard = () => {
         </form>
 
         <div className={`formwizard--success ${formStatus === "success" ? "show" : ""}`}>
-          <h2><i className="fas fa-check"></i> Sukces!</h2>
-          <p><strong>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.<br />Dziękujemy!</strong></p>
-          <p>Wysłaliśmy na podany adres e-mail<br />potwierdzenie razem z kopią wprowadzonych danych.</p>
+          <h2>Wysłano formularz</h2>
+          <p>Dziękujemy! Skontaktujemy się wkrótce.</p>
+          <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
         </div>
       </div>
+      <div id="datepicker-portal"></div>
     </div>
   )
 }

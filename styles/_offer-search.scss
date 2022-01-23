@@ -1,0 +1,156 @@
+
+
+.search-boxes{
+    *{
+  margin:0 auto;
+    }
+
+    &--heading{
+        text-align: center;
+        margin: 3rem 3rem;
+
+        @include media-breakpoint-up(lg){
+            margin: 8rem 8rem;
+            }
+    }
+
+    &--left{
+        @include media-breakpoint-up(lg){
+            right:10rem;
+            }
+    }
+    &--right{
+        @include media-breakpoint-up(lg){
+            left:10rem;
+            }
+        
+    }
+
+&--left, &--right{
+  border: 0.5rem solid #ffb400;
+  border-radius:2rem;
+  width:30rem;
+  height:17rem;
+  position:relative;
+  
+  margin-bottom:5rem;
+  padding:3rem;
+
+    @include media-breakpoint-up(lg){
+            width:38rem;
+            height:21rem;
+            }
+
+
+    &__heading{
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 18px;
+
+        @include media-breakpoint-up(lg){
+
+            font-size:  2em;
+        }
+}
+    
+    &__description{
+      font-size: 14px;
+
+      @include media-breakpoint-up(lg){
+
+            font-size: 16px;
+        }
+  }
+
+  
+}
+
+
+
+}
+
+
+.search{
+    padding: 7rem 0;
+    height: 100vh;
+    margin-bottom: 14rem;
+
+    @include media-breakpoint-up(xl){
+        margin-bottom: 0;
+    }
+
+     &--heading{
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    &--item-wrapper{
+        text-align: center;
+        background-color: $shadows;
+        border-radius: 2rem;
+        padding: 3.5rem 3rem;
+                
+        box-shadow: 0px 0px 0.5rem $main_color;
+
+        @include media-breakpoint-up(xl){
+            margin-right: -2rem;
+            border-radius: 2rem 0 0 2rem ;
+            padding: 7.5rem 6rem;
+        }
+        // @include media-breakpoint-only(md){
+        //     margin-right: -2rem;
+        //     padding: 4rem 5rem;
+
+        // }
+
+        &__description{
+            margin-bottom: 3rem;
+        }
+    }
+
+    &--item-slider {
+        img{
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: auto;
+            border: 0.5rem solid $main_color;
+            border-radius: 2rem;
+            box-shadow: 0px 0px 0.5rem $main_color;
+        }
+    }
+}
+
+
+.search-list{
+    padding: 7rem 0;
+    margin-top: 5rem;
+
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+
+        
+
+    }
+
+    &--description{
+        
+        margin-bottom: 3rem;
+    }
+
+    &--icon{
+        position: relative;
+        background-color: $main_color;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        text-align: center;
+        color: #fff;
+        line-height: 3rem;
+       align-items: center;
+        @include media-breakpoint-up(xl){
+            left:3rem;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, formEl, additionalFields}) => {
+const FormSummary = ({ currentTile, setCurrentTile, setFromSummary, tileCount, formEl, additionalFields }) => {
   let [formValues, setFormValues] = useState({});
 
   function summaryTileSwitch(tile, fieldName) {
@@ -10,7 +10,7 @@ const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, fo
       formEl.querySelector(fieldName).focus();
     }
   }
-  
+
 
   useEffect(() => {
     if (currentTile >= tileCount - 2) {
@@ -20,7 +20,7 @@ const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, fo
       formObj.topic = additionalFields.topic;
 
       formObj.company_goal = formData.get("company_goal");
-      formObj.company_goal_deadline = additionalFields.companyGoalDeadline.toLocaleDateString("pl-PL", {weekday: "long", year: "numeric", month: "long", day: "numeric"});
+      formObj.company_goal_deadline = additionalFields.companyGoalDeadline.toLocaleDateString("pl-PL", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
 
       formObj.budget = `${formData.get("budget_min")} zł - ${formData.get("budget_max")} zł`;
 
@@ -40,7 +40,7 @@ const FormSummary = ({currentTile, setCurrentTile, setFromSummary, tileCount, fo
       } else {
         formObj.phone = "*nie podano*"
       }
-      
+
       if (formData.get("extra_info")) {
         formObj.extra_info = formData.get("extra_info");
       } else {

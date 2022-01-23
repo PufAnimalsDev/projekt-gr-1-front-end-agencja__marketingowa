@@ -14,6 +14,7 @@ $newsletter_desc = get_theme_mod('newsletter_desc');
 ?>
 
 <!-- start newsletter -->
+<!-- start newsletter -->
 <section class="newsletter">
     <div class="container">
         <div class="row justify-content-center">
@@ -31,91 +32,80 @@ $newsletter_desc = get_theme_mod('newsletter_desc');
 </section>
 
 <!-- end newsletter -->
+<!-- end newsletter -->
 
+<!-- start cooperate -->
+<section class="cooperate">
+    <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in-right" data-aos-duration="1000">
+            <div class="col-lg-8 cooperate--heading">
+                <h1 class="display-3 cooperate--heading-sentence">Opisz nam swoje wyzwanie, znajdziemy rozwiązanie!</h1>
+                <a class="btnOutlineCustomFooter" href="./cooperate.html" role="button">Współpracuj</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end cooperate -->
 <!-- footer start  -->
-<footer class="footer">
+<footer class="footer" data-aos="fade-up" data-aos-duration="1000">
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-lg-3 footer--item-wrapper">
+        <div class="row justify-content-around">
+            <div class="col-lg-3 col-md-4 footer--item-wrapper">
                 <h3>Kontakt</h3>
-                <p> <?= $contact_address_1 ?></p>
+                <p><?= $contact_address_1 ?></p>
                 <p><?= $contact_address_2 ?></p>
-                <p><strong>E-mail: </strong> <?= $contact_email ?></p>
-                <p><strong>Telefon: </strong> <?= $contact_phone ?></p>
-                <a href="https://www.google.pl/maps/dir//Wise+People,+aleja+Powsta%C5%84c%C3%B3w+Wielkopolskich,+Bydgoszcz/@53.1277728,18.0173362,15.17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x470313f81066dea3:0x86fdb25966411cd5!2m2!1d18.0284138!2d53.1290535" target="_blank">Zobacz na mapie</a>
+                <p>e-mail: <?= $contact_email ?></p>
+                <p>tel. <?= $contact_phone ?></p>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 mt-lg-0 mt-md-0 mt-5 footer--contact">
+
                 <h3>Skontaktuj się z nami!</h3>
                 <form>
                     <div class="footer--form">
                         <?= do_shortcode('[contact-form-7 id="5" title="Formularz 1"]') ?>
-
-                        <!-- <label for="name">Imie</label>
-                        <input type="text" class="inputCustom" id="name" placeholder="Wpisz imię">
-                        <label for="email">Adres e-mail</label>
-                        <input type="email" class="inputCustom" id="email" aria-describedby="emailHelp" placeholder="Wpisz e-mail">
-                        <label for="textarea">Treść wiadomości</label>
-                        <textarea class="inputCustom" id="textarea" rows="3"></textarea>
-                        <button type="submit" class="btnCustom">Wyślij</button> -->
                     </div>
+
                 </form>
             </div>
-            <div class="col-lg-3">
-
-                <div class="footer--socials">
-                    <!-- socials -->
-                    <div class="footer--socials__icon">
-                        <?php if ($facebook_link) : ?>
-                            <a href="<?= $facebook_link ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <?php endif; ?>
-                    </div>
-
-                    <?php if ($facebook_link) : ?>
-                        <a href="<?= $facebook_link ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <?php endif; ?>
-                    <?php if ($facebook_link) : ?>
-                        <a href="<?= $facebook_link ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <?php endif; ?>
-                    <?php if ($facebook_link) : ?>
-                        <a href="<?= $facebook_link ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <?php endif; ?>
-
-                    <div class="footer--socials__icon">
-                        <?php if ($facebook_link) : ?>
-                            <a href="<?= $facebook_link ?>" target="_blank" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <?php endif; ?>
-                    </div>
+            <div class="col-lg-3 col-md-4 mt-lg-0 mt-md-0 mt-5 footer--socials">
+                <div class="footer--socials-list">
+                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
+                <div class="footer--socials-list">
+                    <a href="https://www.plus.google.com/"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
 
+                </div>
             </div>
         </div>
-        <div class="row justify-content-between">
-            <div class="col mt-5">
+        <div class="row mt-5 justify-content-center align-content-center">
+            <div class="col footer--links">
                 <ul>
                     <?= wp_nav_menu([
                         "theme_location" => "footer_nav_1",
                         "menu_class" => "footer--menu"
                     ]) ?>
-
-                    <?php if ($cooperation) : ?>
-                        <li><a href="#" type="button" class="btnCustom me-5">
-                                <?php if ($cooperation_text) : ?>
-                                    <?php echo $cooperation_text  ?>
-                                <?php else : ?>
-                                    WSPÓŁPRACUJ
-                                <?php endif; ?>
-                            </a></li>
-                    <?php endif; ?>
+                    <a class="scrollTop" href="#start" role="button"><i class="fas fa-angle-double-up"></i></a>
                 </ul>
-
+            </div>
+            <div class="row justify-content-between">
+                <div class="col-lg-12">
+                    <div class="footer--authors">
+                        <p>&copy; Peacocko Agency 2022</p>
+                        <p>wykonanie: workon6</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </section>
-    <!-- end opinions  -->
-    <?php wp_footer(); ?>
+</footer>
 
-    </body>
+<?php wp_footer(); ?>
 
-    </html>
+</body>
+
+</html>

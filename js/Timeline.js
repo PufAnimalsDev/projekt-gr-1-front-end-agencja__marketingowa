@@ -13,7 +13,7 @@ const Timeline = ({ currentTile, formComplete, tileCount }) => {
 
     function renderNodes() {
         let nodeArray = [];
-        for (let i=0; i < tileCount; i++) {
+        for (let i = 0; i < tileCount; i++) {
             nodeArray.push((
                 <div className={`timeline--node ${getNodeClass(i)}`} key={i}>
                     {i + 1}

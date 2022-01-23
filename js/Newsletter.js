@@ -42,7 +42,7 @@ const Newsletter = () => {
 
   function validateName(event) {
     let formData = new FormData(newsletterEl.current);
-    
+
     if (formData.get("name")) {
       setNameValid(true);
       return true;
@@ -89,11 +89,11 @@ const Newsletter = () => {
     <form onSubmit={newsletterSubmitHandler} ref={newsletterEl}>
       <div className="newsletter--content-form">
         <div className="floating-label-group">
-          <input onKeyDown={handleEmailEnterPress} type="email" name="email" id="newsletter-email" className="inputCustom" placeholder="Podaj swój adres e-mail" autoComplete="email" enterKeyHint="send" required/>
+          <input onKeyDown={handleEmailEnterPress} type="email" name="email" id="newsletter-email" className="inputCustom" placeholder="Podaj swój adres e-mail" autoComplete="email" enterKeyHint="send" required />
           <label className="floating-label center" htmlFor="newsletter-email">Podaj swój adres e-mail</label>
           {emailValid === false && <div className="validation-error">
             <span data-tip="Adres e-mail jest niepoprawny"><i className="fas fa-exclamation-circle"></i></span>
-            <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid"/>
+            <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
           </div>}
         </div>
         <p>Nikomu nie udostępnimy twojego adresu email.</p>
@@ -106,11 +106,11 @@ const Newsletter = () => {
           Podaj nam swoje imię i ciesz się nowinkami razem z nami!
         </p>
         <div className="floating-label-group">
-          <input type="text" name="name" id="newsletter-name" className="inputCustom" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" disabled={newsletterStatus === "success"}/>
+          <input type="text" name="name" id="newsletter-name" className="inputCustom" placeholder="Imię" autoComplete="given-name" enterKeyHint="send" disabled={newsletterStatus === "success"} />
           <label className="floating-label" htmlFor="newsletter-name">Imię</label>
           {nameValid === false && <div className="validation-error">
             <span data-tip="Pole jest obowiązkowe"><i className="fas fa-exclamation-circle"></i></span>
-            <ReactTooltip backgroundColor="#dc3545" place="top" type="error" effect="solid"/>
+            <ReactTooltip backgroundColor="#dc3545" place="top" type="error" effect="solid" />
           </div>}
         </div>
         <button type="submit" onClick={validateName} className="btnDarkCustom" disabled={newsletterStatus === "success"}>Wyślij</button>

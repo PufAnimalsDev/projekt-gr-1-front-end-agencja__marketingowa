@@ -1,18 +1,18 @@
-@use "sass:color";
-
 @import "variables";
+
 @import "bootstrap";
 
 @import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
-
 @import '../node_modules/react-datepicker/src/stylesheets/datepicker.scss';
-@import "../node_modules/slick-carousel/slick/slick.scss";
+@import "slick-carousel/slick/slick";
 @import "../node_modules/slick-carousel/slick/slick-theme.scss";
+@import "aos/dist/aos";
 
 @import "header";
+@import "caseStudies";
 @import "footer";
 @import "start";
 @import "functions";
@@ -20,17 +20,26 @@
 @import "portfolio";
 @import "members";
 @import "opinions";
-@import "newsletter";
 @import "career";
-@import "blog";
 @import "buttons";
 @import "inputs";
-@import "form";
+@import "cooperate";
 @import "formwizard";
+@import "form";
 @import "newsletter-form";
-@import "career-form";
 @import "rc-slider";
+@import "testimonials";
+@import "newsletter";
+@import "features";
+@import "about";
+@import "offer-analitics";
+@import "offer-contentMark";
+@import "offer-search";
+@import "offer-socialMedia";
+@import "career-form";
+@import "blog";
 @import "datepicker";
+
 
 *{
     list-style-type: none;
@@ -40,47 +49,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-a {
+ a{
     text-decoration: none; 
     color: rgb(0, 0, 0);
-}
-
-// Scrollbar styling
-
-::-webkit-scrollbar {
-    width: 0.75rem;
-}
-
-body::-webkit-scrollbar-track {
-    background: #0001;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: $scrollbar-track-color;
-    border-radius: 1.25rem;
-    border: 0.33rem solid transparent;
-    &:hover {
-        background-color: color.scale($scrollbar-track-color, $lightness: -10%);
-    }
-    &:active {
-        background-color: color.scale($scrollbar-track-color, $lightness: -20%);
-    }
-}
-
-textarea {
-    &::-webkit-scrollbar-thumb {
-        background-color: color.scale($main_color, $lightness: -5%);
-        border-radius: 1.25rem;
-        border: 0.33rem solid transparent;
-        &:hover {
-            background-color: color.scale($main_color, $lightness: -15%);
-        }
-        &:active {
-            background-color: color.scale($main_color, $lightness: -25%);
-        }
-    }
 }

@@ -1,0 +1,129 @@
+.contentMark{
+    padding: 7rem 0;
+   background-color: rgb(255, 215, 85);
+    min-height: 60vh;
+
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+
+        
+
+    }
+
+    &--description{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &--item-wrapper{
+        width: 20rem;
+        margin: 10px;
+        padding-top: 3rem;
+        padding-bottom:2rem; 
+
+        justify-content: center;
+        text-align: center;
+
+        @include media-breakpoint-up(lg){
+            padding-top: 3rem;
+        }
+    }
+}
+
+
+    
+
+
+
+.contentMark-boxes{
+    *{
+  margin:0 auto;
+    }
+
+    &--left{
+        @include media-breakpoint-up(lg){
+            right:10rem;
+            }
+    }
+    &--right{
+        @include media-breakpoint-up(lg){
+            left:10rem;
+            }
+        
+    }
+
+&--left, &--right{
+  border: 0.5rem solid #ffb400;
+  border-radius:2rem;
+  width:30rem;
+  height:20rem;
+  position:relative;
+  
+  margin-bottom:5rem;
+  padding:3rem;
+
+    @include media-breakpoint-up(lg){
+            width:38rem;
+            height:24rem;
+            }
+
+
+    &__heading{
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 17px;
+
+        @include media-breakpoint-up(lg){
+
+            font-size:  2em;
+        }
+}
+    
+    &__description{
+      font-size: 14px;
+
+      @include media-breakpoint-up(lg){
+
+            font-size: 16px;
+        }
+  }
+
+  
+}
+
+
+
+}
+
+
+
+.contentMark-info{
+    padding: 7rem 0;
+    min-height: 60vh;
+
+    &--heading{
+        margin-bottom: 2rem;
+        text-align: center;
+
+        
+
+    }
+
+    &--description{
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &--icon{
+        background-color: $main_color;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+        text-align: center;
+        color: #fff;
+        line-height: 3rem;
+
+    }
+}
+

@@ -23,63 +23,48 @@ $english = get_theme_mod('english_language');
 </head>
 
 <body>
-
-    <body>
-        <!-- header start  -->
-        <header class="header">
-
-            <div class="row justify-content-start py-3">
-                <?php if ($logo) : ?>
-                    <div class="col-lg-3 text-center text-md-left mb-lg-3 mb-md-0" id="logoHead">
-                        <a href="<?= get_home_url() ?>"><img src="<?= $logo ?>" alt="<?php bloginfo("name") ?>" alt="logo-lightM"></a>
-                    </div>
-                <?php endif; ?>
-                <div class="col-lg-9 d-flex justify-content-end  align-items-center">
-                    <div id="navbar">
-                        <div id="navHider">
-                            <?php if ($polish) : ?>
-                                <div class="selectLang">
-                                    <a href="#"><img src="<?= $polish ?>" alt="polish_flag"></a>
-                                    <?php if ($english) : ?>
-                                        <h4>/</h4>
-                                        <a href="#"><img src="<?= $english ?>" alt="british_flag"></a>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                            <?php if ($cooperation) : ?>
-                                <button type="button" class="btnCustom me-5">
-                                    <?php if ($cooperation_text) : ?>
-                                        <?php echo $cooperation_text  ?>
-                                    <?php else : ?>
-                                        <a href="<?= get_the_permalink(138)  ?>">WSPÓŁPRACUJ</a>
-                                    <?php endif; ?>
-                                </button>
-                            <?php endif; ?>
-
-                        </div>
-
-                        <span id="navOpen" class="navOpen">
-                            <i class="fas fa-bars"></i>
-                        </span>
-                    </div>
-
-                    <div id="myNav" class="overlay">
-                        <div class="overlay-content menu">
-                            <?= wp_nav_menu([
-                                "theme_location" => "header_nav"
-                            ]) ?>
-                            <?php if ($cooperation) : ?>
-                                <ul class="menu">
-                                    <li><a href="#"><button type="button" class="btnDarkCustom">WSPÓŁPRACUJ</button></a></li>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-
-                        <a id="closeNav" href="javascript:void(0)" class="closebtn">&times;</a>
-                    </div>
-
+    <!-- header start  -->
+    <header class="header" data-aos="fade-down">
+        <div class="container">
+            <div class="row header--full" id="navHider">
+                <div class="col-2 header--logo">
+                    <a href="<?= get_home_url() ?>"><img src="<?= $logo ?>" alt="<?php bloginfo("name") ?>" alt="LogoFirmy" class="header--logo-img"></a>
                 </div>
+                <div class="col-8">
+                    <nav class="header--nav">
+                        <?= wp_nav_menu([
+                            "theme_location" => "header_nav"
+                        ]) ?>
+                    </nav>
+                </div>
+                <div class="col-2">
+                    <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
+                </div>
+
             </div>
+        </div>
+        <div class="col-12" id="scrollMenu">
+            <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
+            <span id="navOpenAlternative" class="navOpen">
+                <i class="fas fa-bars"></i>
+            </span>
+        </div>
+        <!-- menu hamburger -->
+        <nav class="header--scroll">
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+                <div class="overlay-content">
+
+                    <?= wp_nav_menu([
+                        "theme_location" => "header_nav"
+                    ]) ?>
+                    <ul>
+                        <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
+                    </ul>
+                </div>
+
             </div>
-        </header>
-        <!-- header end  -->
+        </nav>
+        <!-- end of menu hamburger -->
+    </header>
+    <!-- header end -->
