@@ -43,6 +43,16 @@ document.getElementById('closeNav').addEventListener('click', function () {
 }, false);
 
 $(() => {
+  if (document.getElementById("newsletter_form")) {
+    ReactDOM.render(<Newsletter />, document.getElementById("newsletter_form"));
+  }
+  if (document.getElementById("formwizard")) {
+    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+  }
+  if (document.getElementById("career-form")) {
+    ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
+  }
+  
   AOS.init({
     offset: 300
   });
@@ -67,14 +77,4 @@ $(() => {
       }
     ]
   });
-
-  if (document.getElementById("newsletter_form")) {
-    ReactDOM.render(<Newsletter />, document.getElementById("newsletter_form"));
-  }
-  if (document.getElementById("formwizard")) {
-    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
-  }
-  if (document.getElementById("career-form")) {
-    ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
-  }
 });

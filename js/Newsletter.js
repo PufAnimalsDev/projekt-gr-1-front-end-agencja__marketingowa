@@ -33,7 +33,7 @@ const Newsletter = () => {
       setEmailValid(true);
       setShowModal(true);
       setTimeout(() => {
-        newsletterEl.current.querySelector("#newsletter-name").focus();
+        document.querySelector("#newsletter-name").focus();
       }, 100)
     } else {
       setEmailValid(false);
@@ -87,17 +87,21 @@ const Newsletter = () => {
 
   return (
     <form onSubmit={newsletterSubmitHandler} ref={newsletterEl}>
-      <div className="newsletter--content-form">
-        <div className="floating-label-group">
-          <input onKeyDown={handleEmailEnterPress} type="email" name="email" id="newsletter-email" className="inputCustom" placeholder="Podaj swój adres e-mail" autoComplete="email" enterKeyHint="send" required />
-          <label className="floating-label center" htmlFor="newsletter-email">Podaj swój adres e-mail</label>
-          {emailValid === false && <div className="validation-error">
-            <span data-tip="Adres e-mail jest niepoprawny"><i className="fas fa-exclamation-circle"></i></span>
-            <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
-          </div>}
+      <div className="newsletter--content" data-aos="flip-up" data-aos-duration="1000">
+        <h4>Email Newsletter</h4>
+        <h2>Zapisz się na newsletter. Dostaniesz od nas to co najlepsze.</h2>
+        <div className="newsletter--content-form">
+          <div className="floating-label-group">
+            <input onKeyDown={handleEmailEnterPress} type="email" name="email" id="newsletter-email" className="inputCustom" placeholder="Podaj swój adres e-mail" autoComplete="email" enterKeyHint="send" required />
+            <label className="floating-label center" htmlFor="newsletter-email">Podaj swój adres e-mail</label>
+            {emailValid === false && <div className="validation-error">
+              <span data-tip="Adres e-mail jest niepoprawny"><i className="fas fa-exclamation-circle"></i></span>
+              <ReactTooltip backgroundColor="#dc3545" place="left" type="error" effect="solid" />
+            </div>}
+          </div>
+          <p>Nikomu nie udostępnimy twojego adresu email.</p>
+          <button type="button" className="btnOutlineCustom" onClick={validateEmail}>Zapisz się</button>
         </div>
-        <p>Nikomu nie udostępnimy twojego adresu email.</p>
-        <button type="button" className="btnOutlineCustom" onClick={validateEmail}>Zapisz się</button>
       </div>
       <Modal isOpen={showModal} setIsOpen={setShowModal}>
         <p>
