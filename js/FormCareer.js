@@ -240,7 +240,7 @@ const FormCareer = () => {
                 <button type="submit" className="btnOutlineCustom">Wyślij</button>
                 {formStatus.status === "error" && <p>{formStatus.reason}</p>}
             </div>
-            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "show" : ""}`}>
+            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "showEl" : ""}`}>
                 <div className={`circle-loader ${formStatus.status === "success" ? "success" : ""}`}>
                     <div className="status draw"></div>
                 </div>

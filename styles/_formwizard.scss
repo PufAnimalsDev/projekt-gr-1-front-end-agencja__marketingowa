@@ -113,7 +113,7 @@
             justify-content: space-between;
             padding: 0 2rem 1rem;
 
-            &.show {
+            &.showEl {
                 animation: show 1s 0.25s ease backwards;
             }
 
@@ -141,7 +141,7 @@
         &-navs__fromSummary {
             margin-top: -4rem;
 
-            &.show {
+            &.showEl {
                 animation: show 1s ease forwards;
             }
 
@@ -220,7 +220,7 @@
         padding: 0 1rem;
         text-align: center;
 
-        &.show {
+        &.showEl {
             animation: show-up 1s 0.8s ease forwards;
         }
     }

@@ -118,7 +118,7 @@ const Newsletter = () => {
           </div>}
         </div>
         <button type="submit" onClick={validateName} className="btnDarkCustom" disabled={newsletterStatus.status === "success"}>Wyślij</button>
-        <div className={`circle-loader-container absolute ${newsletterStatus.status === "waiting" || newsletterStatus.status === "success" ? "show" : ""}`}>
+        <div className={`circle-loader-container absolute ${newsletterStatus.status === "waiting" || newsletterStatus.status === "success" ? "showEl" : ""}`}>
           <div className={`circle-loader ${newsletterStatus.status === "success" ? "success" : ""}`}>
             <div className="status draw"></div>
           </div>

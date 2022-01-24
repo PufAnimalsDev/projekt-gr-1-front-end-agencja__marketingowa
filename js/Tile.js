@@ -127,24 +127,24 @@ const Tile = ({ children, title, currentTile, setCurrentTile, fromSummary, setFr
         <div className="formwizard--tile-content">
           {children}
         </div>
-        <nav className={`formwizard--tile-navs ${!fromSummary || tileNum === 7 ? "show" : "hide"}`}>
+        <nav className={`formwizard--tile-navs ${!fromSummary || tileNum === 7 ? "showEl" : "hide"}`}>
           {tileNum != 0 &&
             <button type="button" className="btnDarkCustom" onClick={() => setCurrentTile(tileNum - 1)} aria-label="Wstecz">
               <i className="fas fa-fw fa-arrow-left"></i>
             </button>
           }
           {showSubmit &&
-            <button type="submit" className={`btnDarkCustom ${(showSubmit && !fromSummary) ? "show" : "hide"}`} aria-label="Wyślij">
+            <button type="submit" className={`btnDarkCustom ${(showSubmit && !fromSummary) ? "showEl" : "hide"}`} aria-label="Wyślij">
               <i className="fas fa-fw fa-file-export"></i>
             </button>
           }
           {!hideNext &&
-            <button type="button" className={`btnDarkCustom ${(!hideNext && !fromSummary) ? "show" : "hide"}`} onClick={moveNextTile} aria-label="Dalej">
+            <button type="button" className={`btnDarkCustom ${(!hideNext && !fromSummary) ? "showEl" : "hide"}`} onClick={moveNextTile} aria-label="Dalej">
               <i className="fas fa-fw fa-arrow-right"></i>
             </button>
           }
         </nav>
-        <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && (tileNum != 7 && tileNum != 0) ? "show" : "hide"}`}>
+        <nav className={`formwizard--tile-navs__fromSummary ${fromSummary && (tileNum != 7 && tileNum != 0) ? "showEl" : "hide"}`}>
           <button type="button" className="btnDarkCustom" onClick={moveToSummary} aria-label="Wróć do podsumowania">
             <i className="fas fa-fw fa-step-forward"></i>
           </button>
