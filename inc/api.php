@@ -9,48 +9,58 @@ add_action("rest_api_init", function () {
     register_rest_route("workon", "/newsletter", [
         "methods" => "POST",
         "callback" => function ($request) {
-            $output = "";
 
-            $email = $request["email"] ? $request["email"] : "";
-            $name = $request["name"] ? $request["name"] : "";
+            if ($request["email"] && mb_strlen($request["email"]) <= 255) {
+                $email = sanitize_text_field($request["email"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Adres e-mail jest nieprawidłowy"
+                ), 400);
+            };
 
-            if ($name && !get_page_by_title($name, OBJECT, "subscriptions")) {
-                $newPost = wp_insert_post([
-                    "post_title" => $email,
-                    "post_status" => "publish",
-                    "post_type" => "subscriptions"
-                ]);
+            if ($request["name"] && mb_strlen($request["name"]) <= 255) {
+                $name = sanitize_text_field($request["name"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Imię jest nieprawidłowe"
+                ), 400);
+            };
 
+            if (get_page_by_title($email, OBJECT, "subscriptions")) {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Ten adres e-mail jest już zasubskrybowany"
+                ), 400);
+            }
+
+            $newPost = wp_insert_post([
+                "post_title" => $email,
+                "post_status" => "publish",
+                "post_type" => "subscriptions"
+            ]);
+
+            if ($newPost) {
                 update_field('name', $name, $newPost);
-
-
-                if ($newPost) {
-                    wp_mail(
-                        $email,
-                        'Test',
-                        '<h2>Cześć ' . $name . ' Witamy na pokładzie!</h2>
+                wp_mail(
+                    $email,
+                    'Test',
+                    '<h2>Cześć ' . $name . ' Witamy na pokładzie!</h2>
                     <p>Dziękujęmy za subskrybcję naszego Newsletter-a.</p>
                     <p>Dzięki naszej korespondencji dowiesz się więcej o nowościach w naszej agencji i w marketingu.</p>
                     <p>Serdecznie pozdrawiaamy, Zespół Peacocko Agency</p>',
-                        'Standard email body message'
-                    );
-                }
-
-                $output = $newPost ? json_encode([
-                    "status" => "success",
-                    "request" => var_export($request, true)
-                ]) : json_encode([
-                    "status" => "error",
-                    "request" => var_export($request, true)
-                ]);
+                    'Standard email body message'
+                );
+                return new WP_REST_RESPONSE(array(
+                    "response" => "success"
+                ), 200);
             } else {
-                $output = json_encode([
-                    "status" => "error2",
-                    "request" => var_export($request, true)
-                ]);
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Błąd serwera. Spróbuj ponownie później"
+                ), 500);
             }
-
-            return $output;
         }
     ]);
 });

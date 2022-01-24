@@ -6,7 +6,7 @@ const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)
 
 const Newsletter = () => {
 
-  let [newsletterStatus, setNewsletterStatus] = useState("unsent");
+  let [newsletterStatus, setNewsletterStatus] = useState({status: "unsent"});
   let [showModal, setShowModal] = useState(false);
   let newsletterEl = useRef(null);
 
@@ -18,9 +18,9 @@ const Newsletter = () => {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
-      if (newsletterStatus === "success") {
+      if (newsletterStatus.status === "success") {
         setTimeout(() => {
-          setNewsletterStatus("unsent");
+          setNewsletterStatus({status: "unsent"});
         }, 1000)
       }
     }
@@ -64,22 +64,22 @@ const Newsletter = () => {
   async function newsletterSubmitHandler(event) {
     event.preventDefault();
 
-    setNewsletterStatus("waiting");
+    setNewsletterStatus({status: "waiting"});
 
     let response = await fetch(`${page.api_url}workon/newsletter`, {
       method: 'POST',
       body: new FormData(newsletterEl.current)
     });
 
-    const result = await response.json();
-
-    const check = JSON.parse(result);
-
-    console.log(result);
-    if (check.status === "success") {
-      setNewsletterStatus("success");
-    } else {
-      setNewsletterStatus("error");
+    try {
+      const result = await response.json();
+      if (result.response === "success") {
+        setNewsletterStatus({status: "success"});
+      } else {
+        setNewsletterStatus({status: "error", reason: result.reason})
+      }
+    } catch {
+      setNewsletterStatus({status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później"})
     }
 
     newsletterEl.current.value = "";
@@ -117,14 +117,14 @@ const Newsletter = () => {
             <ReactTooltip backgroundColor="#dc3545" place="top" type="error" effect="solid" />
           </div>}
         </div>
-        <button type="submit" onClick={validateName} className="btnDarkCustom" disabled={newsletterStatus === "success"}>Wyślij</button>
-        <div className={`circle-loader-container absolute ${newsletterStatus === "waiting" || newsletterStatus === "success" ? "show" : ""}`}>
-          <div className={`circle-loader ${newsletterStatus === "success" ? "success" : ""}`}>
+        <button type="submit" onClick={validateName} className="btnDarkCustom" disabled={newsletterStatus.status === "success"}>Wyślij</button>
+        <div className={`circle-loader-container absolute ${newsletterStatus.status === "waiting" || newsletterStatus.status === "success" ? "show" : ""}`}>
+          <div className={`circle-loader ${newsletterStatus.status === "success" ? "success" : ""}`}>
             <div className="status draw"></div>
           </div>
-          {newsletterStatus === "success" && <strong>Dołączono do newslettera. Dziękujemy!</strong>}
+          {newsletterStatus.status === "success" && <strong>Dołączono do newslettera. Dziękujemy!</strong>}
         </div>
-        {newsletterStatus === "error" && <p>Błąd podczas wysyłania formularza.<br />Spróbuj ponownie później.</p>}
+        {newsletterStatus.status === "error" && <p>{newsletterStatus.reason}</p>}
       </Modal>
     </form>
   )
