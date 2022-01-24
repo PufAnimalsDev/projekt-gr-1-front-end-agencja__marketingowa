@@ -17,7 +17,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 const FormWizard = () => {
   const [currentTile, setCurrentTile] = useState(0);
   const [fromSummary, setFromSummary] = useState(false);
-  const [formStatus, setFormStatus] = useState("unsent");
+  const [formStatus, setFormStatus] = useState({status: "unsent"});
   const [budget, setBudget] = useState({ min: 20000, max: 50000 });
   const [formErrors, setFormErrors] = useState({});
 
@@ -106,7 +106,7 @@ const FormWizard = () => {
   async function formSubmitHandler(event) {
     event.preventDefault();
 
-    setFormStatus("waiting");
+    setFormStatus({status: "waiting"});
 
     let formData = new FormData(formEl.current);
 
@@ -125,25 +125,23 @@ const FormWizard = () => {
       body: formData
     });
 
-    const result = await response.json();
-    const check = JSON.parse(result);
-
-    console.log(result);
-    console.log(check);
-
-    if (check.status === "success") {
-      setFormStatus("success");
-    } else {
-      alert("Coś poszło nie tak");
-      setFormStatus("error");
+    try {
+      const result = await response.json();
+      if (result.response === "success") {
+        setFormStatus({status: "success"});
+      } else {
+        setFormStatus({status: "error", reason: result.reason})
+      }
+    } catch {
+      setFormStatus({status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później"})
     }
   }
 
   return (
     <div>
-      <Timeline currentTile={currentTile} tileCount={8} formComplete={formStatus === "success" ? true : false} />
+      <Timeline currentTile={currentTile} tileCount={8} formComplete={formStatus.status === "success" ? true : false} />
       <div className="formwizard--container">
-        <form className={`formwizard ${formStatus === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
+        <form className={`formwizard ${formStatus.status === "success" ? "hide" : ""}`} ref={formEl} onSubmit={formSubmitHandler} onScroll={event => { event.target.scrollLeft = 0 }}>
 
           <Tile {...commonTileProps} tileNum={0} hideNext={true} title="Z czym możemy Ci pomóc?">
             <div className="formwizard--topic-container">
@@ -290,11 +288,11 @@ const FormWizard = () => {
               : ''}
           </Tile>
 
-          <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
+          <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus.status} title="Przegląd danych">
             <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{ attachment, companyGoalDeadline, topic }} />
-            {formStatus === "error" && <p>Błąd podczas wysyłania formularza. Spróbuj ponownie później.</p>}
-            <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
-              <div className={`circle-loader ${formStatus === "success" ? "success" : ""}`}>
+            {formStatus.status === "error" && <p>{formStatus.reason}</p>}
+            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "show" : ""}`}>
+              <div className={`circle-loader ${formStatus.status === "success" ? "success" : ""}`}>
                 <div className="status draw"></div>
               </div>
             </div>
@@ -302,13 +300,12 @@ const FormWizard = () => {
 
         </form>
 
-        <div className={`formwizard--success ${formStatus === "success" ? "show" : ""}`}>
-          <h2>Wysłano formularz</h2>
-          <p>Dziękujemy! Skontaktujemy się wkrótce.</p>
-          <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
+        <div className={`formwizard--success ${formStatus.status === "success" ? "show" : ""}`}>
+          <h2><i className="fas fa-check"></i> Sukces!</h2>
+          <p><strong>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.<br />Dziękujemy!</strong></p>
+          <p>Wysłaliśmy na podany adres e-mail<br />potwierdzenie razem z kopią wprowadzonych danych.</p>
         </div>
       </div>
-      <div id="datepicker-portal"></div>
     </div>
   )
 }

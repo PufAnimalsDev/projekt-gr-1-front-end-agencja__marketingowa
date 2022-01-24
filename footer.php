@@ -22,10 +22,7 @@ $newsletter_desc = get_theme_mod('newsletter_desc');
                 <img src="<?= get_template_directory_uri() ?>/assets/img/newsletter.png" alt="newsletter">
             </div>
 
-            <div class="col-lg-5 col-md-6 col-12 newsletter--content" data-aos="flip-up" data-aos-duration="1000">
-                <h4>Email Newsletter</h4>
-                <h2>Zapisz się na newsletter. Dostaniesz od nas to co najlepsze.</h2>
-                <div id="newsletter_form"></div>
+            <div class="col-lg-5 col-md-6 col-12" id="newsletter_form">
             </div>
         </div>
     </div>
