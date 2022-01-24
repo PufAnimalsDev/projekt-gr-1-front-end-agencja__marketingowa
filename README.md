@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kubikill/projekt-gr-1-front-end-agencja__marketingowa/main/assets/readme_logo.svg" height="200" />
+  <img src="https://raw.githubusercontent.com/PufAnimalsDev/projekt-gr-1-front-end-agencja__marketingowa/main/assets/readme_logo.svg" height="200" />
   <h1 align="center">Agencja Marketingowa Peacocko</h1>
   <p>Projekt wykonany podczas realizacji szkolenia <a href="https://www.work-on.pl/">WORK-ON 6 Pracuj w IT</a> - Front-End Developer</p>
 </div>
