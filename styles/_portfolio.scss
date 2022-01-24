@@ -22,6 +22,7 @@
         transition: transform 0.5s ease;
     }
     @media (min-width: 800px) {
+        .slick-center,
         .slick-current {
             transform: scale(1.2);
         }

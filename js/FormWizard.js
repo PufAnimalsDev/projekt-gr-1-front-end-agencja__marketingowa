@@ -292,7 +292,7 @@ const FormWizard = () => {
           <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus} title="Przegląd danych">
             <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{ attachment, companyGoalDeadline, topic }} />
             {formStatus === "error" && <p>Błąd podczas wysyłania formularza. Spróbuj ponownie później.</p>}
-            <div className={`formwizard--loading-overlay ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
+            <div className={`circle-loader-container ${formStatus === "waiting" || formStatus === "success" ? "show" : ""}`}>
               <div className={`circle-loader ${formStatus === "success" ? "success" : ""}`}>
                 <div className="status draw"></div>
               </div>
@@ -302,12 +302,11 @@ const FormWizard = () => {
         </form>
 
         <div className={`formwizard--success ${formStatus === "success" ? "show" : ""}`}>
-          <h2>Wysłano formularz</h2>
-          <p>Dziękujemy! Skontaktujemy się wkrótce.</p>
-          <p>Wysłaliśmy na podany adres e-mail potwierdzenie razem z kopią danych formularza.</p>
+          <h2><i className="fas fa-check"></i> Sukces!</h2>
+          <p><strong>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.<br />Dziękujemy!</strong></p>
+          <p>Wysłaliśmy na podany adres e-mail<br />potwierdzenie razem z kopią wprowadzonych danych.</p>
         </div>
       </div>
-      <div id="datepicker-portal"></div>
     </div>
   )
 }
