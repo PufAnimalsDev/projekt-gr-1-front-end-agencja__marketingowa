@@ -243,23 +243,81 @@ add_action("rest_api_init", function () {
     register_rest_route("workon", "/formcareer", [
         "methods" => "POST",
         "callback" => function ($request) {
-            $output = "";
 
-            $name = $request["first_name"] ? $request["first_name"] : "";
-            $last_name = $request["last_name"] ? $request["last_name"] : "";
-            $email = $request["email"] ? $request["email"] : "";
-            $phone = $request["phone"] ? $request["phone"] : "";
-            $salary = $request["salary"] ? $request["salary"] : "";
-            $join_reason = $request["join_reason"] ? $request["join_reason"] : "";
-            $extra_questions = $request["extra_questions"] ? $request["extra_questions"] : "";
+            if ($request["name"] && mb_strlen($request["name"]) <= 255) {
+                $name = sanitize_text_field($request["name"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Imię jest nieprawidłowe"
+                ), 400);
+            };
 
-            if ($join_reason && !get_page_by_title($join_reason, OBJECT, "work")) {
-                $newPost = wp_insert_post([
-                    "post_title" => $name,
-                    "post_status" => "publish",
-                    "post_type" => "work"
-                ]);
+            if ($request["last_name"] && mb_strlen($request["last_name"]) <= 255) {
+                $last_name = sanitize_text_field($request["last_name"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Nazwisko jest nieprawidłowe"
+                ), 400);
+            };
 
+            if ($request["email"] && mb_strlen($request["email"]) <= 255) {
+                $email = sanitize_text_field($request["email"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Adres e-mail jest nieprawidłowy"
+                ), 400);
+            };
+
+            if ($request["phone"] && mb_strlen($request["phone"]) <= 255) {
+                $phone = sanitize_text_field($request["phone"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Numer telefonu jest nieprawidłowy"
+                ), 400);
+            };
+
+            if ($request["salary"] && mb_strlen($request["salary"]) <= 5000) {
+                $salary = sanitize_text_field($request["salary"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "'Jakich stawek oczekujesz?' jest nieprawidłowe"
+                ), 400);
+            };
+
+            if ($request["join_reason"] && mb_strlen($request["join_reason"]) <= 5000) {
+                $join_reason = sanitize_text_field($request["join_reason"]);
+            } else {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "'Dlaczego chcesz do nas dołączyć?' jest nieprawidłowe"
+                ), 400);
+            };
+
+            if ($request["extra_questions"] && mb_strlen($request["extra_questions"]) <= 255) {
+                $extra_questions = sanitize_text_field($request["extra_questions"]);
+            } else {
+                $extra_questions = "brak";
+            };
+
+            if (!empty($_FILES["cv"])) {
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "CV jest wymagane"
+                ), 400);
+            }
+
+            $newPost = wp_insert_post([
+                "post_title" => $name,
+                "post_status" => "publish",
+                "post_type" => "work"
+            ]);
+
+            if ($newPost) {
                 update_field('first_name', $name, $newPost);
                 update_field('last_name', $last_name, $newPost);
                 update_field('email', $email, $newPost);
@@ -268,47 +326,35 @@ add_action("rest_api_init", function () {
                 update_field('join_reason', $join_reason, $newPost);
                 update_field('extra_questions', $extra_questions, $newPost);
 
-
-                if (!empty($_FILES["cv"])) {
-                    $cv = media_handle_upload("cv", $newPost);
-                    update_field('cv', $cv, $newPost);
-                }
+                $cv = media_handle_upload("cv", $newPost);
+                update_field('cv', $cv, $newPost);
 
                 if (!empty($_FILES["extra_file"])) {
                     $extra_file = media_handle_upload("extra_file", $newPost);
                     update_field('extra_file', $extra_file, $newPost);
                 }
 
-
-                if ($newPost) {
-                    wp_mail(
-                        $email,
-                        'Test',
-                        '<h1>Dziękujemy za chęć współpracy!</h1>
+                wp_mail(
+                    $email,
+                    'Test',
+                    '<h1>Dziękujemy za chęć współpracy!</h1>
                         <p>Informujemy, że skontaktujemy się tylko z wybranymi kandydatami.</p>
                         <p>W przypadku gdyby coś się niezgadzało. Odezwij się do nas: </p>
                         <p>Email: pecocko@gmial.com</p>
                         <p>Telefon: 123456789 </p>
                         <p>Serdecznie pozdrawiaamy, Zespół Peacocko Agency</p>',
-                        'Standard email body message'
-                    );
-                }
+                    'Standard email body message'
+                );
 
-                $output = $newPost ? json_encode([
-                    "status" => "success",
-                    "request" => var_export($request, true)
-                ]) : json_encode([
-                    "status" => "error",
-                    "request" => var_export($request, true)
-                ]);
+                return new WP_REST_RESPONSE(array(
+                    "response" => "success"
+                ), 200);
             } else {
-                $output = json_encode([
-                    "status" => "error2",
-                    "request" => var_export($request, true)
-                ]);
+                return new WP_REST_RESPONSE(array(
+                    "response" => "error",
+                    "reason" => "Błąd serwera. Spróbuj ponownie później"
+                ), 500);
             }
-
-            return $output;
         }
     ]);
 });
