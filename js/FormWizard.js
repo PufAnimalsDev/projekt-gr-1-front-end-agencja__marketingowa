@@ -134,7 +134,6 @@ const FormWizard = () => {
     if (check.status === "success") {
       setFormStatus("success");
     } else {
-      alert("Coś poszło nie tak");
       setFormStatus("error");
     }
   }
