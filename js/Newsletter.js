@@ -6,7 +6,7 @@ const VALID_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)
 
 const Newsletter = () => {
 
-  let [newsletterStatus, setNewsletterStatus] = useState({status: "unsent"});
+  let [newsletterStatus, setNewsletterStatus] = useState({ status: "unsent" });
   let [showModal, setShowModal] = useState(false);
   let newsletterEl = useRef(null);
 
@@ -20,7 +20,7 @@ const Newsletter = () => {
       document.body.classList.remove("no-scroll");
       if (newsletterStatus.status === "success") {
         setTimeout(() => {
-          setNewsletterStatus({status: "unsent"});
+          setNewsletterStatus({ status: "unsent" });
         }, 1000)
       }
     }
@@ -64,7 +64,7 @@ const Newsletter = () => {
   async function newsletterSubmitHandler(event) {
     event.preventDefault();
 
-    setNewsletterStatus({status: "waiting"});
+    setNewsletterStatus({ status: "waiting" });
 
     let response = await fetch(`${page.api_url}workon/newsletter`, {
       method: 'POST',
@@ -74,12 +74,12 @@ const Newsletter = () => {
     try {
       const result = await response.json();
       if (result.response === "success") {
-        setNewsletterStatus({status: "success"});
+        setNewsletterStatus({ status: "success" });
       } else {
-        setNewsletterStatus({status: "error", reason: result.reason})
+        setNewsletterStatus({ status: "error", reason: result.reason })
       }
     } catch {
-      setNewsletterStatus({status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później"})
+      setNewsletterStatus({ status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później" })
     }
 
     newsletterEl.current.value = "";
@@ -118,7 +118,7 @@ const Newsletter = () => {
           </div>}
         </div>
         <button type="submit" onClick={validateName} className="btnDarkCustom" disabled={newsletterStatus.status === "success"}>Wyślij</button>
-        <div className={`circle-loader-container absolute ${newsletterStatus.status === "waiting" || newsletterStatus.status === "success" ? "show" : ""}`}>
+        <div className={`circle-loader-container absolute ${newsletterStatus.status === "waiting" || newsletterStatus.status === "success" ? "showEl" : ""}`}>
           <div className={`circle-loader ${newsletterStatus.status === "success" ? "success" : ""}`}>
             <div className="status draw"></div>
           </div>

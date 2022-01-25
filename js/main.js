@@ -23,19 +23,22 @@ function scrollFunctionHide() {
     if (scrolled > 20) {
       document.getElementById("navHider").style.display = "none";
       document.getElementById("scrollMenu").style.display = "block";
+      document.querySelector("header.header").classList.add("scrolleds");
 
     }
     else {
       document.getElementById("navHider").style.display = "";
       document.getElementById("scrollMenu").style.display = "none";
-
+      document.querySelector("header.header").classList.remove("scrolleds");
     }
   });
 }
 
-document.getElementById('navOpenAlternative').addEventListener('click', function () {
+document.getElementById('navOpen').addEventListener('click', function () {
   document.getElementById('myNav').style.height = '100%';
 }, false);
+
+
 
 
 document.getElementById('closeNav').addEventListener('click', function () {
@@ -43,23 +46,9 @@ document.getElementById('closeNav').addEventListener('click', function () {
 }, false);
 
 $(() => {
-  if (document.getElementById("newsletter_form")) {
-    ReactDOM.render(<Newsletter />, document.getElementById("newsletter_form"));
-  }
-  if (document.getElementById("formwizard")) {
-    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
-  }
-  if (document.getElementById("career-form")) {
-    ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
-  }
-  
-  AOS.init({
-    offset: 300
-  });
 
   $('.testimonials--slider').slick({
-    nextArrow: $('.fa-chevron-right'),
-    prevArrow: $('.fa-chevron-left'),
+    dots: true,
   });
 
   $('.portfolio--slider').slick({
@@ -77,4 +66,18 @@ $(() => {
       }
     ]
   });
+
+  AOS.init({
+    offset: 300
+  });
+
+  if (document.getElementById("newsletter_form")) {
+    ReactDOM.render(<Newsletter />, document.getElementById("newsletter_form"));
+  }
+  if (document.getElementById("formwizard")) {
+    ReactDOM.render(<FormWizard />, document.getElementById("formwizard"));
+  }
+  if (document.getElementById("career-form")) {
+    ReactDOM.render(<FormCareer />, document.getElementById("career-form"));
+  }
 });

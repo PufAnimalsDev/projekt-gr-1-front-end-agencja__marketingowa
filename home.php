@@ -1,26 +1,33 @@
-<?php get_header(); ?>
+<?php
+$hero_title = get_field('hero_title');
+$blog_desc = get_field('desc');
+
+get_header(); ?>
 
 <!-- start start  -->
-<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+
+<section id="start" class="career--start caseHero" data-aos="fade-right" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 career--start-wrapper">
-                <h1 class="career--start-wrapper__heading">Sprawdź,
-                    co się u nas dzieje!</h1>
-                <p class="career--start-wrapper__description">Zapoznaj się z artykułami tworzonymi przez naszych ekspertów
-                    oraz informacjami prasowymi. </p>
-                <a class="btnOutlineCustom" href="#sectionJobList" role="button">Więcej</a>
+
+                <h1 class="career--start-wrapper__heading">Sprawdź, co się u nas dzieje!
+                </h1>
+
+                <p class="career--start-wrapper__description">Zapoznaj się z artykułami tworzonymi przez naszych ekspertów oraz informacjami prasowymi. </p>
+                <a class="btnOutlineCustom" href="#blog" role="button">Więcej</a>
             </div>
 
             <div class="col-lg-7 career--start-photo">
-                <img class="d-block w-100" src="./assets/img/career.png">
+                <img class="d-block w-100" src="http://localhost/wordpress/wp-content/uploads/2022/01/Online-report_Isometric.png">
             </div>
         </div>
     </div>
 </section>
+
 <!-- start end  -->
 
-<section class="">
+<section id="blog" class="blog-section">
     <div class="container">
         <div class="row justify-content-center blog-post-list g-4">
             <?php if (have_posts()) : ?>

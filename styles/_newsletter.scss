@@ -1,17 +1,12 @@
 .newsletter {
-    min-height: 100vh;
     text-align: center;
     background-color: $bgHover;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 10rem 0;
-
-    @include media-breakpoint-only(lg){
-            padding: 0;
-        }
-
+    padding: 5rem 0;
+    
         img {
             border-radius: 1rem;
             height: 20rem;

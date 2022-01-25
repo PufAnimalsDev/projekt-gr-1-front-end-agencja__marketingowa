@@ -1,5 +1,4 @@
 .portfolio {
-    height: 100vh;
     &--heading {
         padding: 2rem;
         text-align: center;
@@ -17,34 +16,31 @@
         width: 100%;
         object-fit: cover;
     }
-    .slick-slide {
-        margin: 0 2rem;
-        transition: transform 0.5s ease;
+}
+
+.slick-slide {
+    margin: 0 2rem;
+    transition: transform 0.5s ease;
+}
+@media (min-width: 800px) {
+    .slick-track {
+        padding: 2rem 0;
     }
-    @media (min-width: 800px) {
-        .slick-center,
-        .slick-current {
-            transform: scale(1.2);
-        }
-        .slick-track {
-            padding: 2rem 0;
-        }
+}
+.slick-prev,
+.slick-next {
+    height: 2rem;
+    width: 2rem;
+    &:before {
+        font-size: 2rem;
     }
-    .slick-prev,
-    .slick-next {
-        height: 2rem;
-        width: 2rem;
-        &:before {
-            font-size: 2rem;
-        }
-    }
-    .slick-prev {
-        left: -2.25rem;
-    }
-    .slick-next {
-        right: -2.25rem;
-    }
-    .slick-dots {
-        bottom: -2rem;
-    }
+}
+.slick-prev {
+    left: -2.25rem;
+}
+.slick-next {
+    right: -2.25rem;
+}
+.slick-dots {
+    bottom: -2rem;
 }

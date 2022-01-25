@@ -291,7 +291,7 @@ const FormWizard = () => {
           <Tile {...commonTileProps} tileNum={7} showSubmit={true} hideNext={true} formStatus={formStatus.status} title="Przegląd danych">
             <FormSummary {...commonTileProps} formEl={formEl.current} tileCount={8} additionalFields={{ attachment, companyGoalDeadline, topic }} />
             {formStatus.status === "error" && <p>{formStatus.reason}</p>}
-            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "show" : ""}`}>
+            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "showEl" : ""}`}>
               <div className={`circle-loader ${formStatus.status === "success" ? "success" : ""}`}>
                 <div className="status draw"></div>
               </div>
@@ -300,7 +300,7 @@ const FormWizard = () => {
 
         </form>
 
-        <div className={`formwizard--success ${formStatus.status === "success" ? "show" : ""}`}>
+        <div className={`formwizard--success ${formStatus.status === "success" ? "showEl" : ""}`}>
           <h2><i className="fas fa-check"></i> Sukces!</h2>
           <p><strong>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z Tobą skontaktujemy.<br />Dziękujemy!</strong></p>
           <p>Wysłaliśmy na podany adres e-mail<br />potwierdzenie razem z kopią wprowadzonych danych.</p>

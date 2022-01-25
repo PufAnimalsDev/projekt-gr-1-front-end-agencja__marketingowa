@@ -27,17 +27,18 @@ get_header();
 ?>
 
 <!-- start start  -->
-<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+<section id="start" class="career--start" data-aos="fade-right" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 career--start-wrapper">
                 <h1 class="career--start-wrapper__heading">Kariera</h1>
-                <p class="career--start-wrapper__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio fugiat quaerat et delectus hic repudiandae.</p>
+                <p class="career--start-wrapper__description">Chcesz do nas dołączyć?
+                    Jesteśmy zespołem, który nie boi się wyzwań. Zapoznaj się z aktualnymi ogłoszeniami, które znajdziesz poniżej. Jeśli czujesz, że to to - aplikuj! </p>
                 <a class="btnOutlineCustom" href="#sectionJobList" role="button">Więcej</a>
             </div>
 
             <div class="col-lg-7 career--start-photo">
-                <img class="d-block w-100" src="./assets/img/career.png">
+                <img class="d-block w-100" src="http://localhost/wordpress/wp-content/uploads/2022/01/Chart_Two-Color.png">
             </div>
         </div>
     </div>
@@ -123,7 +124,7 @@ get_header();
                     ?>
 
                         <div class="mix <?php echo  $termsSLug; ?>  <?php echo  $termsSLug2; ?> card">
-                            <a href="<?= get_the_permalink(); ?>" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover" data-aos="flip-down" data-aos-duration="1000">
+                            <a href="<?= get_the_permalink(); ?>" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
                                 <div class="card-body">
                                     <span class="row justify-content-between align-items-center">
                                         <span class="col-lg-4 col-sm-6 color--heading">
@@ -157,23 +158,9 @@ get_header();
 </section>
 <!-- offers end -->
 
-<style>
-    /**
- * Container/Target Styles
- */
-    .mix {
-        width: 100%;
-        display: block;
-    }
-
-    .container .mix {
-        display: none;
-    }
-</style>
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+
 
 <script>
     var dropdownFilter = {
@@ -292,6 +279,5 @@ get_header();
         });
     });
 </script>
-
 
 <?php get_footer(); ?>

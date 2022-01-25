@@ -2,7 +2,7 @@
 
 <?php the_post(); ?>
 
-<section class="aboutus">
+<section class="blog-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-9 col-xl-8 col-xxl-7 container">
@@ -16,15 +16,5 @@
         </div>
     </div>
 </section>
-<div class="container">
-    <div class="col-lg-8">
-        <div class="row justify-content-center">
-
-            <?php if (comments_open() || get_comments_number()) {
-                comments_template();
-            } ?>
-        </div>
-    </div>
-</div>
 
 <?php get_footer(); ?>

@@ -1,10 +1,8 @@
 <?php
 
 $logo = get_theme_mod("logo");
-$cooperation = get_theme_mod('cooperation_link');
 $cooperation_text = get_theme_mod('cooperation_text');
-$polish = get_theme_mod('polish_language');
-$english = get_theme_mod('english_language');
+
 
 ?>
 
@@ -20,15 +18,56 @@ $english = get_theme_mod('english_language');
     <?php wp_head(); ?>
     <!-- <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/main.css"> -->
 
+    <style>
+        .img-size {
+            width: 366px;
+            height: 366px;
+        }
+
+        .filterDiv {
+            float: left;
+            display: none;
+        }
+
+        .showFil {
+            display: block;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .filter-mybtn {
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .filter-mybtn.active {
+            background-color: white;
+            color: orange;
+        }
+
+        .mix {
+            width: 100%;
+            display: block;
+        }
+
+        .container .mix {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <!-- header start  -->
-    <header class="header" data-aos="fade-down">
+    <header class="header">
         <div class="container">
             <div class="row header--full" id="navHider">
                 <div class="col-2 header--logo">
-                    <a href="<?= get_home_url() ?>"><img src="<?= $logo ?>" alt="<?php bloginfo("name") ?>" alt="LogoFirmy" class="header--logo-img"></a>
+                    <?php if ($logo) : ?>
+                        <a href="<?= get_home_url() ?>"><img src="<?= $logo ?>" alt="<?php bloginfo("name") ?>" alt="LogoFirmy" class="header--logo-img"></a>
+                    <?php endif; ?>
                 </div>
                 <div class="col-8">
                     <nav class="header--nav">
@@ -37,18 +76,37 @@ $english = get_theme_mod('english_language');
                         ]) ?>
                     </nav>
                 </div>
-                <div class="col-2">
-                    <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
-                </div>
-
+                <?php if ($cooperation_text) : ?>
+                    <div class="col-2">
+                        <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">
+                            <?= $cooperation_text ?></a>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
-        <div class="col-12" id="scrollMenu">
-            <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
-            <span id="navOpenAlternative" class="navOpen">
-                <i class="fas fa-bars"></i>
-            </span>
+
+
+
+        <!-- rwd menu start -->
+        <div class="col-12 rwdMenu" id="scrollMenu">
+            <div class="row">
+                <div class="col-1">
+                    <?php if ($logo) : ?>
+                        <a href="<?= get_home_url() ?>"><img src="<?= $logo ?>" alt="<?php bloginfo("name") ?>" alt="LogoFirmy" class="header--logo-img"></a>
+                    <?php endif; ?>
+                </div>
+                <div class="col-11">
+                    <?php if ($cooperation_text) : ?>
+                        <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button"><?= $cooperation_text ?></a>
+                    <?php endif; ?>
+
+                    <span id="navOpen" class="navOpen">
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </div>
+            </div>
         </div>
+        <!-- rwd menu end -->
         <!-- menu hamburger -->
         <nav class="header--scroll">
             <div id="myNav" class="overlay">
@@ -58,10 +116,12 @@ $english = get_theme_mod('english_language');
                     <?= wp_nav_menu([
                         "theme_location" => "header_nav"
                     ]) ?>
-                    <ul>
-                        <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
-                    </ul>
                 </div>
+                <?php if ($cooperation_text) : ?>
+                    <div class="btnWrapper">
+                        <a class="btnDarkCustom" href="<?= get_the_permalink(138)  ?>" role="button"><?= $cooperation_text ?></a>
+                    </div>
+                <?php endif; ?>
 
             </div>
         </nav>

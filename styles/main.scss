@@ -1,5 +1,4 @@
 @use "sass:color";
-
 @import "variables";
 
 @import "bootstrap";
@@ -49,21 +48,19 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
 }
 
  a{
     text-decoration: none; 
     color: rgb(0, 0, 0);
 }
-
-// Scrollbar styling
-
 ::-webkit-scrollbar {
-    width: 0.75rem;
+    width: 0.5rem;
 }
 
 body::-webkit-scrollbar-track {
-    background: #0001;
+    background: $main_color-light;
 }
 
 ::-webkit-scrollbar-track {
@@ -81,17 +78,3 @@ body::-webkit-scrollbar-track {
         background-color: color.scale($scrollbar-track-color, $lightness: -20%);
     }
 }
-
-textarea {
-    &::-webkit-scrollbar-thumb {
-        background-color: color.scale($main_color, $lightness: -5%);
-        border-radius: 1.25rem;
-        border: 0.33rem solid transparent;
-        &:hover {
-            background-color: color.scale($main_color, $lightness: -15%);
-        }
-        &:active {
-            background-color: color.scale($main_color, $lightness: -25%);
-        }
-    }
-} 

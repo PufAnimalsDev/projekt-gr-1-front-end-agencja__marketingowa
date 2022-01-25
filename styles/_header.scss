@@ -1,4 +1,4 @@
-@import "variables";
+
 
 .header {
     position: fixed;
@@ -8,11 +8,16 @@
     box-shadow: 0 0 1rem rgba(0,0,0,0.2);
     white-space: nowrap;
     padding: 0.5rem 0 0.5rem 0;
+    &.scrolleds {
+        box-shadow: none;
+    }
+
         #scrollMenu {
             text-align: right;
             display: none;
             a {
                 margin-right: 2rem;
+                margin-left: 0.5rem;
                 bottom: 0.7rem;
             }
             span {
@@ -28,12 +33,13 @@
             flex-direction: row;
             align-items: center;
             .btnCustom {
-                margin-left: 8rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
             }
         }
         &--logo {
             position: relative;
-            right: 5rem;            
+            right: 1rem;            
         }
         &--logo-img {
             max-width: 2.5rem;
@@ -53,8 +59,6 @@
             font-weight: 600;
             letter-spacing: 1px;
             padding-top: 1rem;
-
-            
                   
             ul {
                 display: flex;
@@ -143,12 +147,28 @@
         flex-direction: column;
         align-items: center;
 
+        .btnWrapper {
+            padding-top: 6rem;
+            margin-left: 1.5rem;
+            margin-top: 12rem;
+            display: block;
+        }
+
+        @include media-breakpoint-down(lg) {
+            align-items: flex-start;
+            text-align: left;
+        } 
+
         &-content{
             position: relative;
             top: 25%;
             width: 25%;
             text-align: center;
             margin-top: 1rem;
+
+            @include media-breakpoint-down(lg) {
+                text-align: left;
+            } 
 
             ul {
                 display: flex;
@@ -169,6 +189,11 @@
                         position: absolute;
                         left: 90%;
                         bottom: -8rem;
+
+                        @include media-breakpoint-down(lg) {
+                            left: 90%;
+                            margin-left: 5rem;
+                        }
                     }
             }
 
@@ -210,4 +235,15 @@
         right: 35px;
         }
     }
+    .moblieHide{
+        display: block;
+        @include media-breakpoint-down(md) {
+            display: none;            
+        }
+    }
 }
+  
+  @media screen and (max-width: 1200px) {
+        .rwdMenu {display: block !important};
+        #navHider {display: none;};
+    }

@@ -1,36 +1,34 @@
 <?php
-
-$cooperation = get_theme_mod('cooperation_link');
+//Sekcja start
 $cooperation_text = get_theme_mod('cooperation_text');
-
 $start_heading = get_field("start_heading");
 $start_desc = get_field("start_desc");
 $start_img_1 = get_field("start_img_1");
 $start_img_2 = get_field("start_img_2");
 $start_img_3 = get_field("start_img_3");
 
-$functions_heading = get_field("functions_heading");
-$functions_desc = get_field("functions_desc");
-$functions = get_posts([
-    "numberposts" => -1,
-    "post_type" => "functions"
-]);
-$functions_cta_heading = get_field("functions_cta_heading");
-$functions_cta_btn = get_field("functions_cta_btn");
+// Oferta
+$first_offer_number = get_field("first_offer_number");
+$first_offer_title = get_field("first_offer_title");
+$first_offer_desc = get_field("first_offer_desc");
+$second_offer_title = get_field("second_offer_title");
+$second_offer_number = get_field("second_offer_number");
+$second_offer_desc = get_field("second_offer_desc");
+$third_offer_number = get_field("third_offer_number");
+$third_offer_title = get_field("third_offer_title");
+$third_offer_desc = get_field("third_offer_desc");
+$fourth_offer_number = get_field("fourth_offer_number");
+$fourth_offer_title = get_field("fourth_offer_title");
+$fourth_offer_desc = get_field("fourth_offer_desc");
 
-$testimonials_heading = get_field("testimonials_heading");
-$testimonials_desc = get_field("testimonials_desc");
-$testimonials = get_posts([
-    "numberposts" => -1,
-    "post_type" => "testimonials"
-]);
-
+// O nas
 $aboutus_heading = get_field("aboutus_heading");
 $aboutus_second_heading = get_field("aboutus_second_heading");
 $aboutus_desc = get_field("aboutus_desc");
 $aboutus_img = get_field("aboutus_img");
 $aboutus_link = get_field("aboutus_link");
 
+// Członkowie zespołu
 $team_heading = get_field("team_heading");
 $team_desc = get_field("team_desc");
 
@@ -39,13 +37,19 @@ $teamMembers = get_posts([
     "post_type" => "teamMembers"
 ]);
 
-
+// Opinie
 $testimonials_heading = get_field("testimonials_heading");
 $testimonials_desc = get_field("testimonials_desc");
 $testimonials = get_posts([
     "numberposts" => -1,
     "post_type" => "testimonials"
 ]);
+// Portfolio
+$caseStudies = get_posts([
+    "numberposts" => -1,
+    "post_type" => "portfolio"
+]);
+
 
 get_header();
 
@@ -63,13 +67,15 @@ get_header();
                     <p class="start--description"><?= $start_desc ?></p>
                 <?php endif; ?>
 
-                <a class="btnOutlineCustom" href="<?= get_the_permalink(138)  ?>" role="button">Współpracuj</a>
+                <?php if ($cooperation_text) : ?>
+                    <a class="btnOutlineCustom" href="<?= get_the_permalink(138)  ?>" role="button"><?= $cooperation_text ?></a>
+                <?php endif; ?>
+
             </div>
             <?php if ($start_img_1) : ?>
 
                 <div class="col-xl-7 col-lg-12 start--item-slider" data-aos="flip-right" data-aos-duration="2000">
-                    <!-- miejsce na potencjalny slider -->
-                    <img class="d-lg-block w-100" src="<?= $start_img_1 ?>">
+                    <img class="d-lg-block" src="<?= $start_img_1 ?>">
                 </div>
             <?php endif; ?>
 
@@ -90,60 +96,81 @@ get_header();
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="features--item first-feature">
-                                <div class="number">
-                                    <h6>01</h6>
-                                </div>
+                                <?php if ($first_offer_number) : ?>
+                                    <div class="number">
+                                        <h6><?= $first_offer_number ?></h6>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="content">
                                     <div class="icon"></div>
-                                    <h4>Dotarcie</h4>
+                                    <?php if ($first_offer_title) : ?>
+                                        <h4><?= $first_offer_title ?></h4>
+                                    <?php endif; ?>
                                     <div class="line-dec"></div>
-                                    <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
-                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                                    <?php if ($first_offer_desc) : ?>
+                                        <p><?= $first_offer_desc ?></p>
+                                    <?php endif; ?>
+                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="<?= get_the_permalink(276) ?>" role="button">Więcej</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="features--item second-feature">
-
-                                <div class="number">
-                                    <h6>02</h6>
-                                </div>
+                                <?php if ($second_offer_number) : ?>
+                                    <div class="number">
+                                        <h6><?= $second_offer_number ?></h6>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="content">
                                     <div class="icon"></div>
-                                    <h4>Opracowanie strategii</h4>
+                                    <?php if ($second_offer_title) : ?>
+                                        <h4><?= $second_offer_title ?></h4>
+                                    <?php endif; ?>
                                     <div class="line-dec"></div>
-                                    <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
-                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                                    <?php if ($second_offer_desc) : ?>
+                                        <p><?= $second_offer_desc ?></p>
+                                    <?php endif; ?>
+                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="<?= get_the_permalink(278) ?>" role="button">Więcej</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="features--item first-feature">
-
-                                <div class="number">
-                                    <h6>03</h6>
-                                </div>
+                            <div class="features--item second-feature">
+                                <?php if ($third_offer_number) : ?>
+                                    <div class="number">
+                                        <h6><?= $third_offer_number ?></h6>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="content">
                                     <div class="icon"></div>
-                                    <h4>Wdrożenie</h4>
+                                    <?php if ($third_offer_title) : ?>
+                                        <h4><?= $third_offer_title ?></h4>
+                                    <?php endif; ?>
                                     <div class="line-dec"></div>
-                                    <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
-                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                                    <?php if ($third_offer_desc) : ?>
+                                        <p><?= $third_offer_desc ?></p>
+                                    <?php endif; ?>
+                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="<?= get_the_permalink(277) ?>" role="button">Więcej</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
-
-                            <div class="features--item second-feature last-features-item">
-                                <div class="number">
-                                    <h6>04</h6>
-                                </div>
+                            <div class="features--item second-feature">
+                                <?php if ($fourth_offer_number) : ?>
+                                    <div class="number">
+                                        <h6><?= $fourth_offer_number ?></h6>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="content">
                                     <div class="icon"></div>
-                                    <h4>Analiza wyników</h4>
+                                    <?php if ($fourth_offer_title) : ?>
+                                        <h4><?= $fourth_offer_title ?></h4>
+                                    <?php endif; ?>
                                     <div class="line-dec"></div>
-                                    <p>Lorem ipsum dolor sit ameter consectetur adipiscing li elit sed do eiusmod.</p>
-                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="./about.html" role="button">Więcej</a>
+                                    <?php if ($fourth_offer_desc) : ?>
+                                        <p><?= $fourth_offer_desc ?></p>
+                                    <?php endif; ?>
+                                    <a class="btnOutlineCustomFeatures mb-5 mb-lg-0" href="<?= get_the_permalink(275) ?>" role="button">Więcej</a>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +180,7 @@ get_header();
             <div class="col-lg-12">
                 <div class="skills-content" data-aos="fade-down" data-aos-duration="2500">
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-6 col-lg-3">
                             <div class="skill-item">
                                 <div class="progress" data-percentage="80">
                                     <span class="progress-left">
@@ -171,7 +198,7 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-6 col-lg-3">
                             <div class="skill-item">
                                 <div class="progress" data-percentage="60">
                                     <span class="progress-left">
@@ -189,7 +216,7 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-6 col-lg-3">
                             <div class="skill-item">
                                 <div class="progress" data-percentage="90">
                                     <span class="progress-left">
@@ -207,7 +234,7 @@ get_header();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-6 col-lg-3">
                             <div class="skill-item last-skill-item">
                                 <div class="progress" data-percentage="70">
                                     <span class="progress-left">
@@ -256,7 +283,7 @@ get_header();
                     <p class="aboutus--item-wrapper__description"><?= $aboutus_desc ?></p>
                 <?php endif; ?>
                 <?php if ($aboutus_link) : ?>
-                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="http://localhost/wordpress/o-nas/" role="button">Więcej</a>
+                    <a class="btnOutlineCustom mb-5 mb-lg-0" href="<?= get_the_permalink(25)  ?>" role="button">Więcej</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -275,12 +302,14 @@ get_header();
 
             <?php foreach ($teamMembers as $teamMember) : ?>
 
-                <div class="col members--body" data-aos="fade-right" data-aos-duration="1000">
-                    <img class="members--body-img" src="<?= get_field("card_image", $teamMember->ID) ?>" alt="Card image1">
-                    <ul class="members--body-position">
-                        <li><?= $teamMember->post_title; ?></li>
-                        <li><?= get_field("position", $teamMember->ID) ?></li>
-                    </ul>
+                <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="members--body">
+                        <img class="members--body-img" src="<?= get_field("card_image", $teamMember->ID) ?>" alt="Card image1">
+                        <ul class="members--body-position">
+                            <li><?= $teamMember->post_title; ?></li>
+                            <li><?= get_field("position", $teamMember->ID) ?></li>
+                        </ul>
+                    </div>
                 </div>
 
             <?php endforeach; ?>
@@ -291,7 +320,7 @@ get_header();
 
 
 <!-- start portfolio  -->
-<!-- <section class="portfolio">
+<section class="portfolio">
     <div class="container">
         <div class="row justify-content-center portfolio--heading">
             <div class="col">
@@ -301,30 +330,37 @@ get_header();
         <div class="row justify-content-center ">
             <div class="col text-center">
                 <div class="portfolio--slider">
-                    <img src="/assets/img/our-work-01.jpg" alt="">
-                    <img src="/assets/img/our-work-02.jpg" alt="">
-                    <img src="/assets/img/our-work-03.jpg" alt="">
-                    <img src="/assets/img/our-work-04.jpg" alt="">
-                    <img src="/assets/img/our-work-05.jpg" alt="">
-                    <img src="/assets/img/our-work-06.jpg" alt="">
+                    <?php
+                    $args = array(
+                        'post_type' => 'portfolio',
+                        'posts_per_page' => 999
+                    );
+
+                    $query = new WP_Query($args);
+
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+
+
+                    ?>
+                        <img class="img-size" src="<?php the_post_thumbnail_url(); ?>" alt="">
+                    <?php  } ?>
                 </div>
 
                 <div class="portfolio--footer">
-                    <a class="btnOutlineCustom" href="./caseStudies.html" role="button">Zobacz więcej</a>
+                    <a class="btnOutlineCustom" href="<?= get_the_permalink(24)  ?>" role="button">Zobacz więcej</a>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 <!-- end portfolio  -->
 
 <!-- start opinions  -->
 <section id="opinie" class="testimonials">
     <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
-            <div class="col-1">
-                <div class="testimonials--slider-nav">prev</div>
-            </div>
             <div class="col-10 col-xxl-8">
                 <div class="testimonials--slider">
                     <?php foreach ($testimonials as $testimonial) : ?>
@@ -341,9 +377,6 @@ get_header();
                     <?php endforeach; ?>
 
                 </div>
-            </div>
-            <div class="col-1">
-                <div class="testimonials--slider-nav">next</div>
             </div>
         </div>
     </div>

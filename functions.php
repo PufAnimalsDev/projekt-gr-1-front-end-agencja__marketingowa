@@ -1,9 +1,9 @@
 <?php
 
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('main', get_template_directory_uri() . '/dist/main.css', [], '2.8');
+    wp_enqueue_style('main', get_template_directory_uri() . '/dist/main.css', [], '3.3');
 
-    wp_enqueue_script('main', get_template_directory_uri() . '/dist/main.js', [], '1.9', true);
+    wp_enqueue_script('main', get_template_directory_uri() . '/dist/main.js', [], '2.3', true);
 
     wp_localize_script('main', 'page', [
         'url' => get_home_url(),
@@ -41,19 +41,19 @@ add_action('init', function () {
 function create_porfolio_function()
 {
     $labels = array(
-        'name' => _x('Portfolios', 'post type general name', 'your_text_domain'),
+        'name' => _x('Portfolia', 'post type general name', 'your_text_domain'),
         'singular_name' => _x('Portfolio', 'post type Singular name', 'your_text_domain'),
         'add_new' => _x('Add Portfolio', '', 'your_text_domain'),
         'add_new_item' => __('Add New Portfolio', 'your_text_domain'),
         'edit_item' => __('Edit Portfolio', 'your_text_domain'),
         'new_item' => __('New Portfolio', 'your_text_domain'),
-        'all_items' => __('All Portfolios', 'your_text_domain'),
-        'view_item' => __('View Portfolios', 'your_text_domain'),
+        'all_items' => __('All Portfolia', 'your_text_domain'),
+        'view_item' => __('View Portfolia', 'your_text_domain'),
         'search_items' => __('Search Portfolio', 'your_text_domain'),
         'not_found' => __('No Portfolio found', 'your_text_domain'),
         'not_found_in_trash' => __('No Portfolio on trash', 'your_text_domain'),
         'parent_item_colon' => '',
-        'menu_name' => __('Portfolios', 'your_text_domain')
+        'menu_name' => __('Portfolia', 'your_text_domain')
     );
     $args = array(
         'labels' => $labels,

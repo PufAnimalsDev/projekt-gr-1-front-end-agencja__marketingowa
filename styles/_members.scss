@@ -2,11 +2,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 80vh;
     background-color: $shadows;
+    margin-top: 5rem;
+
+    @include media-breakpoint-only(xl){
+                margin-top: 12rem;
+            }
+            @include media-breakpoint-only(xxl){
+                margin-top: 28rem;
+            }
+    @include media-breakpoint-only(lg){
+                margin-top: 14rem;
+            }
 
     &--header {
         padding-bottom: 2rem;
+        color: $main_color;
     }
 
     &--body {

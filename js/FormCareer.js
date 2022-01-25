@@ -16,7 +16,7 @@ const FormCareer = () => {
 
     let formEl = useRef(null);
 
-    let [formStatus, setFormStatus] = useState({status: "unsent"});
+    let [formStatus, setFormStatus] = useState({ status: "unsent" });
     let [cv, setCv] = useState(null);
     let [extraFile, setExtraFile] = useState(null);
 
@@ -45,7 +45,7 @@ const FormCareer = () => {
 
     async function formSubmitHandler() {
 
-        setFormStatus({status: "waiting"});
+        setFormStatus({ status: "waiting" });
 
         let formData = new FormData(formEl.current);
 
@@ -60,12 +60,12 @@ const FormCareer = () => {
         try {
             const result = await response.json();
             if (result.response === "success") {
-                setFormStatus({status: "success"});
+                setFormStatus({ status: "success" });
             } else {
-                setFormStatus({status: "error", reason: result.reason})
+                setFormStatus({ status: "error", reason: result.reason })
             }
         } catch {
-            setFormStatus({status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później"})
+            setFormStatus({ status: "error", reason: "Błąd przy wysyłaniu formularza. Spróbuj ponownie później" })
         }
     }
 
@@ -83,7 +83,7 @@ const FormCareer = () => {
 
     return (
         <form className="career-form-container row" onSubmit={handleSubmit(formSubmitHandler)} ref={formEl}>
-            <h2>Formularz aplikacyjny</h2>
+            <h2 className="career--start-wrapper__heading">Formularz aplikacyjny:</h2>
             <div className="col-12 col-xl-6">
                 <div className="floating-label-group">
                     <input type="text" name="name" className="inputCustom" id="career-form-first-name" placeholder="Imię" autoComplete="given-name" enterKeyHint="next" {...register("first_name", { required: true, maxLength: 255 })} />
@@ -240,7 +240,7 @@ const FormCareer = () => {
                 <button type="submit" className="btnOutlineCustom">Wyślij</button>
                 {formStatus.status === "error" && <p>{formStatus.reason}</p>}
             </div>
-            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "show" : ""}`}>
+            <div className={`circle-loader-container ${formStatus.status === "waiting" || formStatus.status === "success" ? "showEl" : ""}`}>
                 <div className={`circle-loader ${formStatus.status === "success" ? "success" : ""}`}>
                     <div className="status draw"></div>
                 </div>

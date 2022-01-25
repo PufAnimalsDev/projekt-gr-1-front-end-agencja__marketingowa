@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <!-- start start  -->
-<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+<section id="start" class="career--start caseHero" data-aos="fade-right" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 career--start-wrapper">
@@ -16,7 +16,7 @@ get_header();
             </div>
 
             <div class="col-lg-7 career--start-photo">
-                <img class="d-block w-100" src="./assets/img/career.png">
+                <img class="d-block w-100" src="http://localhost/wordpress/wp-content/uploads/2022/01/SEO_Two-Color.png">
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@ get_header();
 
             </div>
             <div class="col-xl-7 col-lg-12 search--item-slider">
-                <img src="./assets/img/about_us_pic.jpg" alt="">
+                <img src="http://localhost/wordpress/wp-content/uploads/2022/01/pexels-pixabay-270637.jpg" alt="">
             </div>
 
         </div>
@@ -54,7 +54,7 @@ get_header();
 
 
 
-<section class="search-list">
+<section class=" search-list">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-11">

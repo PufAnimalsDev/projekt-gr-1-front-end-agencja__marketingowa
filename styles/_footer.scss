@@ -19,16 +19,25 @@
         margin: 0 2rem 0 2rem;
         background-color: $white;
         border-radius: 1rem;
+        input, textarea {
+            width: 100%;
+            max-width: 340px;
+            margin: 0.2rem 0 0;
+            resize: none;
+        }
     }
 
     ul{
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
+        padding-left: 0;
+        
+        @include media-breakpoint-up(sm){
+        flex-direction: row;
         justify-content: center;
-        align-items: center;        
-
-        @media (min-width: 576px){
-            flex-direction: row;
+        align-items: center; 
+        margin-left: 0;
         }
         // @include333333 media-breakpoint-up(lg){
         //     flex-direction: row;
@@ -45,10 +54,13 @@
 
     &--item-wrapper{
         text-align: left;
-        padding-top: 6rem;
-        padding-left: 6rem;
         background-color: $white;
         border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
     }
 
 
@@ -63,8 +75,8 @@
     
             a {
                 background-color: $main_color-footer;
-                width: 4rem;
-                height: 4rem;
+                min-width: 4rem;
+                min-height: 4rem;
                 font-size: 25px;
                 border-radius: 50%;
                 color: $main_color;
@@ -85,7 +97,7 @@
 
     &--links{
         .scrollTop {
-            margin-left: 15rem;
+            margin: 0 auto 1rem;
             width: 3rem;
             height: 3rem;
             font-size: 25px;
@@ -97,8 +109,4 @@
             align-items: center;
         }
     }
-
-
 }
-
-

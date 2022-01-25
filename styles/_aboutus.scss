@@ -1,10 +1,6 @@
 .aboutus{
     padding-top: 4rem;
-    height: 100vh;
-
-    @include media-breakpoint-up(xl){
-        margin-bottom: 0;
-    }
+    height: 100%;
 
      &--heading{
         margin-bottom: 4rem;
@@ -17,16 +13,26 @@
             text-align: center;
             background-color: $shadows;
             border-radius: 0 2rem 2rem 0;
-            margin-left: -2rem;
+            margin-left: 0;
+            margin-top: -2rem;
             padding: 7rem 6rem;
-            
-            @include media-breakpoint-up(xl){
-                margin-left: -2rem;border-radius: 0 2rem 2rem 0;
-            }
-            @include media-breakpoint-up(md){
+            border-radius: 2rem;
+
+            @include media-breakpoint-only(xl){
                 margin-left: -2rem;
-    
+                border-radius: 0 2rem 2rem 0;
+                padding: 5rem 6rem;
+                margin-top: 0;
+                
             }
+            @include media-breakpoint-up(xxl){
+                margin-left: -2rem;
+                border-radius: 0 2rem 2rem 0;
+                margin-top: 0;
+                margin-top: 2rem;
+                
+            }
+           
 
             &__heading {
                 color: $main_color;

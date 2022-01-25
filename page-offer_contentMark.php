@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <!-- start start  -->
-<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+<section id="start" class="career--start caseHero" data-aos="fade-right" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 career--start-wrapper">
@@ -16,7 +16,7 @@ get_header();
             </div>
 
             <div class="col-lg-7 career--start-photo">
-                <img class="d-block w-100" src="./assets/img/career.png">
+                <img class="d-block w-100" src="http://localhost/wordpress/wp-content/uploads/2022/01/Designer-_Two-Color.png">
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@ get_header();
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>
@@ -41,7 +41,7 @@ get_header();
                 <span class="contentMark-info--description ms-3">Sprzedaż/generowanie leadów i zapytań</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>
@@ -49,7 +49,7 @@ get_header();
                 <span class="contentMark-info--description ms-3">Podniesienie konwersji</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>
@@ -57,10 +57,7 @@ get_header();
                 <span class="contentMark-info--description ms-3">Pozycjonowanie w Google</span>
 
             </div>
-
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>
@@ -68,7 +65,7 @@ get_header();
                 <span class="contentMark-info--description ms-3">Zwiększenie zaufania do marki</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>
@@ -76,7 +73,7 @@ get_header();
                 <span class="contentMark-info--description ms-3">Przyciąganie zainteresowania klientów</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-md-6 col-lg-4 text-center d-flex flex-row mb-5">
 
                 <div class="contentMark-info--icon">
                     <i class="fas fa-check"></i>

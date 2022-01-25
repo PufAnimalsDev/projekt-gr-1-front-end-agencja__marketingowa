@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <!-- start start  -->
-<section class="career--start" data-aos="fade-right" data-aos-duration="2000">
+<section id="start" class="career--start caseHero" data-aos="fade-right" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5 career--start-wrapper">
@@ -18,7 +18,7 @@ get_header();
             </div>
 
             <div class="col-lg-7 career--start-photo">
-                <img class="d-block w-100" src="./assets/img/career.png">
+                <img class="d-block w-100" src="http://localhost/wordpress/wp-content/uploads/2022/01/Analytics-team_Isometric.png">
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@ get_header();
                         <div class="col-lg-9 ">
                             <h2 class="analitics-abt--heading">Czym jest analityka internetowa?</h2>
                             <p class="analitics-abt--item-wrapper__description">
-                                sensie technicznym jest gromadzeniem, przetwarzaniem a następnie analizowaniem zbiorów danych związanych z "ruchem" na Twoim serwisie czy w sklepie internetowym. Analityka internetowa nie skupia się na samych zachowaniach użytkowników na stronie - wyznacza znacznie szerszy kontekst w postaci analizy m.in. źródeł ruchu, zmiennych cechujących użytkowników: danych demograficznych, geograficznych, związanych z ich zainteresowaniami czy wykorzystywaną technologią.
+                                W sensie technicznym jest gromadzeniem, przetwarzaniem a następnie analizowaniem zbiorów danych związanych z "ruchem" na Twoim serwisie czy w sklepie internetowym. Analityka internetowa nie skupia się na samych zachowaniach użytkowników na stronie - wyznacza znacznie szerszy kontekst w postaci analizy m.in. źródeł ruchu, zmiennych cechujących użytkowników: danych demograficznych, geograficznych, związanych z ich zainteresowaniami czy wykorzystywaną technologią.
                             </p>
                         </div>
 
@@ -79,25 +79,25 @@ get_header();
 
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
 
                     <p class="analitics-list--description">Określenie potrzeb. To absolutny punkt wyjścia. Zadajemy pytania, zbieramy informacje. Rozmawiamy o specyfice Twojej branży, o jej wyzwaniach, o tym jaką funkcję (czyli co chcesz dzięki niej osiągnąć) pełni Twoja strona internetowa (serwis, czy e-commerce), w kontekście realizacji najistotniejszych dla Twojego biznesu celów.</p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
                     <p class="analitics-list--description">Strategia, cele pomiarowe. Wiedząc co chcesz osiągnąć, co jest dla Ciebie istotne możemy określić wskaźniki, które będą krytyczne w procesie analitycznym. Mówiąc w skrócie ustalamy co będziemy mierzyć, w jaki sposób i dlaczego. Określamy, co w dalszej kolejności będziemy robić z uzyskanymi danymi i w jakim zakresie.</p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
                     <p class="analitics-list--description">Audyt istniejących konfiguracji. Sprawdzamy istniejące wdrożenia narzędzi analitycznych, diagnozujemy błędy, braki, wskazujemy na dobre praktyki i rozsądne rozwiązania, które warto zachować.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
                     <p class="analitics-list--description">Wdrożenie. Na bazie audytu wdrażamy narzędzia analityczne, konfigurujemy dodatkowe skrypty śledzące, ustawiamy w Google Analytics raporty niestandardowe, widoki danych czy dedykowane dla Twoich pracowników pulpity. W zależności od zakresu współpracy: konfigurujemy usługę Google Data Studio i zasilamy ją dodatkowymi, zewnętrznymi danymi.</p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
                     <p class="analitics-list--description">Weryfikacja. Testujemy wprowadzone rozwiązania.</p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 analitics-list--wrapper">
                     <p class="analitics-list--description">Pomiar, analiza, rekomendacje. Ostatni punkt ma charakter ciągły. Na bieżąco analizujemy zbierane dane, na ich bazie sygnalizujemy rekomendacje do wdrożenia, sami wdrażamy modyfikacje, lub szkolimy Twoich pracowników, którzy następnie samodzielnie modyfikują podejmowanie działania, np. kampanie SEM, w social mediach.</p>
                 </div>
 
@@ -116,7 +116,7 @@ get_header();
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>
@@ -124,7 +124,7 @@ get_header();
                 <span class="analitics-info--description ms-3">ruchu organicznego</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>
@@ -132,7 +132,7 @@ get_header();
                 <span class="analitics-info--description ms-3">działań SEO</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>
@@ -141,9 +141,8 @@ get_header();
 
             </div>
 
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>
@@ -151,7 +150,7 @@ get_header();
                 <span class="analitics-info--description ms-3">kampanii w social media</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>
@@ -159,7 +158,7 @@ get_header();
                 <span class="analitics-info--description ms-3">mailingów i newsletterów</span>
 
             </div>
-            <div class="col-lg-4 text-center d-flex flex-row mb-5">
+            <div class="col-lg-4 col-md-6 text-center d-flex flex-row mb-5">
 
                 <div class="analitics-info--icon">
                     <i class="fas fa-check"></i>

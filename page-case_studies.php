@@ -1,43 +1,28 @@
-<?php get_header(); ?>
+<?php /*
+Template name: Case studies
+*/
 
-<style>
-    .img-size {
-        width: 366px;
-        height: 366px;
-    }
+$second_title = get_field('second_title');
+$cooperation_text = get_theme_mod('cooperation_text');
 
-    .filterDiv {
-        float: left;
-        display: none;
-    }
-
-    .show {
-        display: block;
-    }
-
-    .filter-mybtn {
-        border: none;
-        outline: none;
-        cursor: pointer;
-    }
-
-    .filter-mybtn.active {
-        background-color: white;
-        color: orange;
-    }
-</style>
+get_header(); ?>
 
 <!-- Start Banner Hero -->
-<section class="caseHero">
+<section id="start" class="caseHero">
     <div class="container">
         <div class="row vh-100 align-content-center justify-content-center">
             <div class="caseHero--wrapper col-lg-8 col-12 text-center" data-aos="fade-right" data-aos-duration="1000">
-                <h1>Our Work</h1>
-                <h3>Elit, sed do eiusmod tempor incididunt</h3>
-                <p>Vector illustration Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus.
+                <h1><?= get_the_title() ?></h1>
+                <?php if ($second_title) : ?>
+                    <h3><?= $second_title ?></h3>
+                <?php endif; ?>
+                <p> <?php the_content(); ?>
                 </p>
                 <a class="btnOutlineCustom" href="#ourWork" role="button">Zobacz więcej</a>
-                <a class="btnCustom" href="./cooperate.html" role="button">Współpracuj</a>
+                <?php if ($cooperation_text) : ?>
+                    <a class="btnCustom" href="<?= get_the_permalink(138)  ?>" role="button"><?= $cooperation_text ?></a>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>
@@ -46,7 +31,7 @@
 
 <!-- Start Our Work -->
 <section id="filter-myBtnContainer" class="ourWork">
-    <div class="container">
+    <div id="ourWork" class="container">
 
         <div class="row justify-content-center my-5 ourWork--nav" data-aos="flip-up" data-aos-duration="1000">
             <div class="filter-btns text-center col-auto">
@@ -83,16 +68,15 @@
 
             ?>
 
-                <a href="<?= get_home_url(); ?>" class="col-sm-6 col-lg-4 filterDiv <?php echo  $termsSLug; ?>">
+                <a href="<?= get_the_permalink(); ?>" class=" col-sm-6 col-lg-4 filterDiv <?php echo  $termsSLug; ?>">
                     <div class="projects--work overflow-hidden card mb-5 mx-5 m-sm-0">
                         <img class="img-size" src="<?php the_post_thumbnail_url(); ?>" alt="...">
                         <div class="projects--work-body">
                             <h5><?php the_title(); ?></h5>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor.
-                            </p>
+                                <?= get_the_excerpt() ?> </p>
                             <span>
-                                Read more <i class="fas fa-angle-double-right"></i>
+                                Czutaj więcej <i class="fas fa-angle-double-right"></i>
                             </span>
                         </div>
                     </div>
@@ -104,8 +88,6 @@
 </section>
 
 <!-- End Our Work -->
-
-
 <script>
     filterSelection("all")
 
@@ -114,8 +96,8 @@
         x = document.getElementsByClassName("filterDiv");
         if (c == "all") c = "";
         for (i = 0; i < x.length; i++) {
-            RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+            RemoveClass(x[i], "showFil");
+            if (x[i].className.indexOf(c) > -1) AddClass(x[i], "showFil");
         }
     }
 
@@ -153,5 +135,4 @@
         });
     }
 </script>
-
 <?php get_footer(); ?>
