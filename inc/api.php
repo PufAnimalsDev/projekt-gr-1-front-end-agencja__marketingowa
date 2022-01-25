@@ -244,8 +244,8 @@ add_action("rest_api_init", function () {
         "methods" => "POST",
         "callback" => function ($request) {
 
-            if ($request["name"] && mb_strlen($request["name"]) <= 255) {
-                $name = sanitize_text_field($request["name"]);
+            if ($request["first_name"] && mb_strlen($request["first_name"]) <= 255) {
+                $first_name = sanitize_text_field($request["first_name"]);
             } else {
                 return new WP_REST_RESPONSE(array(
                     "response" => "error",
@@ -304,7 +304,7 @@ add_action("rest_api_init", function () {
                 $extra_questions = "brak";
             };
 
-            if (!empty($_FILES["cv"])) {
+            if (empty($_FILES["cv"])) {
                 return new WP_REST_RESPONSE(array(
                     "response" => "error",
                     "reason" => "CV jest wymagane"
@@ -312,13 +312,13 @@ add_action("rest_api_init", function () {
             }
 
             $newPost = wp_insert_post([
-                "post_title" => $name,
+                "post_title" => $first_name,
                 "post_status" => "publish",
                 "post_type" => "work"
             ]);
 
             if ($newPost) {
-                update_field('first_name', $name, $newPost);
+                update_field('first_name', $first_name, $newPost);
                 update_field('last_name', $last_name, $newPost);
                 update_field('email', $email, $newPost);
                 update_field('phone', $phone, $newPost);

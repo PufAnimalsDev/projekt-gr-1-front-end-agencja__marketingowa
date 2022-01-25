@@ -45,26 +45,23 @@ Kirki::add_field("linkedin_link", [
     "label" => "LinkedIn Link",
     "section" => "social_links"
 ]);
-
-// Newsletter
-
-Kirki::add_section("newsletter", [
-    "title" => "Newsletter",
-    "priority" => 202
+Kirki::add_field("google_link", [
+    "type" => "link",
+    "settings" => "google_link",
+    "label" => "Google_Link",
+    "section" => "social_links"
 ]);
-
-Kirki::add_field("newsletter_heading", [
-    "type" => "text",
-    "settings" => "newsletter_heading",
-    "label" => "Newsletter Heading",
-    "section" => "newsletter"
+Kirki::add_field("pinterest_link", [
+    "type" => "link",
+    "settings" => "pinterest_link",
+    "label" => "Pinterest_Link",
+    "section" => "social_links"
 ]);
-
-Kirki::add_field("newsletter_desc", [
-    "type" => "textarea",
-    "settings" => "newsletter_desc",
-    "label" => "Newsleter Description",
-    "section" => "newsletter"
+Kirki::add_field("twitter_link", [
+    "type" => "link",
+    "settings" => "twitter_link",
+    "label" => "Twitter_Link",
+    "section" => "social_links"
 ]);
 
 // Contact
@@ -116,30 +113,9 @@ Kirki::add_field("cooperation_info", [
     "section" => "cooperation_info"
 ]);
 
-Kirki::add_field("cooperation_link", [
-    "type" => "link",
-    "settings" => "cooperation_link",
-    "label" => "Cooperation link",
+Kirki::add_field("motivating_slogan", [
+    "type" => "text",
+    "settings" => "motivating_slogan",
+    "label" => "Slogan zachęcający",
     "section" => "cooperation_info"
-]);
-
-// Languages options
-
-Kirki::add_section("languages_options", [
-    "title" => "Languages options",
-    "priority" => 205
-]);
-
-Kirki::add_field("polish", [
-    "type" => "image",
-    "settings" => "polish_language",
-    "label" => "Polish",
-    "section" => "languages_options"
-]);
-
-Kirki::add_field("english", [
-    "type" => "image",
-    "settings" => "english_language",
-    "label" => "English",
-    "section" => "languages_options"
 ]);

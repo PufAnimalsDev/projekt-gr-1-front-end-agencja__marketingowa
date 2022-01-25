@@ -2,17 +2,6 @@
 
 function add_cpt()
 {
-    $functionArgs = [
-        "labels" => [
-            "name" => "Funkcje"
-        ],
-        "public" => true,
-        "menu_icon" => "dashicons-list-view",
-        "supports" => ["title", "editor"]
-    ];
-
-    register_post_type('functions', $functionArgs);
-
     $testimonialsArgs = [
         "labels" => [
             "name" => "Opinie"
@@ -30,7 +19,7 @@ function add_cpt()
         ],
         "public" => false,
         "show_ui" => true,
-        "menu_icon" => "dashicons-list-view",
+        "menu_icon" => "dashicons-share",
         "supports" => ["title"]
     ];
 
@@ -42,7 +31,7 @@ function add_cpt()
         ],
         "public" => false,
         "show_ui" => true,
-        "menu_icon" => "dashicons-list-view",
+        "menu_icon" => "dashicons-media-spreadsheet",
         "supports" => ["title"]
     ];
 
@@ -54,7 +43,7 @@ function add_cpt()
         ],
         "public" => false,
         "show_ui" => true,
-        "menu_icon" => "dashicons-list-view",
+        "menu_icon" => "dashicons-media-document",
         "supports" => ["title"]
     ];
 
@@ -83,11 +72,21 @@ function add_cpt()
             "name" => "Oferty pracy"
         ],
         "public" => true,
-        "menu_icon" => "dashicons-list-view",
+        "menu_icon" => "dashicons-welcome-add-page",
         "supports" => ["title", "editor"]
     ];
 
     register_post_type('offers', $offersArgs);
+
+    $firmsArgs = [
+        "labels" => [
+            "name" => "Zaufali nam"
+        ],
+        "public" => true,
+        "menu_icon" => "dashicons-welcome-add-page",
+    ];
+
+    register_post_type('firms', $firmsArgs);
 
 
     $teamMembersArgs = [
@@ -95,7 +94,7 @@ function add_cpt()
             "name" => "Członkowie zespołu"
         ],
         "public" => true,
-        "menu_icon" => "dashicons-list-view",
+        "menu_icon" => "dashicons-buddicons-buddypress-logo",
         "supports" => ["title"]
     ];
 
